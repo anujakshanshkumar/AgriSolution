@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil & Weather</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/soil.css">
+</head>
+
+<body>
+    <!-- Java Script Linking -->
+    <script src="/js/script.js"></script>
+
+
+    <!-- top logo,title section -->
+    <div class="sticky-wp">
+        <header class="TopHeader">
+            <div class="Hleft">
+                <img src="/images/logo.png" alt="cg-logo">
+                <div class="title-grp">
+                    <h1 class="title">Agri-Solution</h1>
+                    <p class="subtitle">One-Stop Solution</p>
+                </div>
+            </div>
+            <div class="Hright">
+                <div class="lang-drop">
+                    <button class="langbtn">English
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="lang-menu" id="langmenu">
+                        <div class="lang-opt" onclick="setEnglish('English')">English</div>
+                        <div class="lang-opt" onclick="setHindi('Hindi')">हिंदी</div>
+                    </div>
+                </div>
+                <!-- <span class="top-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span> -->
+                <span class="top-icon" id="share-btn">
+                    <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                </span>
+                <span class="top-icon" id="insta-btn">
+                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                </span>
+                <span class="top-icon" id="wp-btn">
+                    <a href="https://www.whatsapp.com/?lang=en"><i class="fa-brands fa-whatsapp"></i></a>
+                </span>
+                <span class="top-icon" id="facebook-btn">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                </span>
+                <span class="top-icon" id="login-link">
+                    <a href="login.html">Login</a>
+                </span>
+            </div>
+        </header>
+
+
+        <!-- navbar section -->
+
+        <header>
+            <nav class="navbar">
+                <ul class="nav-Link" id="NavLink">
+                    <li><a href="index.html"><i class="fa-solid fa-home" style="padding-right: 5px;"></i>Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="dropdown"><a href="#">Agriculture Services
+                            <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="crop.html">Crop Information</a></li>
+                            <!-- <li><a href="#">Market Prices</a></li> -->
+                            <li><a href="schemes.html">Schemes & Subsidies</a></li>
+                            <li><a href="del.html">Dealers</a></li>
+                            <li><a href="login.html">Farmer Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#">Resources<i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="soil.html">Weather & Soil</a></li>
+                            <li><a href="distmap.html">District Map</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="footer-col links">Contact</a></li>
+                </ul>
+                <!-- subnav search bar and humburber -->
+                <div class="sub-nav"> <!--  Anuj  -->
+                    <div class="search-container" id="inline-search-container">
+                        <input type="text" id="search-input" placeholder="Search Here.."
+                            class="search-input-field hidden">
+                        <a href="#" id="search-tog" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <div class="menu-tog">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <!-- Header Ends Here  -->
+
+
+    <section class="hero">
+        <div class="hero-image">
+            <img src="/images/hero-soil.jpg" alt="Soil hero image">
+        </div>
+        <div class="hero-overlay">
+            <h2>Soil & Weather in Chhattisgarh</h2>
+            <p><strong>Chhattisgarh has a tropical, monsoon-governed climate and is primarily covered by red-yellow soils. <br> The central plain is often called the "rice bowl of central India" due to its fertile soil and extensive rice cultivation.</strong></p>
+        </div>
+    </section>
+
+    <div class="soiltophead">
+        <h3>Types of Soil in Chhattisgarh</h3>
+    </div>
+
+    <div class="soiltypesbox">
+        <div class="soilbox">
+            <div class="soil-image">
+                <img src="/images/1.jpg" alt="Soil Type 1">
+            </div>
+            <div class="soil-description">
+                <h4>Matasi</h4>
+                <p>DMost common (55%), reddish-yellow, sandy-loamy, good for maize/pulses, found in eastern/central Chhattisgarh. </p>
+            </div>
+        </div>
+
+        <div class="soilbox">
+            <div class="soil-image">
+                <img src="/images/2.jpg" alt="Soil Type 2">
+            </div>
+            <div class="soil-description">
+                <h4>Kanhar</h4>
+                <p>Clayey, moisture-retentive (Regur), perfect for cotton, wheat, sugarcane; found in volcanic areas like Kawardha, Dhamtari. </p>
+            </div>
+        </div>
+
+        <div class="soilbox">
+            <div class="soil-image">
+                <img src="/images/3.jpg" alt="Soil Type 3">
+            </div>
+            <div class="soil-description">
+                <h4>Dorsa</h4>
+                <p>A mix of Matasi & Kanhar, clay-loam, all-purpose, good for paddy. .</p>
+            </div>
+        </div>
+
+        <div class="soilbox">
+            <div class="soil-image">
+                <img src="images/4.webp" alt="Soil Type 4">
+            </div>
+            <div class="soil-description">
+                <h4>Bhata</h4>
+                <p>Coarse, reddish, on uplands, infertile, suitable for millets. </p>
+            </div>
+        </div>
+
+        <div class="soilbox">
+            <div class="soil-image">
+                <img src="/images/5.webp" alt="Soil Type 5">
+            </div>
+            <div class="soil-description">
+                <h4>Kachhar</h4>
+                <p>Riverine, deep, fertile, nutrient-rich, ideal for paddy (Mahanadi basin)</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Real-time Weather Widget -->
+    <section class="weather-section">
+        <h3>Real-time Weather</h3>
+        <div id="weather-widget" class="weather-widget">
+            <div class="weather-left">
+                <div id="weather-icon" class="weather-icon">☀️</div>
+            </div>
+            <div class="weather-right">
+                <div id="weather-location" class="weather-location">Detecting location...</div>
+                <div id="weather-temp" class="weather-temp"></div>
+                <div id="weather-desc" class="weather-desc"></div>
+                <div id="weather-updated" class="weather-updated"></div>
+                <div style="margin-top:.5rem">
+                    <button id="weather-retry" class="weather-retry">Refresh</button>
+                </div>
+                <pre id="weather-error-details" class="weather-error-details" style="display:none"></pre>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col Contact">
+                <div class="f-logo">
+                    <img src="/images/logo.png" alt="cg-logo">
+                    <div>
+                        <h2>Agri-Solution</h2>
+                        <p class="para">Student Project</p>
+                        <p> <a href="near, Vidhan Sabha Rd, Tekari-2, Bhurkoni, Chhattisgarh 493111D"
+                                class="location"><i class="fa-solid fa-location-dot"></i></a>Raipur Chhattisgarh</p>
+                        <p><i class="fa-solid fa-phone"></i><a href="tel:+8770826925">8770826925</a></p>
+                        <p><i class="fa-regular fa-envelope"></i> <a href="mailto:agri@cg.gov.in">agri@cg.gov.in</a></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="footer-col links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="crop.html">Crop information</a></li>
+                    <li><a href="del.html">Market Prices</a></li>
+                    <li><a href="schemes.html">Schemes & Subsidies</a></li>
+                    <li><a href="login.html">Farmer Registration</a></li>
+                    <li><a href="soil.html">Soil and Weather</a></li>
+                    <li><a href="distmap.html">District Map</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col social">
+                <h3>Contact With Us</h3>
+                <div class="social-icon">
+                    <a href="https://www.facebook.com/" class="icon-s facebook"><i
+                            class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://x.com/" class="icon-s twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.whatsapp.com/?lang=en" class="icon-s whatsapp"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    <a href="https://www.youtube.com/" class="icon-s youtube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.google.com/maps/place/Indravati+Bhawan/@21.156285,81.7942353,17z/data=!3m1!4b1!4m6!3m5!1s0x3a28c695f3d7d5d1:0xe23796cb5bbee93f!8m2!3d21.156285!4d81.7968102!16s%2Fg%2F11bbx1bfvw?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                        class="icon-s location"><i class="fa-solid fa-location-dot"></i></a>
+
+                </div>
+                <h4>Farmer Helpline</h4>
+                <a href="tel:+7317549567"><p class="helpline">7317549567</p></a>
+                <small>Available 24/7</small>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="disclaimer">
+                This is an unofficial website created for educational and demonstration purposes only.
+                It is not official website of the Government of Chhattisgarh
+                or the Department of Agriculture.
+            </p>
+            <p class="claim">&copy; 2025 Kala Samrajya . All rights reserved</p>
+        </div>
+    </footer>
+
+
+
+
+
+
+    <script>
+        // Weather widget using Geolocation + Open-Meteo (no API key)
+        function weatherCodeToInfo(code, is_day) {
+            if (code === 0) return {emoji: is_day ? '☀️' : '🌙', desc: 'Clear'};
+            if (code === 1 || code === 2 || code === 3) return {emoji: '⛅', desc: 'Partly cloudy'};
+            if (code === 45 || code === 48) return {emoji: '🌫️', desc: 'Fog'};
+            if ((code >= 51 && code <= 57) || (code >= 80 && code <= 82)) return {emoji: '🌧️', desc: 'Rain'};
+            if (code >= 61 && code <= 67) return {emoji: '🌦️', desc: 'Rain'};
+            if (code >= 71 && code <= 77) return {emoji: '❄️', desc: 'Snow'};
+            if (code === 95 || code === 96 || code === 99) return {emoji: '⛈️', desc: 'Thunderstorm'};
+            return {emoji: '🌤️', desc: 'Moderate'};
+        }
+
+        function setLoading() {
+            document.getElementById('weather-location').textContent = 'Loading weather...';
+            document.getElementById('weather-temp').textContent = '';
+            document.getElementById('weather-desc').textContent = '';
+            document.getElementById('weather-updated').textContent = '';
+            document.getElementById('weather-icon').textContent = '⏳';
+        }
+
+        function renderWeather(data, lat, lon, note) {
+            const locEl = document.getElementById('weather-location');
+            const tempEl = document.getElementById('weather-temp');
+            const descEl = document.getElementById('weather-desc');
+            const iconEl = document.getElementById('weather-icon');
+            const updatedEl = document.getElementById('weather-updated');
+
+            const cw = data.current_weather;
+            const is_day = cw.is_day === 1 || cw.is_day === true;
+            const info = weatherCodeToInfo(cw.weathercode, is_day);
+
+            locEl.textContent = note || (data.timezone || `Lat ${lat.toFixed(2)}, Lon ${lon.toFixed(2)}`);
+            tempEl.textContent = Math.round(cw.temperature) + '°C';
+            descEl.textContent = `${info.desc} • Wind ${Math.round(cw.windspeed || 0)} ${data.windspeed_unit || 'km/h'}`;
+            iconEl.textContent = info.emoji;
+            // cw.time is an ISO string; timezone=auto ensures times are human-friendly
+            updatedEl.textContent = 'Updated: ' + new Date(cw.time).toLocaleString();
+        }
+
+        function showError(msg) {
+            document.getElementById('weather-location').textContent = msg;
+            document.getElementById('weather-temp').textContent = '';
+            document.getElementById('weather-desc').textContent = '';
+            document.getElementById('weather-icon').textContent = '⚠️';
+            document.getElementById('weather-updated').textContent = '';
+        }
+
+        async function fetchWeather(lat, lon, note) {
+            setLoading();
+            const detailsEl = document.getElementById('weather-error-details');
+            detailsEl.style.display = 'none';
+            detailsEl.textContent = '';
+
+            if (!navigator.onLine) {
+                showError('Offline — check your internet connection', 'Navigator reports offline.');
+                return;
+            }
+
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=celsius&windspeed_unit=kmh&timezone=auto`;
+            try {
+                const resp = await fetch(url);
+                const text = await resp.text();
+                let data = null;
+                try { data = JSON.parse(text); } catch(parseErr) { /* not JSON */ }
+                if (!resp.ok) {
+                    const reason = data && (data.reason || data.error) ? (data.reason || data.error) : `HTTP ${resp.status}`;
+                    console.error('Open-Meteo non-OK response:', resp.status, text);
+                    showError('Weather data unavailable: ' + reason, text.slice(0,1000));
+                    detailsEl.style.display = 'block';
+                    detailsEl.textContent = text;
+                    return;
+                }
+
+                console.log('Open-Meteo response:', data || text);
+                if (data && data.current_weather) {
+                    renderWeather(data, lat, lon, note);
+                } else {
+                    const reason = data && (data.reason || data.error) ? (data.reason || data.error) : 'Unexpected response';
+                    showError('Weather data unavailable: ' + reason, text.slice(0,1000));
+                    detailsEl.style.display = 'block';
+                    detailsEl.textContent = text;
+                }
+            } catch (err) {
+                console.error('Weather fetch error:', err);
+                showError('Unable to fetch weather: ' + (err.message || err), String(err));
+                const detailsEl = document.getElementById('weather-error-details');
+                detailsEl.style.display = 'block';
+                detailsEl.textContent = String(err.stack || err);
+            }
+        }
+
+        function initWeather() {
+            // Always use Raipur, Chhattisgarh
+            const lat = 21.2506, lon = 81.6348;
+            fetchWeather(lat, lon, 'Raipur, Chhattisgarh');
+        }
+
+        window.addEventListener('DOMContentLoaded', initWeather);
+        // Retry button handler
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.id === 'weather-retry') {
+                initWeather();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

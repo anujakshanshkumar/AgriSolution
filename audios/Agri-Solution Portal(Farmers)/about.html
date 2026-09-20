@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Solution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/about.css">
+</head>
+
+<body>
+    <!-- top logo,title section -->
+    <div class="sticky-wp">
+        <header class="TopHeader">
+            <div class="Hleft">
+                <img src="/images/logo.svg" alt="cg-logo">
+                <div class="title-grp">
+                    <h1 class="title">Agri-Solution</h1>
+                    <p class="subtitle">Chhattisgarh Agriculture Portal</p>
+                </div>
+            </div>
+            <div class="Hright">
+                <div class="lang-drop">
+                    <button class="langbtn">English
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="lang-menu" id="langmenu">
+                        <div class="lang-opt" onclick="setEnglish('English')">English</div>
+                        <div class="lang-opt" onclick="setHindi('Hindi')">हिंदी</div>
+                    </div>
+                </div>
+                <!-- <span class="top-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span> -->
+                 <span class="top-icon" id="share-btn">
+                <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                </span>
+                <span class="top-icon" id="insta-btn">
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                </span>
+                <span class="top-icon" id="wp-btn">
+                    <a href="https://www.whatsapp.com/?lang=en"><i class="fa-brands fa-whatsapp"></i></a>
+                </span>
+                <span class="top-icon" id="facebook-btn">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                </span>
+                <span class="top-icon" id="login-link">
+                    <a href="login.html">Login</a>
+                </span>
+            </div>
+        </header>
+
+
+        <!-- navbar section -->
+
+        <header>
+            <nav class="navbar">
+                <ul class="nav-Link" id="NavLink">
+                    <li><a href="index.html"><i class="fa-solid fa-home" style="padding-right: 5px;"></i>Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li class="dropdown"><a href="#">Agriculture Services
+                            <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="crop.html">Crop Information</a></li>
+                            <li><a href="#">Market Prices</a></li>
+                            <li><a href="schemes.html">Schemes & Subsidies</a></li>
+                            <li><a href="#">Dealers</a></li>
+                            <li><a href="login.html">Farmer Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#">Resources<i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Weather & Soil</a></li>
+                            <li><a href="distmap.html">District Map</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <!-- subnav search bar and humburber -->
+                <div class="sub-nav"> <!--  Anuj  -->
+                    <div class="search-container" id="inline-search-container">
+                        <input type="text" id="search-input" placeholder="Search Here.."
+                            class="search-input-field hidden">
+                        <a href="#" id="search-tog" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <div class="menu-tog">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <!-- hero section -->
+    <main>
+        <section class="about-hero">
+            <div class="hero-content">
+                <h2>About us</h2>
+                <p>Agri Solution is a digital support platform created to empower farmers with reliable agricultural
+                    information, practical guidance, and direct access to essential resources for improving farm
+                    productivity.
+                    Our mission is to bridge the gap between traditional farming knowledge and modern technology,
+                    ensuring
+                    every farmer makes informed decisions for a sustainable and prosperous agricultural future.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- mission vission objective section -->
+        <section class="mvo-section">
+            <h2>Mission | Vission | Objective</h2>
+            <div class="mvo-container">
+                <div class="mvo-card">
+                    <h3><i class="fa-solid fa-bullseye"></i>Mission</h3>
+                    <p>To empower farmer with reliable information , modern technology,and access to essential resources
+                        to improve productivity and income.</p>
+                </div>
+                <div class="mvo-card">
+                    <h3><i class="fa-solid fa-seedling"></i>Vission</h3>
+                    <p>We aim for future where every farmer is successful , farming sustainably , and has easy access to
+                        reliable information. This will lead to better lives for farming families and strong secure food
+                        supplies for all </p>
+                </div>
+                <div class="mvo-card">
+                    <h3><i class="fa-regular fa-rectangle-list"></i>Objectives</h3>
+                    <!-- <p> -->
+                    <ul class="point">
+                        <li>Deliver transparent and reliable agriculture-related information</li>
+                        <li>Actively encourage farmers to adopt sustainable and planet-friendly practices.</li>
+                        <li>Balance modern farming with traditional wisdom </li>
+                        <li>Improve market connectivity and profitability for farmers</li>
+                        <li>Ensure easy access to government schemes and assistance </li>
+                    </ul>
+                    <!-- </p> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- about the department -->
+        <section class="A-dept">
+            <div class="A-dept-content">
+                <h2>About the Department</h2>
+                <p>The Department of Agriculture, Government of Chhattisgarh, works with a clear vision to support
+                    farmers and strengthen the agricultural ecosystem across the state. The department provides
+                    scientific guidance, technical support, and access to reliable resources that help farmers improve
+                    productivity and adopt sustainable practices. Along with promoting new innovations, it also respects
+                    and preserves traditional farming knowledge that has shaped rural livelihoods for generations. By
+                    connecting farmers with modern tools, government schemes, accurate market information, and expert
+                    advisory services, the department aims to build a stable, progressive, and self-reliant agricultural
+                    community..
+                </p>
+                <ul>
+                    <li><strong>&bull;</strong>&nbsp; Integrating modern scientific methods while preserving valuable
+                        traditional farming wisdom</li>
+                    <li><strong>&bull;</strong>&nbsp; Providing access to government schemes and financial support
+                    <li><strong>&bull;</strong>&nbsp; Supporting irrigation development and water-efficient technologies
+                    </li>
+                    <li><strong>&bull;</strong>&nbsp; Delivering crop advisory and weather-based recommendations</li>
+                    <li><strong>&bull;</strong>&nbsp; Implementing soil testing and nutrient management programs</li>
+                    <li><strong>&bull;</strong>&nbsp; Monitoring market trends and offering fair price information</li>
+                    <li><strong>&bull;</strong>&nbsp; Conducting farmer training, workshops, and field demonstrations
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- purpose section -->
+
+        <section class="purpose">
+            <div class="purpose-s">
+                <div class="purpose-left">
+                    <h2>Our Purpose</h2>
+                    <h4>Building a more prosperous Agriculture Future</h4>
+                    <p>"The <b>Agri-Solution Portal</b> stands as a dedicated, independent information resource
+                        committed to
+                        empowering the agricultural community across Chhattisgarh. Our platform serves as a vital
+                        bridge, simplifying the vast and complex landscape of farming knowledge. We meticulously gather
+                        and organize diverse information, including comprehensive state and central government scheme
+                        guidelines, accurate daily market price forecasts, localized seasonal crop advisories, and
+                        expert-vetted best practices for soil and pest management. Our mission is to facilitate informed
+                        decision-making by placing reliable, up-to-date data directly into the hands of farmers,
+                        fostering sustainability, increasing productivity, and ultimately driving long-term economic
+                        prosperity for every user."</p>
+                </div>
+                <div class="purpose-right">
+                    <div class="photo-slide active">
+                        <img src="/images/about1.jpg" alt="">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="/images/about2.jpg" alt="">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="/images/img2.jpg" alt="">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="/images/about4.jpg" alt="">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="/images/img5.jpg" alt="">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="/images/slide1.jpg" alt="">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="/images/img8.jpg" alt="">
+                    </div>
+                    <button class="slide-btn prev">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="slide-btn next" onclick="nextslide">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- key focus areas-->
+
+        <section class="key-area">
+            <h2>Key Focus Areas</h2>
+            <div class="area-container">
+                <div class="area-card">
+                    <div class="area-content">
+                        <h4>Sustainable farming and better crop productivity</h4>
+                        <ul>
+                            <li>Guidance on climate-smart and environment-friendly farming</li>
+                            <li> Support to improve soil fertility and reduce input costs</li>
+                            <li>Encouraging efficient water use and modern irrigation methods</li>
+                            <li> Sharing research-based practices to increase yield and profit</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="area-card">
+                    <div class="area-content">
+                        <h4>Strong market Access and Farmer Income Growth</h4>
+                        <ul>
+                            <li>Daily market price updates for major crops</li>
+                            <li>Direct connection with buyers, dealers, and mandis</li>
+                            <li>Fair-trade marketplace support and business guidance</li>
+                            <li>Training for financial planning and income diversification</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="area-card">
+                    <div class="area-content">
+                        <h4>Technology Support & Easy Access to Govt. Resources</h4>
+                        <ul>
+                            <li>One place for schemes, subsidies and online registrations </li>
+                            <li>Weather alerts, crop care tips and pest advisory</li>
+                            <li>Access to quality seeds, fertilizers & modern machinery</li>
+                            <li>Expert help through helplines and field-level support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- core values -->
+        <section class="core-values">
+            <h2>Core Values</h2>
+            <div class="value-container">
+                <div class="value-card">
+                    <div class="vcard-content">
+                        <h4><i class="fa-solid fa-people-group"></i>Farmers Come First</h4>
+                        <p>Every decision we make begins with the needs of farmers. We aim to offer solutions that are
+                            practical, affordable, and useful in real situations—not just theory.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="value-card">
+                    <div class="vcard-content">
+                        <h4><i class="fa-solid fa-handshake-angle"></i>Respect for Both Traditional & Modern Farming
+                        </h4>
+                        <p>We believe that traditional knowledge is the foundation of agriculture. We support modern
+                            techniques only when they genuinely help farmers and protect the wisdom that has sustained
+                            farming for generations.. </p>
+                    </div>
+                </div>
+
+                <div class="value-card">
+                    <div class="vcard-content">
+                        <h4 id="rd"> <i class="fa-solid fa-leaf"></i>Grow Without Damaging the Future</h4>
+                        <p>We encourage environmentally responsible farming that protects soil, water, and biodiversity
+                            for the next generation.. </p>
+                    </div>
+                </div>
+
+                <div class="value-card">
+                    <div class="vcard-content">
+                        <h4><i class="fa-regular fa-square-check"></i>Reliable and Practical Information</h4>
+                        <p>We focus on sharing clear and useful knowledge that supports real farming need.
+                            Every piece of information is simple to understand and directly helpful for field-level
+                            decisions,
+                            so farmers can act with confidence and without confusion.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- footer -->
+
+    <!-- footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col Contact">
+                <div class="f-logo">
+                    <img src="/images/logo.svg" alt="cg-logo">
+                    <div>
+                        <h2>Department of Agriculture</h2>
+                        <p class="para">government of Chhattisgarh</p>
+                        <p> <a href="https://www.google.com/maps/place/Indravati+Bhawan/@21.156285,81.7942353,17z/data=!3m1!4b1!4m6!3m5!1s0x3a28c695f3d7d5d1:0xe23796cb5bbee93f!8m2!3d21.156285!4d81.7968102!16s%2Fg%2F11bbx1bfvw?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                        class="location"><i class="fa-solid fa-location-dot"></i></a>Indrawati Bhavan,block 2,Naya Raipur, Atal
+                            Nagar,Chhattisgarh,492002</p>
+                        <p><i class="fa-solid fa-phone"></i><a href="tel:+8770826925">8770826925</a></p>
+                        <p><i class="fa-regular fa-envelope"></i> <a href="mailto:agri@cg.gov.in">agri@cg.gov.in</a></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="footer-col links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Crop information</a></li>
+                    <li><a href="#">Market Prices</a></li>
+                    <li><a href="schemes.html">Schemes & Subsidies</a></li>
+                    <li><a href="login.html">Farmer Registration</a></li>
+                    <li><a href="#">Soil and Weather</a></li>
+                    <li><a href="#">District Map</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+
+             <div class="footer-col social">
+                <h3>Contact With Us</h3>
+                <div class="social-icon">
+                    <a href="https://www.facebook.com/" class="icon-s facebook"><i
+                            class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://x.com/" class="icon-s twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.whatsapp.com/?lang=en" class="icon-s whatsapp"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    <a href="https://www.youtube.com/" class="icon-s youtube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.google.com/maps/place/Indravati+Bhawan/@21.156285,81.7942353,17z/data=!3m1!4b1!4m6!3m5!1s0x3a28c695f3d7d5d1:0xe23796cb5bbee93f!8m2!3d21.156285!4d81.7968102!16s%2Fg%2F11bbx1bfvw?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                        class="icon-s location"><i class="fa-solid fa-location-dot"></i></a>
+
+                </div>
+                <h4>Farmer Helpline</h4>
+                <a href="tel:+1800-180-1551"><p class="helpline">1800-180-1551</p></a>
+                <small>Available 24/7</small>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="disclaimer">
+                This is an unofficial website created for educational and demonstration purposes only.
+                It is not official website of the Government of Chhattisgarh
+                or the Department of Agriculture.
+            </p>
+            <p class="claim">&copy; 2025 Kala Samrajya . All rights reserved</p>
+        </div>
+    </footer>
+
+    
+    
+    <!-- about.js -->
+    <script src="/js/about.js"></script>
+</body>
+
+</html>

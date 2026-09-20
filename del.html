@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/style/del.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+
+    <header class="TopHeader">
+        <div class="Hleft">
+            <img src="/images/logo.png" alt="cg-logo">
+            <div class="title-grp">
+                <h1 class="title">Agri-Solution</h1>
+                <p class="subtitle">One-Stop Solution</p>
+            </div>
+        </div>
+        <div class="Hright">
+            <div class="lang-drop">
+                <button class="langbtn">English
+                    <i class="fa-solid fa-caret-down"></i>
+                </button>
+                <div class="lang-menu" id="langmenu">
+                    <div class="lang-opt" onclick="setEnglish('English')">English</div>
+                    <div class="lang-opt" onclick="setHindi('Hindi')">हिंदी</div>
+                </div>
+            </div>
+            <!-- <span class="top-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span> -->
+            <span class="top-icon" id="share-btn">
+                <i class="fa-solid fa-share-nodes"></i>
+            </span>
+            <span class="top-icon" id="insta-btn">
+                <i class="fa-brands fa-instagram"></i>
+            </span>
+            <span class="top-icon" id="wp-btn">
+                <i class="fa-brands fa-whatsapp"></i>
+            </span>
+            <span class="top-icon" id="facebook-btn">
+                <i class="fa-brands fa-facebook"></i>
+            </span>
+            <span class="top-icon" id="login-link">
+                <a href="login.html">Login</a>
+            </span>
+        </div>
+    </header>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-Link" id="NavLink">
+                <li><a href="index.html"><i class="fa-solid fa-home" style="padding-right: 5px;"></i>Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown"><a href="#">Agriculture Services
+                        <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="crop.html">Crop Information</a></li>
+                        <!-- <li><a href="#">Market Prices</a></li> -->
+                        <li><a href="schemes.html">Schemes & Subsidies</a></li>
+                        <li><a href="del.html">Dealers</a></li>
+                        <li><a href="login.html">Farmer Registration</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#">Resources<i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="soil.html">Weather & Soil</a></li>
+                        <li><a href="distmap.html">District Map</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <!-- subnav search bar and humburber -->
+            <div class="sub-nav"> <!--  Anuj  -->
+                <div class="search-container" id="inline-search-container">
+                    <input type="text" id="search-input" placeholder="Search Here.." class="search-input-field hidden">
+                    <a href="#" id="search-tog" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+                <div class="menu-tog">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="dealer">
+        <div class="del1">
+            <div class="a-del">
+                <h1>Nurturing Nature, Feeding Nations.</h1>
+                <h1>Smart Farming, Brighter Future.</h1>
+                <br>
+                <p>Agriculture is the art and science of cultivating the soil,<br> growing crops, and raising livestock
+                    to
+                    provide food, fiber, and other products essential for human life</p>
+                <br>
+                <div class="font">
+                    <i class="fa-solid fa-sack-dollar fa-7x"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!-- creat card -->
+    <h1 class="increse">Market prices</h1>
+    <h3 class="rice">The cultivated rice plant is an annual grass and grows <br>to about 1.2 metres (4 feet) in height.
+        The
+        leaves are long and flattened and are borne on hollow stems. .</h3>
+
+    <div class="price">
+
+        <div class="market">
+            <div class="market1">
+                <h1>Price 2023</h1>
+                <div class="a-market">
+                    <i class="fa-solid fa-indian-rupee-sign fa-3x"></i>
+                    <h1>25/kg</h1>
+                </div>
+                <h3 class="anshu">In 2023, Chhattisgarh's paddy rates varied, with government support<b> prices 2500p/-
+                        quintal</b></h3>
+            </div>
+
+            <div class="market1">
+                <h1>Price 2024</h1>
+                <div class="a-market">
+                    <i class="fa-solid fa-indian-rupee-sign fa-3x"></i>
+                    <h1>31/kg</h1>
+                </div>
+                <h3 class="anshu">In 2024, Chhattisgarh's paddy rates varied, with government support<b> prices 3100p/-
+                        quintal</b></h3>
+
+            </div>
+            <div class="market1">
+                <h1>Price 2025</h1>
+                <div class="a-market">
+                    <i class="fa-solid fa-indian-rupee-sign fa-3x"></i>
+                    <h1>32/kg</h1>
+                </div>
+                <h3 class="anshu">In 2025, Chhattisgarh's paddy rates varied, with government support<b> prices 3200p/-
+                        quintal</b></h3>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ctrate suck -->
+
+
+    <div class="anuj">
+
+        <div class="anuj1">
+            <div class="nav">
+                <h2> Dealer information</h2>
+            </div>
+            <div class="jaggu">
+                <div class="jaggu1">
+                    <h4 class="thenam">Choose Your district:</h4>
+                    
+
+                    <form name="dealer" id="dealer" action="#">
+                         <select name="district" id="district">
+                            <option value="" selected="selected">Choose Your District</option>
+                        </select>
+                        <br><br>
+                    <h4 class="thenam">Choose Your VidhanSabha:</h4>
+
+                         <select name="VidhanSabha" id="VidhanSabha">
+                            <option value="" selected="selected">Choose Your VidhanSabha</option>
+                        </select>
+                        <br><br>
+                    <h4 class="thenam">Uparjan Kendra:</h4>
+
+                         <select name="mandi" id="mandi">
+                            <option value="" selected="selected">Please Select Nearest Uparjan Kendra </option>
+                        </select>
+                        <br><br>
+                        <input class="name" type="submit" value="Submit">
+                    </form>
+
+                </div>
+                <!-- <button class="name">Submit</button> -->
+            </div>
+            <!-- <a href="maya2.html" class="btn">Sea more</a> -->
+
+            <!-- create your img -->
+            <div class="monu">
+                <div class="monu1">
+
+<div class="slideshow-container">
+    <img class="slide" src="/images/rice1.jpg" alt="Rice 1">
+    <img class="slide" src="/images/rice2.jpg" alt="Rice 2">
+    <img class="slide" src="/images/rice3.jpg" alt="Rice 3">
+    <img class="slide" src="/images/rice4.jpg" alt="Rice 4">
+    <img class="slide" src="/images/rice5.jpg" alt="Rice 5">
+    <img class="slide" src="/images/rice6.jpg" alt="Rice 6">
+    <img class="slide" src="/images/rice7.jpg" alt="Rice 7">
+    <img class="slide" src="/images/rice8.jpeg" alt="Rice 8">
+
+    <button class="prev" onclick="plusSlides(-1)">&#10094; </button>
+    <button class="next" onclick="plusSlides(1)">&#10095;</button>
+  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- different types of paddy -->
+    <h1 class="dhan"> Different type of paddy</h1>
+    <p class="dhan1">Chhattisgarh grow different types of paddy</p>
+    <div class="type">
+
+        <div class="paddy">
+            <div class="paddy1">
+                <img src="/images/swarna-paddy.jpg" alt="swaran" height="100%" width="100%">
+            </div>
+            <div class="paddy1">
+                <img src="/images/Ponni-Rice.webp" alt="swaran" height="100%" width="100%">
+
+            </div>
+
+            <div class="paddy1">
+                <img src="/images/Basmati.jpg" alt="swaran" height="100%" width="100%">
+
+            </div>
+            <div class="paddy1">
+                <img src="/images/kaltury.avif" alt="swaran" height="100%" width="100%">
+
+            </div>
+            <div class="paddy1">
+                <img src="/images/kalokasha dhan.jpg" alt="swaran" height="100%" width="100%">
+
+            </div>
+            <div class="paddy1">
+                <img src="/images/kabra dhan.jpg" alt="swaran" height="100%" width="100%">
+
+            </div>
+            <div class="paddy1">
+                <img src="/images/chkhao.jpg" alt="swaran" height="100%" width="100%">
+
+            </div>
+            <div class="paddy1">
+                <img src="/images/kns 2.1.jpg" alt="swaran" height="100%" width="100%">
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col Contact">
+                <div class="f-logo">
+                    <img src="/images/logo.png" alt="cg-logo">
+                    <div>
+                        <h2>Agri-Solution</h2>
+                        <p class="para">Student Project</p>
+                        <p> <a href="near, Vidhan Sabha Rd, Tekari-2, Bhurkoni, Chhattisgarh 493111D"
+                                class="location"><i class="fa-solid fa-location-dot"></i></a>Raipur Chhattisgarh</p>
+                        <p><i class="fa-solid fa-phone"></i><a href="tel:+8770826925">8770826925</a></p>
+                        <p><i class="fa-regular fa-envelope"></i> <a href="mailto:agri@cg.gov.in">agri@cg.gov.in</a></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="footer-col links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="crop.html">Crop information</a></li>
+                    <li><a href="del.html">Market Prices</a></li>
+                    <li><a href="schemes.html">Schemes & Subsidies</a></li>
+                    <li><a href="login.html">Farmer Registration</a></li>
+                    <li><a href="soil.html">Soil and Weather</a></li>
+                    <li><a href="distmap.html">District Map</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col social">
+                <h3>Contact With Us</h3>
+                <div class="social-icon">
+                    <a href="#" class="icon-s facebook"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="#" class="icon-s twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="icon-s whatsapp"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    <a href="#" class="icon-s youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <h4>Farmer Helpline</h4>
+                <a href="tel:+7317549567">
+                    <p class="helpline">+91 731-754-9567</p>
+                </a>
+                <small>Available 24/7</small>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="disclaimer">
+                This is an unofficial website created for educational and demonstration purposes only.
+                It is not official website of the Government of Chhattisgarh
+                or the Department of Agriculture.
+            </p>
+            <p class="claim">&copy; 2025 Kala Samrajya. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="/js/del.js"></script>
+</body>
+
+</html>

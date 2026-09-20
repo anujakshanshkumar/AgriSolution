@@ -1,0 +1,561 @@
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     color: rgb(51, 51, 51);
+     background-color: rgb(249, 249, 249)
+ }
+
+ :root {
+     --heading-color: rgb(25, 124, 32);
+     --font-size: 3rem;
+     --font-weight: 600;
+     --font-family: Roboto;
+ }
+
+ a {
+     text-decoration: none;
+     color: inherit;
+     display: block;
+ }
+
+ /* top header logo section */
+ .TopHeader {
+     width: 100%;
+     height: 4.375rem;
+     z-index: 2000;
+     background-color: white;
+     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 10px 5%;
+     /* box-sizing: border-box; */
+ }
+
+ .sticky-wp {
+     position: sticky;
+ }
+
+ .Hleft img {
+     height: 50px;
+     width: auto;
+     margin-right: 10px;
+ }
+
+ .Hleft {
+     display: flex;
+     align-items: center;
+     flex-grow: 1;
+     gap: 10px;
+ }
+
+ .title-grp {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .title-grp .title {
+     color: rgb(0, 77, 64);
+     font-size: 1.4em;
+     font-weight: 700;
+ }
+
+ .title-grp .subtitle {
+     color: rgb(102, 102, 102);
+     font-weight: 500;
+     font-size: 0.85em;
+     letter-spacing: 0.5px;
+ }
+
+ .Hright {
+     display: flex;
+     align-items: center;
+     gap: 15px;
+ }
+
+ .Hright i {
+     font-size: 1.2rem;
+     margin-left: 15px;
+     color: #000000;
+ }
+
+ .top-icon {
+     font-size: 1.2rem;
+     color: rgb(85, 85, 85);
+     /* margin-left: 15px; */
+     cursor: pointer;
+ }
+
+ #login-link a {
+     color: rgb(255, 255, 255);
+     font-size: 1.0rem;
+     text-decoration: none;
+     padding: 0.4rem 0.8rem;
+     cursor: pointer;
+     background-color: black;
+     border-radius: 5px;
+     display: inline-block;
+     margin-left: 1rem;
+ }
+
+ #login-link a:hover {
+     background-color: rgb(43, 43, 43);
+     color: white;
+ }
+
+ .lang-drop {
+     position: relative;
+     display: inline-block;
+ }
+
+ .langbtn {
+     background-color: transparent;
+     border: 1px solid rgb(204, 204, 204);
+     color: rgb(51, 51, 51);
+     padding: 6px 8px;
+     border-radius: 5px;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     gap: 5px;
+     font-size: 0.9em;
+     /* color: #333; */
+ }
+
+ .lang-menu {
+     display: none;
+     position: absolute;
+     top: 30px;
+     right: 0;
+     background: white;
+     border: 1px solid rgb(236, 226, 223);
+     border-radius: 5px;
+     box-shadow: 0 2px 10px;
+
+ }
+
+ .lang-opt {
+     padding: 8px 10px;
+     cursor: pointer;
+ }
+
+ .lang-menu:hover {
+     color: rgb(26, 134, 4);
+ }
+
+ /* top header responsive */
+
+ @media screen and (max-width:768px) {}
+
+ @media screen and (max-width:480px) {}
+
+ /* navbar section */
+
+ .navbar {
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     background-color: rgb(6, 95, 70);
+     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+     padding: 8px 3%;
+     /* top: 0; */
+     position: sticky;
+     z-index: 9998;
+
+ }
+
+ .nav-Link {
+     list-style: none;
+     display: flex;
+     justify-content: flex-start;
+     /* padding: 0 5%; */
+ }
+
+ .nav-Link li a {
+     text-decoration: none;
+     color: white;
+     font-weight: 500;
+     font-size: 1.2em;
+     padding: 1rem;
+     cursor: pointer;
+     transition: border-bottom 0.3s transform 0.3s;
+     border-radius: 5px;
+ }
+
+ .nav-Link li a:hover {
+     /* border-radius: 2px; */
+     transform: scale(1);
+     /* border-bottom: rgb(238, 240, 235); */
+     background-color: rgba(255, 255, 255, 0.1);
+     color: rgb(139, 195, 74);
+ }
+
+ .dropdown {
+     position: relative;
+ }
+
+ .dropdown-menu {
+     display: none;
+     list-style: none;
+     position: absolute;
+     top: 100%;
+     left: 0;
+     background-color: white;
+     padding: 10px 15px;
+     border-radius: 5px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+     z-index: 2001;
+     min-width: 250px;
+     border-top: 8px solid rgb(6, 95, 70);
+ }
+
+ .dropdown a i {
+     margin-right: 5px;
+ }
+
+ /* to show dropdown menu */
+ .dropdown:hover .dropdown-menu {
+     display: block;
+ }
+
+ .dropdown-menu li a {
+     display: block;
+     font-weight: 500;
+     color: rgb(51, 51, 51);
+     padding: 10px 15px;
+ }
+
+ .dropdown-menu li a:hover {
+     background-color: rgb(259, 259, 259);
+     color: rgb(4, 124, 104);
+     border-radius: 5px;
+ }
+
+ /* for search */
+ .search-container {
+     display: flex;
+     align-items: center;
+     order: 2;
+ }
+
+ .search-icon {
+     color: white;
+     font-size: 18px;
+     cursor: pointer;
+     text-decoration: none;
+     z-index: 10;
+ }
+
+ .search-input-field {
+     border: none;
+     outline: none;
+     font-size: 1rem;
+     background-color: white;
+     color: #333;
+     padding: 8px 15px;
+     border-radius: 20px;
+     text-transform: uppercase;
+     width: 0;
+     opacity: 0;
+     margin-left: 0;
+     transition: width 0.3s ease-out,
+         opacity 0.3s ease-out,
+         margin 0.3s ease-out;
+     pointer-events: none;
+ }
+
+ .search-input-field.active {
+     width: 250px;
+     opacity: 1;
+     margin-right: 15px;
+     pointer-events: auto;
+ }
+
+ /* menu toggle */
+ .menu-tog {
+     display: flex;
+     background: none;
+     border: none;
+     cursor: pointer;
+     font-size: 1.4rem;
+     margin-left: 15px;
+     color: white;
+     margin-top: 6px;
+     display: none;
+ }
+
+ .sub-nav {
+     display: flex;
+     width: 100px;
+     flex-direction: row-reverse;
+     justify-content: space-between;
+
+ }
+
+ /* navbar responsive */
+
+ @media screen and (max-width:768px) {
+     .navbar {
+         display: flex;
+         flex-direction: row;
+         flex-wrap: wrap;
+         padding: 8px 15px;
+     }
+
+     .sub-nav {
+         display: flex;
+         width: auto;
+         flex-direction: row;
+         justify-content: flex-end;
+         order: 2;
+         flex-grow: 1;
+     }
+
+     .search-container {
+         order: 1;
+         margin-right: auto;
+
+     }
+
+     .menu-tog {
+         order: 2;
+         display: flex;
+         font-size: 1.6rem;
+     }
+
+     .nav-Link {
+         position: absolute;
+         display: flex;
+         top: 100%;
+         right: 0;
+         left: 0;
+         background: rgb(4, 95, 70);
+         flex-direction: column;
+         width: 100%;
+         max-width: none;
+         text-align: left;
+         display: none;
+         z-index: 999;
+         box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+     }
+
+     .nav-Link li a {
+         text-decoration: none;
+         color: white;
+         font-weight: 400;
+         font-size: 1rem;
+         padding: 8px 15px;
+         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+         cursor: pointer;
+         /* transition: background-color 0.3s transform 0.3s; */
+         border-radius: 5px;
+         width: 100%;
+     }
+
+     .nav-Link li:last-child a {
+         border-bottom: none;
+     }
+
+     .nav-Link li a:hover {
+         /* border-radius: 2px; */
+         transform: scale(1.01);
+         /* background-color: rgba(255, 255, 255, 0.1);
+           color: rgb(17, 17, 17); */
+     }
+
+     .nav-Link.show {
+         display: flex;
+
+     }
+
+     .dropdown-menu {
+         display: block;
+         position: static;
+         background-color: rgba(0, 0, 0, 0.1);
+         box-shadow: none;
+         border-top: none;
+         padding: 0;
+         min-width: auto;
+         margin-top: -8px;
+     }
+
+     .dropdown a i.fa-chevron-down {
+         display: none;
+     }
+
+     .dropdown-menu li a {
+         padding: 8px 30px;
+         color: white;
+     }
+
+     .dropdown-menu li a:hover {
+         background-color: rgba(0, 0, 0, 0.02);
+         color: rgb(255, 255, 255);
+         padding: 8px 30px;
+     }
+
+     .search-input-field {
+         position: absolute;
+         right: 50px;
+         top: 50%;
+         transform: translateY(-50%);
+         padding: 6px 15px;
+         width: 0;
+         opacity: 0;
+         z-index: 1001;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+     }
+
+     .search-input-field.active {
+         width: calc(100%-120px);
+         opacity: 1;
+         right: 15px;
+         margin-right: 0;
+     }
+
+ }
+
+ @media screen and (max-width:480px) {}
+
+/* Jaggu Ka Code  */
+
+
+@font-face{
+    font-family: myFont;
+    src: url(../font/MomoTrustDisplay-Regular.ttf);
+}
+@font-face{
+    font-family: myFont2;
+    src: url(../font/Righteous-Regular.ttf) 
+}
+@font-face{
+    font-family: myFont3;
+    src: url(../font/RobotoSlab.ttf) 
+}
+.mypage{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.map-container {
+    height: 100%;
+    display: flex;
+    width: 50%;
+    flex: 1;
+    overflow: auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+svg{
+    height: 95%;
+    width: 100%;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+svg path{
+    stroke-width: .25;
+    cursor: pointer;
+    transition: fill 0.3s ease, opacity 0.3s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+svg path:hover{
+    fill: #006284;
+    cursor: pointer;
+}
+
+svg path:active{
+    outline: 2px solid #fff;
+}
+
+svg text{
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* # Box Begins */
+
+/* infoBox: This is the main container box on the right side */
+.infoBox {
+    width: 50%;
+    height: 132.5vh;
+    background-color: white;
+    border-left: 6px solid rgb(38, 146, 81);
+    border-bottom: 2px solid rgb(38, 146, 81);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* infoBoxHeader: The top section with the district name */
+.infoBoxHeader {
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgb(38, 146, 81);
+    padding-bottom: 15px;
+    background-color: rgb(226, 239, 231);
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+/* districtName: The heading showing which district is selected */
+#districtName {
+    color: rgb(25, 124, 32);
+    font-size: 24px;
+    margin: 0;
+    font-family: Roboto;
+}
+
+/* infoBoxBody: Contains all the information items */
+.infoBoxBody {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* infoItem: Each piece of information (population, area, capital, description) */
+.infoItem {
+    background-color: rgb(38, 146, 81);
+    padding: 15px;
+    border-radius: 5px;
+
+}
+
+/* strong labels: The bold text labels like "Population:", "Area:" */
+.infoItem strong {
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* span values: The actual data like "3.3 Million", "3,789 km²" */
+.infoItem span {
+    display: flex;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/* Info Bx Endsss */

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Solution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+       
+    <!-- top logo,title section -->
+    <div class="sticky-wp">
+        <header class="TopHeader">
+            <div class="Hleft">
+                <img src="/images/logo.svg" alt="cg-logo">
+                <div class="title-grp">
+                    <h1 class="title">Agri-Solution</h1>
+                    <p class="subtitle">Chhattisgarh Agriculture Portal</p>
+                </div>
+            </div>
+            <div class="Hright">
+                <div class="lang-drop">
+                    <button class="langbtn">English
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="lang-menu" id="langmenu">
+                        <div class="lang-opt" onclick="setEnglish('English')">English</div>
+                        <div class="lang-opt" onclick="setHindi('Hindi')">हिंदी</div>
+                    </div>
+                </div>
+                <!-- <span class="top-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span> -->
+                <span class="top-icon" id="share-btn">
+                <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                </span>
+                <span class="top-icon" id="insta-btn">
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                </span>
+                <span class="top-icon" id="wp-btn">
+                    <a href="https://www.whatsapp.com/?lang=en"><i class="fa-brands fa-whatsapp"></i></a>
+                </span>
+                <span class="top-icon" id="facebook-btn">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                </span>
+                <span class="top-icon" id="login-link">
+                    <a href="login.html">Login</a>
+                </span>
+            </div>
+        </header>
+
+
+        <!-- navbar section -->
+
+        <header>
+            <nav class="navbar">
+                <ul class="nav-Link" id="NavLink">
+                    <li><a  href="#"><i class="fa-solid fa-home" style="padding-right: 5px;"></i>Home</a></li>
+                    <li ><a  onmouseover="ab1.play()"href="about.html">About</a></li>
+                    <li class="dropdown"><a onmouseover="agri1.play()"  href="#">Agriculture Services
+                            <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a onmousedown="pass.play()" href="crop.html">Crop Information</a></li>
+                            <!-- <li><a href="#">Market Prices</a></li> -->
+                            <li><a onmouseover="pas1.play()" href="schemes.html">Schemes & Subsidies</a></li>
+                            <li><a onmouseover="pas1.play()" href="del.html">Dealers</a></li>
+                            <li><a onmouseover="password1.play()" href="login.html">Farmer Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#">Resources<i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a onmouseover="passw1.play()" href="soil.html">Weather & Soil</a></li>
+                            <li><a onmouseover="passd1.play()" href="distmap.html">District Map</a></li>
+                        </ul>
+                    </li>
+                    <li><a onmousedown="pass1.play()" href="#">Contact</a></li>
+                </ul>
+                <!-- subnav search bar and humburber -->
+                <div class="sub-nav"> <!--  Anuj  -->
+                    <div class="search-container" id="inline-search-container">
+                        <input onmouseover="passrd1.play()"  type="text" id="search-input" placeholder="Search Here.."
+                            class="search-input-field hidden">
+                        <a onmouseover="pasrd1.play()"  href="#" id="search-tog" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <div class="menu-tog">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <!-- hero photo-slider section -->
+
+    <main>
+        <section class="hero-slider">
+            <div class="slide active">
+                <div class="overlay"></div>
+                <div class="content">
+                    <h1>Cultivating a Healthier Tomorrow, Naturally </h1>
+                    <p> We believe in growing more than just crops; we cultivate community and ecological balance.
+                        Our sustainable practices ensure every harvest is fresh, organic, and kind to the earth.
+                        Experience the difference quality, conscientious  farming  makes. </p>
+                    <div class="hero-cta">
+                        <a onmouseover="pasrd1.play()"  href="schemes.html" class="cta-btn1">View Schemes <i class="fa-solid fa-chevron-right"></i></a>
+                        <a onmouseover="password1.play()"  href="login.html" class="cta-btn2">Farmer Registration<i
+                                class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- leader section -->
+
+        <section class="leader">
+            <div class="leader-card">
+                <img src="/images/nm.jpeg" alt="Agriculture Minister of India">
+                <div class="leader-info">
+                    <h4>Minister of Agriculture and Farmers Welfare of India </h4>
+                    <p>Shivraj Singh Chouhan</p>
+                </div>
+            </div>
+            <span class="separate"></span>
+            <div class="leader-card">
+                <img src="/images/cm.jpeg" alt="Chief Minister of Chhattishgarh">
+                <div class="leader-info">
+                    <h4>Chief Minister Of Chhattisgarh</h4>
+                    <p>Vishnu Deo Sai</p>
+                </div>
+            </div>
+            <span class="separate"></span>
+            <div class="leader-card">
+                <img src="/images/am.jpeg" alt="Agriculture Minister of Chhattishgarh">
+                <div class="leader-info">
+                    <h4>Agriculture Minister Of Chhattisgarh</h4>
+                    <p>Shri Ramvichar Netam</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- purpose section -->
+
+        <section class="purpose">
+            <div class="purpose-s">
+                <div class="purpose-left">
+                    <h2>Our Purpose</h2>
+                    <h4>Building a more prosperous Agriculture Future</h4>
+                    <p>"The <b>Agri-Solution Portal</b> stands as a dedicated, independent information resource
+                        committed to
+                        empowering the agricultural community across Chhattisgarh. Our platform serves as a vital
+                        bridge, simplifying the vast and complex landscape of farming knowledge. We meticulously gather
+                        and organize diverse information, including comprehensive state and central government scheme
+                        guidelines, accurate daily market price forecasts, localized seasonal crop advisories, and
+                        expert-vetted best practices for soil and pest management. Our mission is to facilitate informed
+                        decision-making by placing reliable, up-to-date data directly into the hands of farmers,
+                        fostering sustainability, increasing productivity, and ultimately driving long-term economic
+                        prosperity for every user."</p>
+                    <button class="button"><a href="about.html">Read More</a></button>
+                </div>
+                <div class="purpose-right">
+                    <div class="photo-slide active">
+                        <img src="/images/slide1.jpg" alt="">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="/images/img1.jpg" alt="">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="/images/img3.jpg" alt="">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="/images/img12.jpg" alt="">
+                    </div>
+                    <div class="photo-slide">
+                        <img src="/images/slide2.jpg" alt="">
+                    </div>
+                    <button class="slide-btn prev">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="slide-btn next" onclick="nextslide">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- hr line  -->
+        <span class="hr-line"></span>
+
+
+        <!-- service and feature section -->
+        <section class="service-section">
+            <h1 class="Title-s">Essential Services and Information</h1>
+            <div class="card-container">
+                <a href="login.html" class="service-card">
+                    <div class="box-icon">
+                        <i class="fa-solid fa-user-plus icon"></i>
+                        <div class="box-content">
+                            <h3>Farmer Registration</h3>
+                            <p>Finish your registration to get access to all Services</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+
+
+                <a href="crop.html" class="service-card">
+                    <div class="box-icon">
+                        <i class="fa-solid fa-wheat-awn icon"></i>
+                        <div class="box-content">
+                            <h3>Crop Information</h3>
+                            <p>Simple steps and guidence to improve your early output</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+
+
+                <a href="del.html" class="service-card">
+                    <div class="box-icon">
+                        <i class="fa-solid fa-hand-holding-dollar icon"></i>
+                        <div class="box-content">
+                            <h3>Market Prices</h3>
+                            <p>See today's rates and find the best time to sell your crops</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+
+
+                <a href="schemes.html" class="service-card">
+                    <div class="box-icon">
+                        <i class="fa-solid fa-file icon"></i>
+                        <div class="box-content">
+                            <h3>Schemes and Subsidies</h3>
+                            <p>Check what government programs and aid you can get</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+
+
+                <a href="del.html" class="service-card">
+                    <div class="box-icon">
+                        <i class="fa-solid fa-handshake icon"></i>
+                        <div class="box-content">
+                            <h3>Dealers</h3>
+                            <p>Register as a dealer to access pricing and distribution tools</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+
+
+                <a href="soil.html" class="service-card">
+                    <div class="box-icon">
+                        <i class="fa-solid fa-cloud-sun icon"></i>
+                        <div class="box-content">
+                            <h3>Weather & Soil</h3>
+                            <p>Current data to help you decide when to plant and harvest</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+
+
+                <a href="distmap.html" class="service-card">
+                    <div class="box-icon">
+                        <i class="fa-solid fa-map-location-dot icon"></i>
+                        <div class="box-content">
+                            <h3>District Map</h3>
+                            <p>See where to find all the agricultural services in your district</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- hr line  -->
+        <span class="hr-line"></span>
+
+
+        <!-- gallary section -->
+        <section class="gallery">
+            <h1 class="Title-g">From Seed to Harvest</h1>
+            <p>Beauty of Agriculture</p>
+            <div class="gallery-grid">
+                <div class="g-img">
+                    <img src="/images/p-soil.jpg" alt="">
+                </div>
+                <div class="g-img">
+                    <img src="/images/rice1.jpg" alt="">
+                </div>
+                <div class="g-img">
+                    <img src="/images/rice2.jpg" alt="">
+                </div>
+                <div class="g-img">
+                    <img src="/images/rice3.jpg" alt="">
+                </div>
+                <div class="g-img">
+                    <img src="/images/rice4.jpg" alt="">
+                </div>
+                <div class="g-img">
+                    <img src="/images/rice5.jpg" alt="">
+                </div>
+                <div class="g-img">
+                    <img src="/images/rice6.jpg" alt="">
+                </div>
+                <div class="g-img tall">
+                    <img src="/images/rice7.jpg" alt="">
+                </div>
+                <div class="g-img">
+                    <img src="/images/pinterest.jpg" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col Contact">
+                <div class="f-logo">
+                    <img src="/images/logo.svg" alt="cg-logo">
+                    <div>
+                        <h2>Department of Agriculture</h2>
+                        <p class="para">government of Chhattisgarh</p>
+                        <p> <a href="https://www.google.com/maps/place/Indravati+Bhawan/@21.156285,81.7942353,17z/data=!3m1!4b1!4m6!3m5!1s0x3a28c695f3d7d5d1:0xe23796cb5bbee93f!8m2!3d21.156285!4d81.7968102!16s%2Fg%2F11bbx1bfvw?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                        class="location"><i class="fa-solid fa-location-dot"></i></a>Indrawati Bhavan,block 2,Naya Raipur, Atal
+                            Nagar,Chhattisgarh,492002</p>
+                        <p><i class="fa-solid fa-phone"></i><a href="tel:+8770826925">8770826925</a></p>
+                        <p><i class="fa-regular fa-envelope"></i> <a href="mailto:agri@cg.gov.in">agri@cg.gov.in</a></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="footer-col links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="crop.html">Crop information</a></li>
+                    <li><a href="#">Market Prices</a></li>
+                    <li><a href="schemes.html">Schemes & Subsidies</a></li>
+                    <li><a href="login.html">Farmer Registration</a></li>
+                    <li><a href="soil.html">Soil and Weather</a></li>
+                    <li><a href="distmap.html">District Map</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col social">
+                <h3>Contact With Us</h3>
+                <div class="social-icon">
+                    <a href="https://www.facebook.com/" class="icon-s facebook"><i
+                            class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://x.com/" class="icon-s twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.whatsapp.com/?lang=en" class="icon-s whatsapp"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    <a href="https://www.youtube.com/" class="icon-s youtube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.google.com/maps/place/Indravati+Bhawan/@21.156285,81.7942353,17z/data=!3m1!4b1!4m6!3m5!1s0x3a28c695f3d7d5d1:0xe23796cb5bbee93f!8m2!3d21.156285!4d81.7968102!16s%2Fg%2F11bbx1bfvw?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                        class="icon-s location"><i class="fa-solid fa-location-dot"></i></a>
+
+                </div>
+                <h4>Farmer Helpline</h4>
+                <a href="tel:+1800-180-1551"><p class="helpline">1800-180-1551</p></a>
+                <small>Available 24/7</small>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="disclaimer">
+                This is an unofficial website created for educational and demonstration purposes only.
+                It is not official website of the Government of Chhattisgarh
+                or the Department of Agriculture.
+            </p>
+            <p class="claim">&copy; 2025 Kala Samrajya . All rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- script.js -->
+    <script src="/js/script.js"></script>
+
+</body>
+
+</html>

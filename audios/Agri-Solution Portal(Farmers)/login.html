@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Form</title>
+    <link rel="stylesheet" href="/style/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+  <body>
+        <div class="sticky-wp">
+        <header class="TopHeader">
+            <div class="Hleft">
+                <img src="/images/logo.svg" alt="cg-logo">
+                <div class="title-grp">
+                    <h1 class="title">Agri-Solution</h1>
+                    <p class="subtitle">Chhattisgarh Agriculture Portal</p>
+                </div>
+            </div>
+            <div class="Hright">
+                <div class="lang-drop">
+                    <button class="langbtn">English
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="lang-menu" id="langmenu">
+                        <div class="lang-opt" onclick="setEnglish('English')">English</div>
+                        <div class="lang-opt" onclick="setHindi('Hindi')">हिंदी</div>
+                    </div>
+                </div>
+                <!-- <span class="top-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span> -->
+              <span class="top-icon" id="share-btn">
+                <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                </span>
+                <span class="top-icon" id="insta-btn">
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                </span>
+                <span class="top-icon" id="wp-btn">
+                    <a href="https://www.whatsapp.com/?lang=en"><i class="fa-brands fa-whatsapp"></i></a>
+                </span>
+                <span class="top-icon" id="facebook-btn">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                </span>
+                <span class="top-icon" id="login-link">
+                    <a href="login.html">Login</a>
+                </span>
+            </div>
+        </header>
+   <header>
+            <nav class="navbar">
+                <ul class="nav-Link" id="NavLink">
+                    <li><a href="index.html"><i class="fa-solid fa-home" style="padding-right: 5px;"></i>Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="dropdown"><a href="#">Agriculture Services
+                            <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Crop Information</a></li>
+                            <li><a href="#">Market Prices</a></li>
+                            <li><a href="schemes.html">Schemes & Subsidies</a></li>
+                            <li><a href="#">Dealers</a></li>
+                            <li><a href="login.html">Farmer Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#">Resources<i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Weather & Soil</a></li>
+                            <li><a href="distmap.html">District Map</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <!-- subnav search bar and humburber -->
+                <div class="sub-nav"> <!--  Anuj  -->
+                    <div class="search-container" id="inline-search-container">
+                        <input type="text" id="search-input" placeholder="Search Here.."
+                            class="search-input-field hidden">
+                        <a href="#" id="search-tog" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <div class="menu-tog">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+ </div>
+
+    <!-- credits to the writter @leonam-silva-de-souza -->
+     <div class="con">
+      <div class="container">
+       
+          <div class="form-box login">
+              <form action="#">
+                  <h1>Login</h1>
+                  <div class="input-box">
+                      <input onmousedown="moblie1.play()" type="Number" placeholder="Moblie Number" required>
+                      <i class='bx bxs-user'></i>
+                  </div>
+
+                  <button  onmousedown="sound1.play()"type="submit" class="btn1">Send OTP</button>
+                  <button onmousedown="sound1.play()" type="submit" class="btn2">Resend OTP</button>
+                   
+                  <div class="input-box">
+                      <input  onmousedown="OTP2.play()"type="password" placeholder="OTP" required>
+                      <i class='bx bxs-lock-alt' ></i>
+                  </div>
+                  <button  onClick="pop()"  type="submit" class="btn">Login</button>
+                  <p>or login with social platforms</p>
+                  <div class="social-icons">
+                      <a href="https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ec=GAlAFw&hl=en-GB&service=mail&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S-634615674%3A1764928029713087"><i class='bx bxl-google' ></i></a>
+                      <a href="https://www.facebook.com/"><i class='bx bxl-facebook' ></i></a>
+                      <a href="https://github.com/login"><i class='bx bxl-github' ></i></a>
+                      <a href="https://www.linkedin.com/home"><i class='bx bxl-linkedin' ></i></a>
+                  </div>
+              </form>
+          </div>
+
+          <div class="form-box register">
+              <form action="#">
+                  <h1>Registration</h1>
+                  <div class="input-box">
+                      <input onmousedown="moblie1.play()" type="Number" placeholder="Moblile Number" required>
+
+
+
+                      <i class="fa-duotone fa-solid fa-phone"></i>
+                  </div>
+                  <div class="input-box">
+                      <input onmousedown="name1.play()" type="text" placeholder="Full Name" required>
+                      <i class='bx bxs-user'></i>
+
+                  </div>
+                  <div class="input-box">
+                    <!-- The second value will be selected initially -->
+
+                       <select onmousedown="district3.play()" name="pets" id="pet-select">
+                              <option value=""> Choose a District--</option>
+                                 <option value="Balod">Balod</option>
+                                 <option value="Baloda bazar Bhatapara">Baloda Bazar Bhatapara</option>
+                                 <option value="Balrampur">Balrampur</option>
+                                 <option value="Bastar">Bastar</option>
+                                 <option value="Bemetara">Bemetara</option>  
+                                 <option value="Bijapur">Bijapur</option>
+                                 <option value="Bilaspur">Bilaspur</option>
+                                 <option value="Dantewada">Dantewada</option>
+                                 <option value="Dhamtari">Dhamtari</option>
+                                  <option value="Durg">Durg</option>
+                                  <option value="Gariaband">Gariaband</option>
+                                 <option value="Gaurella-Pendra-Marwahi">Gaurella-Pendra-Marwahi</option>
+                                 <option value="Janjgir-Champa">Janjgir-Champa</option>
+                                 <option value="Jashpur">Jashpur</option>
+                                 <option value="Kabirdham">Kabirdham</option>
+                                 <option value="Kanker">Kanker</option>
+                                 <option value="Kondagaon">Kondagaon</option>
+                                 <option value="Khairagarh-Chhuikhadan-Gandai">Khairagarh-Chhuikhadan-Gandai</option>
+                                 <option value="Korba">Korba</option>
+                                 <option value="Koriya">Koriya</option>
+                                  <option value="Mahasamund">Mahasamund</option>
+                                 <option value="Manendragarh-Chirmiri-Bharatpur">Manendragarh-Chirmiri-Bharatpur</option>
+                                 <option value="Mohla-Manpur Ambagarh Chowki">Mohla-Manpur Ambagarh Chowki</option>
+                                 <option value="Mungeli">Mungeli</option>
+                                 <option value="Narayanpur">Narayanpur</option>
+                                 <option value="Raigarh">Raigarh</option>
+                                 <option value="Raipur">Raipur</option>
+                                  <option value="Rajnandgaon">Rajnandgaon</option>
+                                 <option value="Sarangarh-Bilaigarh">Sarangarh-Bilaigarh</option>
+                                 <option value="Sakti">Sakti</option>
+                                 <option value="Sukma">Sukma</option>
+                                 <option value="Surajpur">Surajpur</option>
+                                 <option value="Surguja">Surguja</option>
+                               
+                                   </select>
+
+                  </div>
+                  <button onClick="pop()" onmousedown="reg1.play()" type="submit" class="btn">Register</button>
+                  <p>or register with social platforms</p>
+                  <div class="social-icons">
+                      <a href="https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ec=GAlAFw&hl=en-GB&service=mail&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S-634615674%3A1764928029713087"><i class='bx bxl-google' ></i></a>
+                      <a href="https://www.facebook.com/"><i class='bx bxl-facebook' ></i></a>
+                      <a href="https://github.com/login"><i class='bx bxl-github' ></i></a>
+                      <a href="https://www.linkedin.com/home"><i class='bx bxl-linkedin' ></i></a>
+                  </div>
+              </form>
+          </div>
+
+          <div class="toggle-box">
+              <div class="toggle-panel toggle-left">
+                  <h1>Hello, Welcome!</h1>
+                  <p>Don't have an account?</p>
+                  <button class="btn register-btn">Register</button>
+              </div>
+
+              <div class="toggle-panel toggle-right">
+                  <h1>Welcome Back!</h1>
+                  <p>Already have an account?</p>
+                  <button class="btn login-btn">Login</button>
+              </div>
+          </div>
+      </div>
+       <div class="container1">
+            <!-- <img src="dhan.jpg"alt="maya"> -->
+        </div>
+</div>
+
+
+ <!-- footer -->
+
+    <!-- footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col Contact">
+                <div class="f-logo">
+                    <img src="/images/logo.svg" alt="cg-logo">
+                    <div>
+                        <h2>Department of Agriculture</h2>
+                        <p class="para">government of Chhattisgarh</p>
+                        <p> <a href="https://www.google.com/maps/place/Indravati+Bhawan/@21.156285,81.7942353,17z/data=!3m1!4b1!4m6!3m5!1s0x3a28c695f3d7d5d1:0xe23796cb5bbee93f!8m2!3d21.156285!4d81.7968102!16s%2Fg%2F11bbx1bfvw?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                        class="location"><i class="fa-solid fa-location-dot"></i></a>Indrawati Bhavan,block 2,Naya Raipur, Atal
+                            Nagar,Chhattisgarh,492002</p>
+                        <p><i class="fa-solid fa-phone"></i><a href="tel:+8770826925">8770826925</a></p>
+                        <p><i class="fa-regular fa-envelope"></i> <a href="mailto:agri@cg.gov.in">agri@cg.gov.in</a></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="footer-col links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Crop information</a></li>
+                    <li><a href="#">Market Prices</a></li>
+                    <li><a href="schemes.html">Schemes & Subsidies</a></li>
+                    <li><a href="login.html">Farmer Registration</a></li>
+                    <li><a href="#">Soil and Weather</a></li>
+                    <li><a href="#">District Map</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+
+             <div class="footer-col social">
+                <h3>Contact With Us</h3>
+                <div class="social-icon">
+                    <a href="https://www.facebook.com/" class="icon-s facebook"><i
+                            class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://x.com/" class="icon-s twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.whatsapp.com/?lang=en" class="icon-s whatsapp"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    <a href="https://www.youtube.com/" class="icon-s youtube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.google.com/maps/place/Indravati+Bhawan/@21.156285,81.7942353,17z/data=!3m1!4b1!4m6!3m5!1s0x3a28c695f3d7d5d1:0xe23796cb5bbee93f!8m2!3d21.156285!4d81.7968102!16s%2Fg%2F11bbx1bfvw?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                        class="icon-s location"><i class="fa-solid fa-location-dot"></i></a>
+
+                </div>
+                <h4>Farmer Helpline</h4>
+                <a href="tel:+1800-180-1551"><p class="helpline">1800-180-1551</p></a>
+                <small>Available 24/7</small>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="disclaimer">
+                This is an unofficial website created for educational and demonstration purposes only.
+                It is not official website of the Government of Chhattisgarh
+                or the Department of Agriculture.
+            </p>
+            <p class="claim">&copy; 2025 Kala Samrajya . All rights reserved</p>
+        </div>
+    </footer>
+
+
+      <script src="/js/login.js"></script>
+  </body>
+</html>

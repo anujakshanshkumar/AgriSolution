@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Solution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/schemes.css">
+</head>
+
+<body>
+    <div class="sticky-wp">
+    <header class="TopHeader">
+        <div class="Hleft">
+            <img src="/images/logo.svg" alt="cg-logo">
+            <div class="title-grp">
+                <h1 class="title">Agri-Solution</h1>
+                <p class="subtitle">Chhattisgarh Agriculture Portal</p>
+            </div>
+        </div>
+        <div class="Hright">
+            <div class="lang-drop">
+                <button class="langbtn">English
+                    <i class="fa-solid fa-caret-down"></i>
+                </button>
+                <div class="lang-menu" id="langmenu">
+                    <div class="lang-opt" onclick="setEnglish('English')">English</div>
+                    <div class="lang-opt" onclick="setHindi('Hindi')">हिंदी</div>
+                </div>
+            </div>
+            <!-- <span class="top-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span> -->
+            <span class="top-icon" id="share-btn">
+                <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                </span>
+                <span class="top-icon" id="insta-btn">
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                </span>
+                <span class="top-icon" id="wp-btn">
+                    <a href="https://www.whatsapp.com/?lang=en"><i class="fa-brands fa-whatsapp"></i></a>
+                </span>
+                <span class="top-icon" id="facebook-btn">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+                </span>
+                <span class="top-icon" id="login-link">
+                    <a href="login.html">Login</a>
+                </span>
+        </div>
+    </header>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-Link" id="NavLink">
+                <li><a href="index.html"><i class="fa-solid fa-home" style="padding-right: 5px;"></i>Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown"><a href="#">Agriculture Services
+                        <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Crop Information</a></li>
+                        <li><a href="#">Market Prices</a></li>
+                        <li><a href="schemes.html">Schemes & Subsidies</a></li>
+                        <li><a href="#">Dealers</a></li>
+                        <li><a href="login.html">Farmer Registration</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#">Resources<i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Weather & Soil</a></li>
+                        <li><a href="distmap.html">District Map</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <!-- subnav search bar and humburber -->
+            <div class="sub-nav"> <!--  Anuj  -->
+                <div class="search-container" id="inline-search-container">
+                    <input type="text" id="search-input" placeholder="Search Here.." class="search-input-field hidden">
+                    <a href="#" id="search-tog" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+                <div class="menu-tog">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    </div>
+    <main>
+        <!-- hero section -->
+        <section class="schemes-hero">
+            <div class="hero-s-content">
+                <h2>Schemes and Subsidies</h2>
+                <p>Explore Schemes and Subsidies : Unlock Benefits for Your Farm</p>
+            </div>
+        </section>
+
+
+
+        <!-- schemes search section -->
+        <section class="schemes-search">
+            <div class="s-search-container" id="inline-s-search-container">
+                <i class="fa-solid fa-magnifying-glass s-search-icon"></i>
+                <input type="text" class="s-search-input" placeholder="Search Schemes...">
+            </div>
+        </section>
+
+
+        <!-- all schemes -->
+        <section class="schemes">
+            <div class="schemes-container">
+                
+                <!-- 1st scheme -->
+                <div class="schemes-card">
+                    <div class="card-header"><!-- card heading section -->
+                        <div class="header-left">
+                            <img src="/images/pm-kisan.webp" alt="pm-kisan">
+                            <div class="sch-title">
+                                <p class="subtitle">Getting Money & Support</p>
+                                <h2 class="main-title"> PM-KISAN (Pradhan Mantri Kisan Samman Nidhi)</h2>
+                            </div>
+                        </div>
+                        <button class="apply-btn"><a href="https://www.pmkisan.gov.in/RegistrationFormupdated.aspx">Apply Now</a></button>
+                    </div>
+                    <!-- scheme-card-body -->
+                    <p class="scheme-para">PM-KISAN (Pradhan Mantri Kisan Samman Nidhi) is an Indian government scheme
+                        providing annual income support of ₹6,000 to farmer families, paid in three ₹2,000 installments
+                        directly into their bank accounts via DBT</p>
+
+                    <div class="detail-s">
+                        <div class="scheme-detail">
+                            <h3>Eligibility Criteria</h3>
+                            <ul>
+                                <li>Indian Citizen Farmer</li>
+                                <li><b>Land Ownership:</b> Must own cultivable land in their name.</li>
+                                <li><b>Family Unit:</b> A "farmer family" is defined as a household comprising a
+                                    husband,
+                                    wife, and their minor children (under 18 years of age)</li>
+                                <li>e-KYC Mandatory</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail">
+                            <h3>Benefits</h3>
+                            <ul>
+                                <li><b>Direct Financial Support:</b> ₹6,000 per year per family in three ₹2,000
+                                    installments.</li>
+                                <li><b>Direct Benefit Transfer (DBT)</b></li>
+                                <li>Income Support</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail">
+                            <h3>Required Documents</h3>
+                            <ul>
+                                <li>Aadhaar Card</li>
+                                <li>Landholding Papers</li>
+                                <li>Bank Account Details</li>
+                                <li>Mobile Number</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="process"> Apply online through <a href="https://www.pmkisan.gov.in/"> PM-KISAN portal </a><b> or </b> visit nearest CSC
+                        Krishi Vigyan Kendra</p>
+                </div>
+
+
+                <!-- 2nd scheme -->
+                <div class="schemes-card">
+                    <div class="card-header"><!-- card heading section -->
+                        <div class="header-left">
+                            <img src="images/pm-kisan.webp" alt="pm-kisan">
+                            <div class="sch-title">
+                                <p class="subtitle">Getting Money & Support</p>
+                                <h2 class="main-title">Pradhan Mantri Kisan Maan-dhan Yojana (PM-KMY)</h2>
+                            </div>
+                        </div>
+                        <button class="apply-btn"><a href="https://maandhan.in/">Apply Now</a></button>
+                    </div>
+                    <!-- scheme-card-body -->
+                    <p class="scheme-para">The Pradhan Mantri Kisan Maan-Dhan Yojana (PMKMY) is a government pension
+                        scheme for small and marginal farmers (SMFs) aged 18-40, owning up to 2 hectares of land</p>
+
+                    <div class="detail-s">
+                        <div class="scheme-detail">
+                            <h3>Eligibility Criteria</h3>
+                            <ul>
+                                <li>Indian Citizen Farmer</li>
+                                <li><b>Age:</b> 18 to 40 years</li>
+                                <li><b>Landholding:</b>Small farmes with up to 2 hectares of farming land </li>
+                                <li>e-KYC Mandatory</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail">
+                            <h3>Benefits</h3>
+                            <ul>
+                                <li>Get ₹3,000 every month after turning 60 years old</li>
+                                <li>The government pays the same amount you contribute
+                                    every month</li>
+                                <li>You receive a membership card after registration</li>
+                                <li>After the farmer's death wife/husband gets half pension</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail">
+                            <h3>Required Documents</h3>
+                            <ul>
+                                <li>Aadhaar Card</li>
+                                <li>Bank Account (linked with Aadhaar)</li>
+                                <li>Land Records</li>
+                                <li>Passport-size Photos</li>
+                                <li>Mobile Number</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="process"> For apply visit common Service Centres (CSCs) in your village/town with documents
+                    </p>
+                </div>
+
+                <!-- 3rd scheme -->
+
+                <div class="schemes-card">
+                    <div class="card-header"><!-- card heading section -->
+                        <div class="header-left">
+                            <img src="/images/pmfby.svg" alt="pm-kisan">
+                            <div class="sch-title">
+                                <p class="subtitle">Protecting Your Crops & Finances</p>
+                                <h2 class="main-title"> Pradhan Mantri Fasal Bima Yojana (PMFBY)</h2>
+                            </div>
+                        </div>
+                        <button class="apply-btn"><a href="https://pmfby.gov.in/">Apply Now</a></button>
+                    </div>
+                    <!-- scheme-card-body -->
+                    <p class="scheme-para">This scheme is crop insurance.
+                        If your crop gets damaged by rain, flood, drought, hailstorm, pest or disease,
+                        the government gives you money (compensation).</p>
+
+                    <div class="detail-s">
+                        <div class="scheme-detail second-s">
+                            <h3>Eligibility Criteria</h3>
+                            <ul>
+                                <li>All Indian Citizen Farmer</li>
+                                <li><b>Land Record:</b>Must have proof of land (like ROR, LPC) for the crop</li>
+                                <li><b>Loan Farmers (Loanee): </b>Compulsory for those with Kisan Credit Card (KCC) or
+                                    crop loans.</li>
+                                <li><b>Non-Loan Farmers (Non-Loanee): </b> Optional, but must have land proof.</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail second-s">
+                            <h3>Benefits</h3>
+                            <ul>
+                                <li>If crop gets damaged, you get money.</li>
+                                <li>Money comes directly to your bank.</li>
+                                <li><b>very Low Premium:</b>max 2% for Kharif, 1.5% for Rabi, 5% for commercial crops
+                                </li>
+                                <li>Farming becomes safe — no fear of full loss.</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail second-s">
+                            <h3>Required Documents</h3>
+                            <ul>
+                                <li>Aadhaar Card</li>
+                                <li>Land papers (Khatauni / Khasra / rent paper)</li>
+                                <li>Bank Passbook/Account Details.</li>
+                                <li>Details of which crop you sowed</li>
+                                <li>Your photo</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="process"> Visit the official <a href="https://pmfby.gov.in/"> pmfby.gov.in </a><b> or </b>visit
+                        nearest CSC
+                        Krishi Vigyan Kendra/Bank</p>
+                </div>
+
+
+                <!-- 4th scheme -->
+
+                <div class="schemes-card">
+                    <div class="card-header"><!-- card heading section -->
+                        <div class="header-left">
+                            <img src="/images/shcs.png" alt="pm-kisan">
+                            <div class="sch-title">
+                                <p class="subtitle">Protecting Your Crops & Finances</p>
+                                <h2 class="main-title">Soil Health Card Scheme</h2>
+                            </div>
+                        </div>
+                        <button class="apply-btn"><a href="https://soilhealth.dac.gov.in/">Apply Now</a></button>
+                    </div>
+                    <!-- scheme-card-body -->
+                    <p class="scheme-para">Get a free report on your soil's health to know exactly what food
+                        (fertilizer) and care (water, organic matter) it needs to give you the best harvest, saving you
+                        money and making your land stronger for the future. </p>
+
+                    <div class="detail-s">
+                        <div class="scheme-detail second-s">
+                            <h3>Eligibility Criteria</h3>
+                            <ul>
+                                <li>Every farmer in India can get a Soil Health Card.</li>
+                                <li>Farmers with own land or rented land, both are eligible.</li>
+                                <li>No age limit, no fee for the card.</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail second-s">
+                            <h3>Benefits</h3>
+                            <ul>
+                                <li>You get a report of your soil health.</li>
+                                <li>You know which nutrients are missing in your soil.</li>
+                                <li>You learn which fertilizer to use and how much to use</li>
+                                <li>Helps save fertilizer cost.</li>
+                                <li>Better planning for future crops.</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail second-s">
+                            <h3>Required Documents</h3>
+                            <ul>
+                                <li>Aadhaar Card</li>
+                                <li>Land papers (Khatauni / Khasra / Patta / rent papers)</li>
+                                <li>Photo</li>
+                                <li>Mobile Number</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="process"> Apply online through <a href="https://soilhealth.dac.gov.in/"> Soil Health Card website </a><b> or </b>Go to your
+                        nearest Agriculture Office / Krishi Vigyan Kendra / Soil Testing Lab → Give soil sample → They
+                        test it → You receive your Soil Health Card.</p>
+                </div>
+
+
+                <!-- 5th scheme -->
+                <div class="schemes-card">
+                    <div class="card-header"><!-- card heading section -->
+                        <div class="header-left">
+                            <img src="/images/laptop.png" alt="pm-kisan">
+                            <div class="sch-title">
+                                <p class="subtitle">Loans Credit & Tools</p>
+                                <h2 class="main-title">Kisan Credit Card (KCC)</h2>
+                            </div>
+                        </div>
+                        <button class="apply-btn"><a href="https://www.jansamarth.in/kisan-credit-card-scheme">Apply Now</a></button>
+                    </div>
+                    <!-- scheme-card-body -->
+                    <p class="scheme-para">The Kisan Credit Card (KCC) gives farmers easy, fast loan money for farming
+                        needs like seeds, fertilizer, pesticides, and other expensesT</p>
+
+                    <div class="detail-s">
+                        <div class="scheme-detail third-s">
+                            <h3>Eligibility Criteria</h3>
+                            <ul>
+                                <li>Any farmer doing farming.</li>
+                                <li>Farmers with own land or rented land..</li>
+                                <li>Tenant farmers, sharecroppers also eligible.</li>
+                                <li>Fisheries and livestock farmers can also apply.</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail third-s">
+                            <h3>Benefits</h3>
+                            <ul>
+                                <li>Easy loan for farming needs (seeds, fertilizer, pesticide, etc.).</li>
+                                <li>Low interest rate on loan.b></li>
+                                <li>Interest subsidy if loan is repaid on time</li>
+                                <li>Accident insurance (up to a certain limit).</li>
+                                <li>Loan available quickly during crop season.</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail third-s">
+                            <h3>Required Documents</h3>
+                            <ul>
+                                <li>Identity proof (e.g., Aadhaar Card, Voter ID, PAN card, Driving License)</li>
+                                <li>Passport-size recent photo</li>
+                                <li>Address proof (e.g., Aadhaar Card, Voter ID, electricity bill, ration card)</li>
+                                <li>Land documents (Khatauni / Khasra / rent agreement)</li>
+                                <li>Bank Account Details</li>
+                                <li>Mobile Number</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="process">for apply Go to the nearest bank</p>
+                </div>
+
+                <!-- 6th scheme -->
+
+                <div class="schemes-card">
+                    <div class="card-header"><!-- card heading section -->
+                        <div class="header-left">
+                            <img src="/images/aif.png" alt="pm-kisan">
+                            <div class="sch-title">
+                                <p class="subtitle">Loans Credit & Tools</p>
+                                <h2 class="main-title">Agriculture Infrastructure Fund (AIF)</h2>
+                            </div>
+                        </div>
+                        <button class="apply-btn"><a href="https://agriinfra.dac.gov.in/">Apply Now</a></button>
+                    </div>
+                    <!-- scheme-card-body -->
+                    <p class="scheme-para">The Agriculture Infrastructure Fund (AIF) scheme provides affordable loans
+                        and support to help farmers and related groups build better storage, processing, and marketing
+                        facilities</p>
+
+                    <div class="detail-s">
+                        <div class="scheme-detail third-s">
+                            <h3>Eligibility Criteria</h3>
+                            <ul>
+                                <li>Individual Farmers</li>
+                                <li>FPOs (Farmer Producer Organization) SHGs, cooperatives</li>
+                                <li>Agri-startups, entrepreneur</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail third-s">
+                            <h3>Benefits</h3>
+                            <ul>
+                                <li>Loan available at very low interest (interest subsidy)..</li>
+                                <li>Long repayment time.</li>
+                                <li>Helps build storage, warehouse, cold store, processing units, custom hiring centers,
+                                    etc.</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail third-s">
+                            <h3>Required Documents</h3>
+                            <ul>
+                                <li>Aadhaar Card(Identity proof)</li>
+                                <li>Address-Proof</li>
+                                <li>Bank details / Passbook</li>
+                                <li>Land documents (if project is on own land)</li>
+                                <li>Project report / plan</li>
+                                <li> Photo</li>
+                                <li>Mobile Number</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="process"> Apply through <a href="https://agriinfra.dac.gov.in/"> agriinfra.dac.gov.in </a>
+                        Register your project → Upload documents → Submit → Bank reviews and
+                        approves AIF loan.</p>
+                </div>
+
+
+                <!-- 7th scheme -->
+
+                <div class="schemes-card">
+                    <div class="card-header"><!-- card heading section -->
+                        <div class="header-left">
+                            <img src="/images/pmksy.jpeg" alt="pm-kisan">
+                            <div class="sch-title">
+                                <p class="subtitle">Water & Better Farming</p>
+                                <h2 class="main-title"> Pradhan Mantri Krishi Sinchayee Yojana (PMKSY)</h2>
+                            </div>
+                        </div>
+                        <button class="apply-btn"><a href="https://www.pmksy.gov.in/">Apply Now</a></button>
+                    </div>
+                    <!-- scheme-card-body -->
+                    <p class="scheme-para">The Pradhan Mantri Krishi Sinchayee Yojana (PMKSY) is a government scheme to
+                        ensure every farm has assured water supply ("Har Khet Ko Pani") and to use water efficiently</p>
+
+                    <div class="detail-s">
+                        <div class="scheme-detail fourth-s">
+                            <h3>Eligibility Criteria</h3>
+                            <ul>
+                                <li>Any farmer doing farming.</li>
+                                <li>Farmers with own land or rented land.</li>
+                                <li> FPOs, SHGs, and groups of farmers can also apply.</li>
+                                <li> Land must be used for agriculture.</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail fourth-s">
+                            <h3>Benefits</h3>
+                            <ul>
+                                <li>Big subsidy on drip and sprinkler irrigation systems..</li>
+                                <li>Helps save water — “More crop per drop”</li>
+                                <li>Reduces irrigation cost.</li>
+                                <li>Better Water Use</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail fourth-s">
+                            <h3>Required Documents</h3>
+                            <ul>
+                                <li>Identity Proof(eg.Aadhaar Card)</li>
+                                <li>Landholding Papers</li>
+                                <li>Bank Account Details</li>
+                                <li>Photo</li>
+                                <li>Other (if applicable)</li>
+                                <li>Mobile Number</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="process"> Apply through <a href="https://www.pmksy.gov.in/"> PMKSY online portal </a> OR Contact your
+                        local Block/District Agriculture Office or call the Kisan Call Centre (Toll-Free No.
+                        1800-180-1551)</p>
+                </div>
+
+
+                <!-- 8th scheme -->
+
+
+                <div class="schemes-card">
+                    <div class="card-header"><!-- card heading section -->
+                        <div class="header-left">
+                            <img src="/images/rgkny.jpeg" alt="pm-kisan">
+                            <div class="sch-title">
+                                <p class="subtitle">financial assistance (input subsidy)Chhattisgarh Government</p>
+                                <h2 class="main-title">Rajiv Gandhi Kisan Nyay Yojana (RGKNY)</h2>
+                            </div>
+                        </div>
+                        <button class="apply-btn"><a href="rgkny.cg.nic.in">Apply Now</a></button>
+                    </div>
+                    <!-- scheme-card-body -->
+                    <p class="scheme-para">RGKNY is a help scheme by the state government (in Chhattisgarh) that gives
+                        money support to farmers for certain crops. The idea is to help farmers earn more and make
+                        farming profitable.</p>
+
+                    <div class="detail-s">
+                        <div class="scheme-detail fifth-s">
+                            <h3>Eligibility Criteria</h3>
+                            <ul>
+                                <li>Be a permanent resident of Chhattisgarh state</li>
+                                <li>Be a farmer of any category (marginal, small, or large) or a forest lease holder.
+                                </li>
+                                <li>Be above 18 years of age. </li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail fifth-s">
+                            <h3>Benefits</h3>
+                            <ul>
+                                <li>Gives farmers direct money help to cover the cost of farming..</li>
+                                <li>Helps farmers earn more profit from their crops.</li>
+                                <li>Covers multiple Kharif crops</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail fifth-s">
+                            <h3>Required Documents</h3>
+                            <ul>
+                                <li>Aadhaar Card</li>
+                                <li>Land records (e.g., B-1, loan book)</li>
+                                <li>Bank Account Details</li>
+                                <li>Mobile Number</li>
+                                <li>Passport-size photograph</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="process"> Go to the official <a href="rgkny.cg.nic.in"> RGKNY portal </a> download or fill the application
+                        form
+                        attach the required documents, and submit it to the local Rural Agriculture Extension Officer
+                        (RAEO) or the Gram Panchayat Secretary for verification</p>
+                </div>
+
+
+                <!-- 9th scheme -->
+
+
+                <div class="schemes-card">
+                    <div class="card-header"><!-- card heading section -->
+                        <div class="header-left">
+                            <img src="/images/rg.webp" alt="pm-kisan">
+                            <div class="sch-title">
+                                <p class="subtitle">(financial assistance) Chhattisgarh Government</p>
+                                <h2 class="main-title">Rajiv Gandhi Gramin Bhoomihin Krishi Majdoor Nyay Yojana (BGKMNY)
+                                </h2>
+                            </div>
+                        </div>
+                        <button class="apply-btn"><a href="rggbkmny.cg.nic.in ">Apply Now</a></button>
+                    </div>
+                    <!-- scheme-card-body -->
+                    <p class="scheme-para">The Rajiv Gandhi Gramin Bhoomihin Krishi Majdoor Nyay Yojana (BGKMNY) is a
+                        Chhattisgarh government scheme providing financial aid to landless agricultural laborer families
+                    </p>
+
+                    <div class="detail-s">
+                        <div class="scheme-detail fifth-s">
+                            <h3>Eligibility Criteria</h3>
+                            <ul>
+                                <li>permanent residents of Chhattisgarh state.</li>
+                                <li>Should be 18 years or older</li>
+                                <li>Must work as a farm laborer (agriculture work)</li>
+                                <li>The family must not own agricultural land.</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail fifth-s">
+                            <h3>Benefits</h3>
+                            <ul>
+                                <li>Eligible families receive an annual financial assistance of ₹7,000 (initially
+                                    ₹6,000, later increased)</li>
+                                <li>Improves income of landless laborers.</li>
+                                <li>Direct Benefit Transfer (DBT)</li>
+                            </ul>
+                        </div>
+
+                        <div class="scheme-detail fifth-s">
+                            <h3>Required Documents</h3>
+                            <ul>
+                                <li>Aadhaar Card</li>
+                                <li>Passport size photo</li>
+                                <li>Bank Account Details</li>
+                                <li>Mobile Number</li>
+                                <li>Permanent residence certificate (Domicile certificate) </li>
+                                <li>Landless certificate or proof of being a farm laborer</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="process"> eligible family,
+                        register on the official <a href="rggbkmny.cg.nic.in "> Rajiv Gandhi Gramin Bhoomihin Krishi Majdoor Nyay Yojana portal </a><b> or </b>
+                        submit the completed application form with required documents to their Gram
+                        Panchayat/Agriculture Office.
+                </div>
+            </div>
+     </section>
+    </main>
+
+
+
+     <!-- footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col Contact">
+                <div class="f-logo">
+                    <img src="/images/logo.svg" alt="cg-logo">
+                    <div>
+                        <h2>Department of Agriculture</h2>
+                        <p class="para">government of Chhattisgarh</p>
+                        <p> <a href="https://www.google.com/maps/place/Indravati+Bhawan/@21.156285,81.7942353,17z/data=!3m1!4b1!4m6!3m5!1s0x3a28c695f3d7d5d1:0xe23796cb5bbee93f!8m2!3d21.156285!4d81.7968102!16s%2Fg%2F11bbx1bfvw?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                        class="location"><i class="fa-solid fa-location-dot"></i></a>Indrawati Bhavan,block 2,Naya Raipur, Atal
+                            Nagar,Chhattisgarh,492002</p>
+                        <p><i class="fa-solid fa-phone"></i><a href="tel:+8770826925">8770826925</a></p>
+                        <p><i class="fa-regular fa-envelope"></i> <a href="mailto:agri@cg.gov.in">agri@cg.gov.in</a></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="footer-col links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="#">Crop information</a></li>
+                    <li><a href="#">Market Prices</a></li>
+                    <li><a href="#">Schemes & Subsidies</a></li>
+                    <li><a href="login.html">Farmer Registration</a></li>
+                    <li><a href="#">Soil and Weather</a></li>
+                    <li><a href="#">District Map</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+
+             <div class="footer-col social">
+                <h3>Contact With Us</h3>
+                <div class="social-icon">
+                    <a href="https://www.facebook.com/" class="icon-s facebook"><i
+                            class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://x.com/" class="icon-s twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.whatsapp.com/?lang=en" class="icon-s whatsapp"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    <a href="https://www.youtube.com/" class="icon-s youtube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.google.com/maps/place/Indravati+Bhawan/@21.156285,81.7942353,17z/data=!3m1!4b1!4m6!3m5!1s0x3a28c695f3d7d5d1:0xe23796cb5bbee93f!8m2!3d21.156285!4d81.7968102!16s%2Fg%2F11bbx1bfvw?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D"
+                        class="icon-s location"><i class="fa-solid fa-location-dot"></i></a>
+
+                </div>
+                <h4>Farmer Helpline</h4>
+                <a href="tel:+1800-180-1551"><p class="helpline">1800-180-1551</p></a>
+                <small>Available 24/7</small>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="disclaimer">
+                This is an unofficial website created for educational and demonstration purposes only.
+                It is not official website of the Government of Chhattisgarh
+                or the Department of Agriculture.
+            </p>
+            <p class="claim">&copy; 2025 Kala Samrajya . All rights reserved</p>
+        </div>
+    </footer>
+
+    
+    <!-- js section -->
+    <script src="/js/scheme.js"></script>
+</body>
+
+</html>

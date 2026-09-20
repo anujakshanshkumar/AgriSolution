@@ -1,0 +1,57 @@
+References
+
+1. Integrated Geospatial Online Data (IGOD) — Chhattisgarh Organizations
+   URL: https://igod.gov.in/sg/CG/E042/organizations
+   Description: Official listing of district and block/local government organizations used to populate district/block data in `js/del.js`.
+   Accessed: 2025-12-10
+
+2. Local Government Directory (LGDirectory)
+   URL: https://lgdirectory.gov.in/
+   Description: Source cited by IGOD pages for municipal and block-level organization information.
+   Accessed: 2025-12-10
+
+3. Open-Meteo — Weather API (current_weather)
+   URL: https://open-meteo.com/
+   Description: Used to fetch real-time weather data for the weather widget on `soil.html` (no API key required).
+   Accessed: 2025-12-10
+
+4. MDN Web Docs (Mozilla)
+   URL: https://developer.mozilla.org/
+   Description: General reference for HTML, CSS and JavaScript language features and browser APIs used across the project (DOM, fetch, Geolocation, etc.).
+   Accessed: 2025-12-10
+
+5. Font Awesome (CDN)
+   URL: https://cdnjs.com/libraries/font-awesome
+   Description: Icon set and CDN link used in the header and across pages (`<i class="fa-...">`).
+   Accessed: 2025-12-10
+
+6. CDNJS
+   URL: https://cdnjs.com/
+   Description: CDN used to load third-party JS and CSS resources like Font Awesome; referenced in the project HTML.
+   Accessed: 2025-12-10
+
+7. HTML Living Standard (WHATWG)
+   URL: https://html.spec.whatwg.org/
+   Description: Authoritative specification for HTML markup and semantics.
+   Accessed: 2025-12-10
+
+8. CSS Cascading and Inheritance (W3C) / CSS Reference
+   URL: https://www.w3.org/Style/CSS/Overview.en.html
+   Description: Reference for CSS layout, flexbox, and responsive techniques used in the project's stylesheets.
+   Accessed: 2025-12-10
+
+9. ECMAScript Language Specification (ECMA-262)
+   URL: https://www.ecma-international.org/publications-and-standards/standards/ecma-262/
+   Description: Reference for JavaScript language features used in project scripts.
+   Accessed: 2025-12-10
+
+10. ReportLab (Python PDF generation library) — used to generate the PDF here
+    URL: https://www.reportlab.com/dev/install/
+    Description: Library used to programmatically create `REFERENCES.pdf` from `REFERENCES.txt`.
+    Accessed: 2025-12-10
+
+Notes:
+- Images under `/images/` are assumed to be project-owned or sourced by the project author. If any images or external media used in the site were taken from other websites, add those specific image attributions here (source URL and license).
+- Data provenance: district/block lists were taken from IGOD pages; any other external datasets should be added to this list with their URLs and access dates.
+
+If you want the references formatted in a specific citation style (APA, MLA, Chicago), tell me which style and I will reformat before generating the PDF.

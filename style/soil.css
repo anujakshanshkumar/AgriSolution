@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.soiltypesbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    background-color: #f5f5f5;
+    width: 100%;
+}
+
+.soiltophead {
+    max-width: 60%;
+    margin: auto;
+    gap: 4rem;
+    text-align: center;
+}
+
+.soiltophead h3 {
+    margin-top: 2rem;
+    background-color: rgb(2, 136, 20);
+    font-family: Roboto;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    color: rgb(243, 245, 243);
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit:fill;
+    object-position: center;
+    display: block;
+    filter: brightness(0.6);
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 1rem 2rem;
+}
+
+.hero-overlay h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-overlay p { 
+    opacity: 0.95;
+}
+
+@media (max-width: 900px) {
+    .hero { height: 280px; }
+    .hero-overlay h2 { font-size: 1.5rem; }
+    .soilbox { width: 45%; height: 420px; }
+}
+
+@media (max-width: 600px) {
+    .soilbox { width: 100%; }
+    .soilbox { height: auto; }
+    .hero { height: 220px; }
+}
+
+.soilbox {
+    width: 380px;
+    height: 450px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.soilbox:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.soil-image {
+    width: 100%;
+    height: 280px;
+    background-color: #e0e0e0;
+    overflow: hidden;
+}
+
+.soil-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.soil-description {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.soil-description h4 {
+    font-size: 1.3rem;
+    color: rgb(2, 136, 20);
+    margin-bottom: 0.8rem;
+    font-family: Roboto;
+}
+
+.soil-description p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    font-family: Roboto;
+}
+
+/* Weather widget styles */
+.weather-section {
+    padding: 2rem 1rem 4rem 1rem;
+    background: #f5f5f5;
+}
+.weather-section h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: rgb(2, 136, 20);
+}
+.weather-widget {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem 2rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.weather-left { flex: 0 0 130px; text-align: center; }
+.weather-icon { font-size: 4.5rem; }
+.weather-right { flex: 1; }
+.weather-location { font-weight: 600; color: #333; margin-bottom: 0.5rem; font-size: 1.1rem; }
+.weather-temp { font-size: 2.8rem; color: rgb(2, 136, 20); margin-bottom: 0.5rem; font-weight: 600; }
+.weather-desc { color: #666; margin-bottom: 0.4rem; font-size: 1rem; }
+.weather-updated { color: #999; font-size: 0.9rem; }
+
+@media (max-width: 700px) {
+    .weather-widget { flex-direction: column; align-items: flex-start; }
+    .weather-left { width: 100%; text-align: left; }
+}
+
+.weather-retry {
+    background: #028814;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-top: 0.8rem;
+}
+.weather-retry:hover { opacity: 0.95; }
+.weather-error-details {
+    margin-top: 0.6rem;
+    background: #111;
+    color: #eee;
+    padding: 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    overflow: auto;
+    max-height: 160px;
+}
+
+
+ /* footer */
+ .footer {
+    /* background-color: rgb(29, 71, 29);
+      color: rgb(245,245,220); */
+    background-color: rgb(11, 61, 46);
+    color: white;
+    padding: 3.125rem 1.25rem 1.25rem;
+    border-top: 1px solid wheat;
+ }
+
+ .footer-container {
+    max-width: 75rem;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2.2rem;
+ }
+
+ .footer-col {
+    flex: 1 1 15.6rem;
+ }
+
+ .footer-col .f-logo {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+ }
+
+ .footer-col .f-logo img {
+    width: 4.375rem;
+    height: auto;
+ }
+
+ .footer-col .f-logo h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+ }
+
+ .footer-col .f-logo p {
+    margin: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.3rem;
+ }
+
+ .para {
+    font-weight: 550;
+    margin-bottom: 1.5rem;
+ }
+
+ .footer-col .f-logo p i {
+    margin-right: 0.8rem;
+ }
+
+ .footer-col h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+ }
+
+ .footer-col ul li {
+    list-style: none;
+    margin: 0.1rem 0;
+ }
+
+ .footer-col a {
+    text-decoration: none;
+    color: rgb(255, 239, 239);
+    transition: 0.3s ease;
+ }
+
+ .footer-col a:hover {
+    color: rgb(102, 216, 102);
+ }
+
+ .social-icon {
+    display: flex;
+    gap: 10px;
+    margin: 0.625rem 0;
+ }
+
+ .icon-s {
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(180, 184, 180);
+    background-color: rgba(7, 59, 30, 0.575);
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s;
+ }
+
+ .icon-s:hover {
+    background-color: transparent;
+ }
+
+ .helpline {
+    margin: 1.2rem 0;
+    font-size: 1.36rem;
+    font-weight: 700;
+    color: rgb(20, 160, 27);
+ }
+
+ .social h4 {
+    font-weight: 490;
+ }
+
+ .disclaimer {
+    /* margin-top: 1rem; */
+    font-size: 0.9rem;
+    color: whitesmoke;
+    max-width: 56rem;
+ }
+
+ .footer-bottom {
+    border-top: 1px solid white;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+ }
+
+ .footer-bottom .claim {
+    color: white;
+    font-weight: 600;
+ }

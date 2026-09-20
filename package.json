@@ -1,0 +1,11 @@
+{
+  "name": "agri-solution-portal",
+  "version": "1.0.0",
+  "description": "Agri-Solution Portal frontend",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["agriculture", "portal"],
+  "author": "",
+  "license": "ISC"
+}
