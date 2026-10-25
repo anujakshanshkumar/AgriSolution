@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Major Crops | Agri-Solution</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/style/all-crops.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/crop.html">
+      <img src="/images/logo.jpg" alt="Agri-Solution logo">
+      <span><strong>Agri-Solution</strong><small>One-Stop Solution</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="/crop.html">Crop Information</a>
+      <a href="/index.html">Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">CROP INFORMATION</p>
+      <h1>All major crops in Chhattisgarh</h1>
+      <p>Explore seasonal guidance, crop categories, sowing windows and harvest periods in one place.</p>
+    </section>
+
+    <section class="crop-list" aria-label="All major crops">
+      <% crops.forEach(crop => { %>
+        <article class="crop-card">
+          <img src="<%= crop.image %>" alt="<%= crop.name %>" loading="lazy">
+          <div class="crop-card-content">
+            <div class="crop-card-heading">
+              <h2><%= crop.name %></h2>
+              <span><%= crop.season %></span>
+            </div>
+            <p class="category"><%= crop.category %></p>
+            <p><%= crop.overview %></p>
+            <dl>
+              <div><dt>Sowing</dt><dd><%= crop.sowing %></dd></div>
+              <div><dt>Harvest</dt><dd><%= crop.harvest %></dd></div>
+            </dl>
+          </div>
+        </article>
+      <% }); %>
+    </section>
+  </main>
+</body>
+</html>

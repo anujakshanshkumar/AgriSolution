@@ -1,31 +1,3 @@
-// for hero section sliding
-
-const slides = document.querySelectorAll(".crop-slide");
-let index = 0;
-
-function showSlide(i){
-  slides.forEach(s=> s.classList.remove("active"));
-  slides[i].classList.add("active");
-}
-
-document.querySelector(".next").addEventListener("click", ()=>{
-  index = (index + 1) % slides.length;
-  showSlide(index);
-});
-
-document.querySelector(".prev").addEventListener("click", ()=>{
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-});
-
-// auto slide
-setInterval(()=>{
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}, 3500);
-
-
-
 // for crop section
 
 // Kharif / Rabi paragraph section
@@ -34,8 +6,6 @@ const rabiPara = document.getElementById('rabi_para');
 
 const kharifSection = document.getElementById('kharifSection');
 const rabiSection = document.getElementById('rabiSection');
-
-const detailBox = document.getElementById('detailBox');
 
 const CROPS = {
   /* KHARIF (15) */
@@ -47,24 +17,24 @@ const CROPS = {
       '<b> Medium & Long Duration: </b> Swarna , Swarna sub-1 (flood  tolerant), PR-113.',
       'Seed Rate: 20-25 kg/acre (nursery for transplanting).',
       'High quality certified seeds (e.g., MTU series).',],
-    
-             
+
+
     irrigation: [
       ' Mostly rain-fed (monsoon).',
-'Light irrigation is good 40-50 days after sowing and during flowering if no rain.',
-'Methods: Dry Sowing (Khurra Boni), Wet Sowing (Lai Chopi), Transplanting (Rupa).' ,
-] ,
+      'Light irrigation is good 40-50 days after sowing and during flowering if no rain.',
+      'Methods: Dry Sowing (Khurra Boni), Wet Sowing (Lai Chopi), Transplanting (Rupa).',
+    ],
 
     soil: [
       '<b> Best : </b> Red-Yellow soils with good clay and water-holding capacity (found in Bilaspur, Raipur, Durg areas).',
-           '<b> Also Grows In: </b> Alluvial, Black, Laterite soils.',
+      '<b> Also Grows In: </b> Alluvial, Black, Laterite soils.',
     ],
-    
-    
+
+
     fertilizer: [
-    '<b>  NPK & Urea: </b> Essential for good growth; balanced use is key.' , 
-'<b>  Organic </b> Farm Yard Manure (FYM) helps soil health.',
-'<b> Bio-fertilizers: </b>  Promoted for better nutrient use.', 
+      '<b>  NPK & Urea: </b> Essential for good growth; balanced use is key.',
+      '<b>  Organic </b> Farm Yard Manure (FYM) helps soil health.',
+      '<b> Bio-fertilizers: </b>  Promoted for better nutrient use.',
     ],
 
     medicose: 'Use Tricyclazole for blast; follow local advisories for pests.',
@@ -74,7 +44,7 @@ const CROPS = {
     harvest: 'September–October-November'
   },
 
-   maize: {
+  maize: {
     name: 'Maize',
     seed: 'Certified hybrid seeds (1.5–2 kg/acre for high-yield hybrids vary).',
     irrigation: 'Irrigate at knee-stage and grain-filling; generally 2–4 irrigations.',
@@ -306,17 +276,6 @@ const CROPS = {
     harvest: 'Feb–Mar'
   },
 
-  sunflower_rabi: {
-    name: 'Sunflower (Rabi areas)',
-    seed: 'Hybrid seeds; seed rate ~5–7 kg/ha.',
-    irrigation: 'Moderate; critical at flowering.',
-    soil: 'Well-drained soils.',
-    fertilizer: 'Balanced NPK.',
-    medicose: 'Control birds & pests.',
-    sowing: 'Oct–Nov',
-    harvest: 'Feb–Mar'
-  },
-
   rapeseed: {
     name: 'Rapeseed',
     seed: 'Certified varieties; seed rate ~4–6 kg/ha.',
@@ -340,59 +299,252 @@ const CROPS = {
   }
 };
 
-// Show season: toggles paragraph + shows only the corresponding cards
+const allSeasons = document.getElementById('allSeasons');
+const kharifRadio = document.getElementById('kharif');
+const rabiRadio = document.getElementById('rabi');
+const cropDetails = document.getElementById('cropDetails');
+const cropDetailsTitle = document.getElementById('cropDetailsTitle');
+const cropDetailsContent = document.getElementById('cropDetailsContent');
+const closeCropDetails = document.getElementById('closeCropDetails');
+
+const CHHATTISGARH_CROP_AREAS = {
+  paddy: [3893000, 215000],
+  maize: [224000, 122620],
+  kodo: [161000, 0],
+  bajra: [2100, 0],
+  jowar: [4100, 0],
+  ragi: [11000, 0],
+  soyabean: [136000, 0],
+  groundnut: [45000, 18000],
+  sesamum: [15900, 0],
+  niger: [65000, 0],
+  sunflower: [1200, 6800],
+  arhar: [63245, 0],
+  urad: [125000, 12000],
+  moong: [25000, 8500],
+  kulthi: [22000, 0],
+  cotton: [12000, 0],
+  sugarcane: [35000, 0],
+  wheat: [0, 267040],
+  barley: [0, 4200],
+  gram_rabi: [0, 335025],
+  tiwada: [0, 310000],
+  masoor: [0, 22000],
+  peas: [0, 26000],
+  mustard: [0, 105000],
+  linseed: [0, 37000],
+  rapeseed: [0, 6000],
+  castor: [0, 1200],
+  onion: [8500, 43500],
+  potato: [0, 46000],
+  tomato: [18000, 48000],
+  chilli: [12000, 24000]
+};
+
+const ADDITIONAL_CROP_CARDS = {
+  ragi: {
+    title: 'Ragi (Finger Millet)',
+    image: '/JAGGU CROP/kodo.webp',
+    category: 'Cereals/Grains',
+    description: 'A traditional small millet grown during the Kharif season. Its grain is used as food and is valued for its nutritional content.'
+  },
+  niger: {
+    title: 'Nigerseed (Ramtil)',
+    image: '/JAGGU CROP/safflower2.jpg',
+    category: 'Oilseeds',
+    description: 'A Kharif oilseed crop grown in parts of Chhattisgarh, particularly in rainfed and tribal farming areas.'
+  },
+  tiwada: {
+    title: 'Tiwada (Lathyrus / Khesari)',
+    image: '/JAGGU CROP/masoor.webp',
+    category: 'Pulses',
+    description: 'A Rabi pulse commonly grown as a relay crop after rice in Chhattisgarh. Follow local food-safety guidance when consuming it.'
+  },
+  castor: {
+    title: 'Castor (Arandi)',
+    image: '/JAGGU CROP/field crop.jpg',
+    category: 'Oilseeds',
+    description: 'A hardy oilseed crop grown for its seeds, which are processed to produce castor oil.'
+  },
+  potato: {
+    title: 'Potato',
+    image: '/JAGGU CROP/vggggg.webp',
+    category: 'Vegetables',
+    description: 'A cool-season vegetable crop grown in Chhattisgarh during the Rabi season.'
+  },
+  tomato: {
+    title: 'Tomato',
+    image: '/JAGGU CROP/vggggg.webp',
+    category: 'Vegetables',
+    description: 'A widely cultivated vegetable used fresh and in cooking. It can be grown in more than one season.'
+  },
+  chilli: {
+    title: 'Chilli',
+    image: '/JAGGU CROP/vggggg.webp',
+    category: 'Spices',
+    description: 'A spice crop grown in both Kharif and Rabi seasons in Chhattisgarh.'
+  }
+};
+
+window.CROP_DATA = { CROPS, CHHATTISGARH_CROP_AREAS, ADDITIONAL_CROP_CARDS };
+
+if (kharifSection) {
+const numberFormat = new Intl.NumberFormat('en-IN');
+
+function createCropCard(key, info) {
+  const card = document.createElement('div');
+  card.className = 'crop-card';
+  card.dataset.key = key;
+
+  const image = document.createElement('img');
+  image.src = info.image;
+  image.alt = info.title;
+
+  const title = document.createElement('h3');
+  title.textContent = info.title;
+
+  const description = document.createElement('p');
+  const category = document.createElement('strong');
+  category.textContent = `${info.category} `;
+  description.append(category, document.createTextNode(info.description));
+
+  const link = document.createElement('a');
+  link.className = 'view-btn';
+  link.href = '#';
+  link.textContent = 'Read More';
+  card.append(image, title, description, link);
+  return card;
+}
+
+function arrangeCropCardsBySeason() {
+  const templates = new Map();
+  document.querySelectorAll('.crop-card[data-key]').forEach(card => {
+    if (!templates.has(card.dataset.key)) {
+      templates.set(card.dataset.key, card);
+    }
+  });
+
+  const seasonSections = [kharifSection, rabiSection];
+  seasonSections.forEach(section => section.replaceChildren());
+
+  Object.entries(CHHATTISGARH_CROP_AREAS).forEach(([key, areas]) => {
+    areas.forEach((area, seasonIndex) => {
+      if (area === 0) {
+        return;
+      }
+      const template = templates.get(key);
+      const cardInfo = ADDITIONAL_CROP_CARDS[key];
+      if (!template && !cardInfo) {
+        throw new Error(`Missing crop card content for "${key}".`);
+      }
+      const card = template ? template.cloneNode(true) : createCropCard(key, cardInfo);
+      card.dataset.key = key;
+      seasonSections[seasonIndex].append(card);
+    });
+  });
+
+  seasonSections.forEach((section, seasonIndex) => {
+    const cards = [...section.querySelectorAll(':scope > .crop-card')];
+    cards.sort((first, second) =>
+      CHHATTISGARH_CROP_AREAS[second.dataset.key][seasonIndex] -
+      CHHATTISGARH_CROP_AREAS[first.dataset.key][seasonIndex]
+    );
+    cards.forEach(card => section.append(card));
+  });
+}
+
+function addCropAnalytics(card, seasonIndex) {
+  const areas = CHHATTISGARH_CROP_AREAS[card.dataset.key];
+  if (!areas || areas[seasonIndex] <= 0) {
+    throw new Error(`Missing seasonal area data for "${card.dataset.key}".`);
+  }
+
+  const analytics = document.createElement('div');
+  analytics.className = 'crop-card-analytics';
+  const metric = document.createElement('div');
+  metric.className = 'crop-card-metric';
+  const label = document.createElement('span');
+  label.textContent = `Area under crop — ${seasonIndex === 0 ? 'Kharif' : 'Rabi'}`;
+  const value = document.createElement('strong');
+  value.textContent = `${numberFormat.format(areas[seasonIndex])} ha`;
+  metric.append(label, value);
+  analytics.append(metric);
+  card.querySelector('.view-btn').before(analytics);
+}
+
+function setupCropScrollPanel(section, seasonIndex) {
+  section.querySelectorAll(':scope > .crop-card').forEach(card => {
+    addCropAnalytics(card, seasonIndex);
+    card.querySelector('.view-btn').href = `crop-details.html?crop=${encodeURIComponent(card.dataset.key)}`;
+    if ('IntersectionObserver' in window) {
+      card.classList.add('reveal-on-scroll');
+    }
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    return;
+  }
+
+  const cardObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -24px 0px'
+  });
+
+  section.querySelectorAll('.crop-card.reveal-on-scroll').forEach(card => cardObserver.observe(card));
+}
+
+arrangeCropCardsBySeason();
+setupCropScrollPanel(kharifSection, 0);
+setupCropScrollPanel(rabiSection, 1);
+
+// Show crops from the selected season.
 function showSeason(season) {
+  allSeasons.checked = false;
   if (season === 'kharif') {
+    kharifRadio.checked = true;
+    rabiRadio.checked = false;
     kharifPara.style.display = 'block';
     rabiPara.style.display = 'none';
     kharifSection.style.display = 'grid';
     rabiSection.style.display = 'none';
   } else {
+    kharifRadio.checked = false;
+    rabiRadio.checked = true;
     kharifPara.style.display = 'none';
     rabiPara.style.display = 'block';
     kharifSection.style.display = 'none';
     rabiSection.style.display = 'grid';
   }
-  // clear detail panel to default
-  detailBox.innerHTML = '<h2>Select any crop to view details</h2><p>Click a crop on the left to view seed, irrigation, soil type, fertilizer, medicose, sowing & harvest information.</p>';
 }
 
-// attach events to all view buttons (delegation not needed; number small)
-document.querySelectorAll('.view-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const card = e.target.closest('.crop-card');
-    const key = card.dataset.key;
-    const info = CROPS[key];
+function showAllSeasonCrops() {
+  kharifRadio.checked = false;
+  rabiRadio.checked = false;
+  kharifPara.style.display = 'block';
+  rabiPara.style.display = 'block';
+  kharifSection.style.display = 'grid';
+  rabiSection.style.display = 'grid';
+}
 
-    // if data not found, show fallback
-    if (!info) {
-      detailBox.innerHTML = "<h2>" + card.querySelector('h3').innerText + "</h2><p>Details not available yet.</p>";
-      return;
-    }
-
-    detailBox.innerHTML = `
-      <h2>${info.name}</h2>
-      <div class="detail-row"><label>Seed:</label><div>${info.seed}</div></div>
-      <div class="detail-row"><label>Irrigation:</label><div>${info.irrigation}</div></div>
-      <div class="detail-row"><label>Soil Type:</label><div>${info.soil}</div></div>
-      <div class="detail-row"><label>Fertilizer:</label><div>${info.fertilizer}</div></div>
-      <div class="detail-row"><label>Medicose:</label><div>${info.medicose}</div></div>
-      <div class="detail-row"><label>Sowing:</label><div>${info.sowing}</div></div>
-      <div class="detail-row"><label>Harvest:</label><div>${info.harvest}</div></div>
-    `;
-  });
+kharifRadio.addEventListener('change', () => showSeason('kharif'));
+rabiRadio.addEventListener('change', () => showSeason('rabi'));
+allSeasons.addEventListener('change', () => {
+  if (allSeasons.checked) {
+    showAllSeasonCrops();
+  } else {
+    showSeason('kharif');
+  }
 });
 
-// Ensure radios call showSeason; also set default on load
-document.getElementById('kharif').addEventListener('click', () => showSeason('kharif'));
-document.getElementById('rabi').addEventListener('click', () => showSeason('rabi'));
-
-// default load
-window.addEventListener('DOMContentLoaded', () => {
-  // ensure radio default selection visually
-  document.getElementById('kharif').checked = true;
-  showSeason('kharif');
-});
+kharifRadio.checked = true;
+showSeason('kharif');
 
 var wel1 = new Audio();
 wel1.src = "/audios/wel1.mp3";
@@ -402,3 +554,4 @@ ab1.src = "/audios/ab1.mp3";
 
 var crop1 = new Audio();
 crop1.src = "/audios/crop1.mp3";
+}

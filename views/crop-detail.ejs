@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= crop.name %> | Agri-Solution</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/style/all-crops.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/crop.html">
+      <img src="/images/logo.jpg" alt="Agri-Solution logo">
+      <span><strong>Agri-Solution</strong><small>One-Stop Solution</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a class="nav-link-active" href="/crop.html">All Crops</a>
+      <a href="/index.html">Home</a>
+    </nav>
+  </header>
+
+  <main class="detail-main">
+    <div class="breadcrumb"><a href="/crop.html">Crop information</a><i class="fa-solid fa-chevron-right"></i><span><%= crop.name %></span></div>
+    <article class="crop-detail">
+      <div class="detail-visual">
+        <img class="detail-image" src="<%= crop.image %>" alt="<%= crop.name %>">
+        <div class="image-overlay"></div>
+        <div class="visual-caption"><i class="fa-solid fa-seedling"></i><span>Chhattisgarh crop guide</span></div>
+      </div>
+      <div class="detail-content">
+        <div class="detail-kicker"><span class="detail-season"><i class="fa-regular fa-calendar"></i> <%= crop.season %> crop</span><span class="verified"><i class="fa-solid fa-circle-check"></i> Farmer resource</span></div>
+        <h1><%= crop.name %></h1>
+        <p class="detail-category"><%= crop.category %></p>
+        <p class="detail-overview"><%= crop.overview %></p>
+        <div class="detail-facts">
+          <div><i class="fa-solid fa-calendar-days"></i><span>Sowing period</span><strong><%= crop.sowing %></strong></div>
+          <div><i class="fa-solid fa-wheat-awn"></i><span>Harvest period</span><strong><%= crop.harvest %></strong></div>
+        </div>
+        <section class="guidance">
+          <div class="section-title"><span class="section-icon"><i class="fa-solid fa-lightbulb"></i></span><div><span class="section-label">PRACTICAL TIPS</span><h2>Crop guidance</h2></div></div>
+          <p>Use healthy, locally recommended seed and prepare well-drained soil before sowing. Monitor moisture, weeds and pests regularly, and follow advice from your local agriculture department for fertilizer and plant-protection decisions.</p>
+        </section>
+        <a class="return-button" href="/crop.html">Explore other crops <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </article>
+  </main>
+  <footer class="detail-footer"><span><i class="fa-solid fa-leaf"></i> Agri-Solution</span><span>One-Stop Solution for farmers</span></footer>
+</body>
+</html>

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const ejs = require('ejs');
 
 const MIME_TYPES = {
   '.avif': 'image/avif',
@@ -38,8 +39,38 @@ function renderFile(request, response, filePath) {
       return;
     }
 
-    fs.createReadStream(filePath).pipe(response);
+    const fileStream = fs.createReadStream(filePath);
+    fileStream.on('error', (streamError) => {
+      if (response.destroyed || response.writableEnded) {
+        return;
+      }
+
+      console.error(`Unable to read ${filePath}: ${streamError.message}`);
+      response.destroy();
+    });
+
+    response.on('close', () => {
+      if (!response.writableEnded) {
+        fileStream.destroy();
+      }
+    });
+
+    fileStream.pipe(response);
   });
 }
 
-module.exports = { renderFile, send };
+function renderTemplate(request, response, templateName, data) {
+  const templatePath = path.join(__dirname, `${templateName}.ejs`);
+  ejs.renderFile(templatePath, data, (error, html) => {
+    if (error) {
+      console.error(`Unable to render ${templatePath}: ${error.message}`);
+      send(response, 500, 'text/plain; charset=utf-8', 'Unable to render page');
+      return;
+    }
+
+    response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    response.end(request.method === 'HEAD' ? undefined : html);
+  });
+}
+
+module.exports = { renderFile, renderTemplate, send };

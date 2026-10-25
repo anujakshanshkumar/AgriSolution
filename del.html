@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dealers &amp; Market Prices | Agri-Solution</title>
     <link href="/style/del.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/responsive.css">
 </head>
 
 <body>
@@ -16,7 +15,7 @@
 
     <header class="TopHeader">
         <div class="Hleft">
-            <img src="/images/logo.png" alt="cg-logo">
+            <img src="/images/logo.jpg" alt="cg-logo">
             <div class="title-grp">
                 <h1 class="title">Agri-Solution</h1>
                 <p class="subtitle">One-Stop Solution</p>
@@ -55,7 +54,7 @@
     <header>
         <nav class="navbar">
             <ul class="nav-Link" id="NavLink">
-                <li><a href="index.html"><i class="fa-solid fa-home" style="padding-right: 5px;"></i>Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown"><a href="#">Agriculture Services
                         <i class="fa-solid fa-chevron-down"></i></a>
@@ -64,6 +63,8 @@
                         <!-- <li><a href="#">Market Prices</a></li> -->
                         <li><a href="schemes.html">Schemes & Subsidies</a></li>
                         <li><a href="del.html">Dealers</a></li>
+                        <li><a href="/token.html">Vikray Token</a></li>
+
                         <li><a href="login.html">Farmer Registration</a></li>
                     </ul>
                 </li>
@@ -89,181 +90,65 @@
     </header>
 
 
-    <div class="dealer">
-        <div class="del1">
-            <div class="a-del">
-                <h1>Nurturing Nature, Feeding Nations.</h1>
-                <h1>Smart Farming, Brighter Future.</h1>
-                <br>
-                <p>Agriculture is the art and science of cultivating the soil,<br> growing crops, and raising livestock
-                    to
-                    provide food, fiber, and other products essential for human life</p>
-                <br>
-                <div class="font">
-                    <i class="fa-solid fa-sack-dollar fa-7x"></i>
-                </div>
-
+    <main class="dealers-page">
+        <section class="dealers-hero" aria-labelledby="dealers-title">
+            <div class="dealers-hero-inner">
+                <p class="dealer-eyebrow">CHHATTISGARH ? AGRI MARKETPLACE</p>
+                <h1 id="dealers-title">Your harvest.<br><span>Your next opportunity.</span></h1>
+                <p class="dealer-hero-copy">Explore paddy prices and choose a procurement centre near you. A little planning goes a long way, from field to market.</p>
+                <div class="dealer-hero-actions"><a class="dealer-button" href="#dealer-information">Find a centre <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a class="dealer-text-link" href="#market-prices">Explore market prices <span aria-hidden="true">?</span></a></div>
+                <div class="dealer-hero-foot"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Local procurement centres</span><span><i class="fa-solid fa-seedling" aria-hidden="true"></i> Paddy varieties &amp; prices</span></div>
             </div>
-
-        </div>
-
-
-    </div>
-
-    <!-- creat card -->
-    <h1 class="increse">Market prices</h1>
-    <h3 class="rice">The cultivated rice plant is an annual grass and grows <br>to about 1.2 metres (4 feet) in height.
-        The
-        leaves are long and flattened and are borne on hollow stems. .</h3>
-
-    <div class="price">
-
-        <div class="market">
-            <div class="market1">
-                <h1>Price 2023</h1>
-                <div class="a-market">
-                    <i class="fa-solid fa-indian-rupee-sign fa-3x"></i>
-                    <h1>25/kg</h1>
-                </div>
-                <h3 class="anshu">In 2023, Chhattisgarh's paddy rates varied, with government support<b> prices 2500p/-
-                        quintal</b></h3>
-            </div>
-
-            <div class="market1">
-                <h1>Price 2024</h1>
-                <div class="a-market">
-                    <i class="fa-solid fa-indian-rupee-sign fa-3x"></i>
-                    <h1>31/kg</h1>
-                </div>
-                <h3 class="anshu">In 2024, Chhattisgarh's paddy rates varied, with government support<b> prices 3100p/-
-                        quintal</b></h3>
-
-            </div>
-            <div class="market1">
-                <h1>Price 2025</h1>
-                <div class="a-market">
-                    <i class="fa-solid fa-indian-rupee-sign fa-3x"></i>
-                    <h1>32/kg</h1>
-                </div>
-                <h3 class="anshu">In 2025, Chhattisgarh's paddy rates varied, with government support<b> prices 3200p/-
-                        quintal</b></h3>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- ctrate suck -->
-
-
-    <div class="anuj">
-
-        <div class="anuj1">
-            <div class="nav">
-                <h2> Dealer information</h2>
-            </div>
-            <div class="jaggu">
-                <div class="jaggu1">
-                    <h4 class="thenam">Choose Your district:</h4>
-                    
-
+        </section>
+        <section class="dealer-section" id="market-prices" aria-labelledby="prices-title">
+            <div class="dealer-section-heading"><div><p class="dealer-eyebrow">PADDY MARKET WATCH</p><h2 id="prices-title">A look at market prices</h2></div><p>Compare the listed annual paddy rates<br>for Chhattisgarh, all in one place.</p></div>
+            <div class="rate-grid"><article class="rate-card"><div class="rate-top"><h3>2023</h3><span>Paddy</span></div><p class="rate-value">?25<span> / kg</span></p><p class="rate-quintal">?2,500 per quintal</p><p class="rate-caption">Chhattisgarh ? Listed annual rate</p></article><article class="rate-card"><div class="rate-top"><h3>2024</h3><span>Paddy</span></div><p class="rate-value">?31<span> / kg</span></p><p class="rate-quintal">?3,100 per quintal</p><p class="rate-caption">Chhattisgarh ? Listed annual rate</p></article><article class="rate-card"><div class="rate-top"><h3>2025</h3><span>Paddy</span></div><p class="rate-value">?32<span> / kg</span></p><p class="rate-quintal">?3,200 per quintal</p><p class="rate-caption">Chhattisgarh ? Listed annual rate</p></article></div>
+            <p class="rates-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Historical rates shown from this portal?s records. Confirm the applicable rate with your procurement centre before selling.</p>
+        </section>
+        <section class="dealer-section dealer-finder" id="dealer-information" aria-labelledby="finder-title">
+            <div class="dealer-section-heading"><div><p class="dealer-eyebrow">PLAN YOUR VISIT</p><h2 id="finder-title">Dealer information</h2></div><p>Start with your location.<br>Find your next stop.</p></div>
+            <div class="finder-panel">
+                <div class="finder-form-panel">
+                    <div class="finder-title"><span class="finder-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><div><h3>Choose a procurement centre</h3><p>Select your area to get started.</p></div></div>
                     <form name="dealer" id="dealer" action="#">
-                         <select name="district" id="district">
-                            <option value="" selected="selected">Choose Your District</option>
-                        </select>
-                        <br><br>
-                    <h4 class="thenam">Choose Your VidhanSabha:</h4>
-
-                         <select name="VidhanSabha" id="VidhanSabha">
-                            <option value="" selected="selected">Choose Your VidhanSabha</option>
-                        </select>
-                        <br><br>
-                    <h4 class="thenam">Uparjan Kendra:</h4>
-
-                         <select name="mandi" id="mandi">
-                            <option value="" selected="selected">Please Select Nearest Uparjan Kendra </option>
-                        </select>
-                        <br><br>
-                        <input class="name" type="submit" value="Submit">
+                        <div class="dealer-field"><label for="district"><span>01</span> District</label><select name="district" id="district" required><option value="">Choose your district</option></select></div>
+                        <div class="dealer-field"><label for="VidhanSabha"><span>02</span> Vidhan Sabha / area</label><select name="VidhanSabha" id="VidhanSabha" required disabled><option value="">Choose your area</option></select></div>
+                        <div class="dealer-field"><label for="mandi"><span>03</span> Uparjan Kendra</label><select name="mandi" id="mandi" required disabled><option value="">Choose a procurement centre</option></select></div>
+                        <button class="dealer-button finder-submit" type="submit">View selection <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                        <p class="dealer-selection" id="dealer-selection" role="status" hidden></p>
                     </form>
-
                 </div>
-                <!-- <button class="name">Submit</button> -->
+                <aside class="finder-visual">
+                    <div class="slideshow-container" role="region" aria-label="Paddy gallery" tabindex="0">
+                        <img class="slide active" src="/images/rice1.jpg" alt="Harvested paddy grains">
+                        <img class="slide" src="/images/rice2.jpg" alt="Rice ready for market" loading="lazy">
+                        <img class="slide" src="/images/swarna-paddy.jpg" alt="Swarna paddy" loading="lazy">
+                        <button class="prev" type="button" aria-label="Previous paddy image">&#10094;</button><button class="next" type="button" aria-label="Next paddy image">&#10095;</button>
+                    </div>
+                    <div class="finder-visual-copy"><p class="dealer-eyebrow">FROM FIELD TO MARKET</p><h3>Make your next visit count.</h3><p>Choose your district, select your area, then pick an available centre. Confirm opening hours and procurement details before you travel.</p></div>
+                </aside>
             </div>
-            <!-- <a href="maya2.html" class="btn">Sea more</a> -->
-
-            <!-- create your img -->
-            <div class="monu">
-                <div class="monu1">
-
-<div class="slideshow-container">
-    <img class="slide" src="/images/rice1.jpg" alt="Rice 1">
-    <img class="slide" src="/images/rice2.jpg" alt="Rice 2">
-    <img class="slide" src="/images/rice3.jpg" alt="Rice 3">
-    <img class="slide" src="/images/rice4.jpg" alt="Rice 4">
-    <img class="slide" src="/images/rice5.jpg" alt="Rice 5">
-    <img class="slide" src="/images/rice6.jpg" alt="Rice 6">
-    <img class="slide" src="/images/rice7.jpg" alt="Rice 7">
-    <img class="slide" src="/images/rice8.jpeg" alt="Rice 8">
-
-    <button class="prev" onclick="plusSlides(-1)">&#10094; </button>
-    <button class="next" onclick="plusSlides(1)">&#10095;</button>
-  </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    </div>
-    <!-- different types of paddy -->
-    <h1 class="dhan"> Different type of paddy</h1>
-    <p class="dhan1">Chhattisgarh grow different types of paddy</p>
-    <div class="type">
-
-        <div class="paddy">
-            <div class="paddy1">
-                <img src="/images/swarna-paddy.jpg" alt="swaran" height="100%" width="100%">
-            </div>
-            <div class="paddy1">
-                <img src="/images/Ponni-Rice.webp" alt="swaran" height="100%" width="100%">
-
-            </div>
-
-            <div class="paddy1">
-                <img src="/images/Basmati.jpg" alt="swaran" height="100%" width="100%">
-
-            </div>
-            <div class="paddy1">
-                <img src="/images/kaltury.avif" alt="swaran" height="100%" width="100%">
-
-            </div>
-            <div class="paddy1">
-                <img src="/images/kalokasha dhan.jpg" alt="swaran" height="100%" width="100%">
-
-            </div>
-            <div class="paddy1">
-                <img src="/images/kabra dhan.jpg" alt="swaran" height="100%" width="100%">
-
-            </div>
-            <div class="paddy1">
-                <img src="/images/chkhao.jpg" alt="swaran" height="100%" width="100%">
-
-            </div>
-            <div class="paddy1">
-                <img src="/images/kns 2.1.jpg" alt="swaran" height="100%" width="100%">
-
-            </div>
-
-        </div>
-    </div>
-
+        </section>
+        <section class="dealer-section varieties-section" aria-labelledby="varieties-title">
+            <div class="dealer-section-heading"><div><p class="dealer-eyebrow">GROWN WITH CARE</p><h2 id="varieties-title">Discover our paddy varieties</h2></div><p>A closer look at the grains<br>that connect our fields and markets.</p></div>
+            <div class="variety-grid"><figure class="variety-card"><img src="/images/swarna-paddy.jpg" alt="Swarna paddy" loading="lazy"><figcaption>Swarna</figcaption></figure>
+<figure class="variety-card"><img src="/images/rice8.jpeg" alt="Paddy harvest paddy" loading="lazy"><figcaption>Paddy harvest</figcaption></figure>
+<figure class="variety-card"><img src="/images/Basmati.jpg" alt="Basmati paddy" loading="lazy"><figcaption>Basmati</figcaption></figure>
+<figure class="variety-card"><img src="/images/kaltury.avif" alt="Kaltury paddy" loading="lazy"><figcaption>Kaltury</figcaption></figure>
+<figure class="variety-card"><img src="/images/kalokasha dhan.jpg" alt="Kalokasha paddy" loading="lazy"><figcaption>Kalokasha</figcaption></figure>
+<figure class="variety-card"><img src="/images/kabra dhan.jpg" alt="Kabra paddy" loading="lazy"><figcaption>Kabra</figcaption></figure>
+<figure class="variety-card"><img src="/images/chkhao.jpg" alt="Chakhao paddy" loading="lazy"><figcaption>Chakhao</figcaption></figure>
+<figure class="variety-card"><img src="/images/pinterest.jpg" alt="Traditional paddy paddy" loading="lazy"><figcaption>Traditional paddy</figcaption></figure>
+</div>
+        </section>
+    </main>
 
     <!-- footer section -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-col Contact">
                 <div class="f-logo">
-                    <img src="/images/logo.png" alt="cg-logo">
+                    <img src="/images/logo.jpg" alt="cg-logo">
                     <div>
                         <h2>Agri-Solution</h2>
                         <p class="para">Student Project</p>
@@ -319,6 +204,7 @@
         </div>
     </footer>
 
+    <script src="/js/auth-nav.js"></script>
     <script src="/js/del.js"></script>
 </body>
 

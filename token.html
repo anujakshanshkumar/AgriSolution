@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikray Token | Agri-Solution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/token.css">
+    <link rel="stylesheet" href="/style/responsive.css">
+</head>
+
+<body>
+    <header class="TopHeader">
+        <div class="Hleft">
+            <img src="/images/logo.jpg" alt="Agri-Solution logo">
+            <div class="title-grp">
+                <h1 class="title">Agri-Solution</h1>
+                <p class="subtitle">One-Stop Solution</p>
+            </div>
+        </div>
+        <div class="Hright">
+            <div class="lang-drop">
+                <button class="langbtn" type="button">English <i class="fa-solid fa-caret-down"></i></button>
+                <div class="lang-menu" id="langmenu">
+                    <div class="lang-opt" onclick="setEnglish('English')">English</div>
+                    <div class="lang-opt" onclick="setHindi('Hindi')">हिंदी</div>
+                </div>
+            </div>
+            <span class="top-icon" id="share-btn"><i class="fa-solid fa-share-nodes"></i></span>
+            <span class="top-icon" id="insta-btn"><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></span>
+            <span class="top-icon" id="wp-btn"><a href="https://www.whatsapp.com/?lang=en"><i class="fa-brands fa-whatsapp"></i></a></span>
+            <span class="top-icon" id="facebook-btn"><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a></span>
+            <span class="top-icon" id="login-link"><a href="login.html">Login</a></span>
+        </div>
+    </header>
+
+    <header>
+        <nav class="navbar">
+            <ul class="nav-Link" id="NavLink">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown"><a href="#">Agriculture Services <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="crop.html">Crop Information</a></li>
+                        <li><a href="schemes.html">Schemes &amp; Subsidies</a></li>
+                        <li><a href="del.html">Dealers</a></li>
+                        <li><a href="token.html">Vikray Token</a></li>
+                        <li><a href="login.html">Farmer Registration</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#">Resources <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="soil.html">Weather &amp; Soil</a></li>
+                        <li><a href="distmap.html">District Map</a></li>
+                    </ul>
+                </li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
+            <div class="sub-nav">
+                <div class="search-container" id="inline-search-container">
+                    <input type="text" id="search-input" placeholder="Search Here.." class="search-input-field hidden">
+                    <a href="#" id="search-tog" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+                <div class="menu-tog"><i class="fa-solid fa-bars"></i></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="token-page">
+        <section class="token-hero">
+            <div>
+                <div class="hero-label"><i class="fa-solid fa-shield-heart"></i> FARMER SERVICE DESK</div>
+                <h1>Get your unique Vikray Token</h1>
+                <p>Enter your farm details to receive a token for selling your produce at the service desk.</p>
+                <div class="hero-benefits"><span><i class="fa-solid fa-bolt"></i> Quick allocation</span><span><i class="fa-solid fa-lock"></i> Secure details</span></div>
+            </div>
+            <div class="token-hero-icon" aria-hidden="true"><i class="fa-solid fa-ticket"></i></div>
+        </section>
+
+        <section class="token-layout">
+            <form class="token-form panel" id="token-form">
+                <div class="panel-heading">
+                    <div><p class="eyebrow">NEW TOKEN</p><h2>Tell us about your visit</h2></div>
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+                <div class="farmer-details">
+                    <div><i class="fa-solid fa-user"></i><span>Farmer name</span><strong id="farmer-name">Loading...</strong></div>
+                    <div><i class="fa-solid fa-location-dot"></i><span>Farmer address</span><strong id="farmer-address">Loading...</strong><small>Registered district</small></div>
+                </div>
+
+                <div class="form-section-label"><span>01</span><div><strong>Enter farm capacity</strong><small>Tell us about the produce you are bringing</small></div></div>
+                <label for="land-area">Land area <span>(acres)</span></label>
+                <div class="input-wrap"><i class="fa-solid fa-chart-area"></i><input id="land-area" name="landArea" type="number" min="0.01" step="0.01" placeholder="e.g. 2.5" required></div>
+
+                <label for="produce-quantity">Quantity to be sold <span>(kg)</span></label>
+                <div class="input-wrap"><i class="fa-solid fa-weight-hanging"></i><input id="produce-quantity" name="quantity" type="number" min="0.01" step="0.01" placeholder="e.g. 500" required></div>
+                <small class="field-help" id="quantity-limit">Maximum allowed: 21 quintals per acre.</small>
+                <button class="token-submit" type="submit">Allocate my token <i class="fa-solid fa-arrow-right"></i></button>
+                <p class="form-message" id="token-message" role="status" aria-live="polite"></p>
+            </form>
+
+            <aside class="token-side">
+                <div class="queue-card panel">
+                    <div class="panel-heading"><div><p class="eyebrow">LIVE QUEUE</p><h2>Service desk status</h2></div><span class="live-status"><i class="fa-solid fa-circle"></i> Active</span></div>
+                    <div class="queue-stats">
+                        <div><strong id="issued-count">0</strong><span>Tokens issued</span></div>
+                        <div><strong id="next-number">001</strong><span>Next available</span></div>
+                    </div>
+                    <p class="queue-note"><i class="fa-solid fa-circle-info"></i> Tokens are allocated in the order they are requested.</p>
+                </div>
+                <div class="steps-card panel">
+                    <p class="eyebrow">HOW IT WORKS</p>
+                    <div class="step"><span>1</span><div><strong>Enter your details</strong><small>Use your registered farm information.</small></div></div>
+                    <div class="step"><span>2</span><div><strong>Get your token</strong><small>Your unique number appears instantly.</small></div></div>
+                    <div class="step"><span>3</span><div><strong>Visit the service desk</strong><small>Show your token when selling produce.</small></div></div>
+                </div>
+                <div class="token-result panel" id="token-result" hidden>
+                    <p class="eyebrow">TOKEN ALLOCATED</p>
+                    <div class="token-number" id="token-number">AG-0000-000</div>
+                    <p id="token-summary"></p>
+                    <button class="print-token" type="button" id="print-token"><i class="fa-solid fa-print"></i> Print token</button>
+                </div>
+                <div class="help-card">
+                    <i class="fa-solid fa-headset"></i>
+                    <div><h3>Need help?</h3><p>Call the farmer helpline at <a href="tel:+917317549567">+91 731-754-9567</a>.</p></div>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-col Contact">
+                <div class="f-logo"><img src="/images/logo.jpg" alt="Agri-Solution logo"><div><h2>Agri-Solution</h2><p class="para">Student Project</p><p><i class="fa-solid fa-location-dot"></i> Raipur Chhattisgarh</p><p><i class="fa-solid fa-phone"></i> <a href="tel:+8770826925">8770826925</a></p><p><i class="fa-regular fa-envelope"></i> <a href="mailto:agri@cg.gov.in">agri@cg.gov.in</a></p></div></div>
+            </div>
+            <div class="footer-col links"><h3>Quick Links</h3><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About us</a></li><li><a href="crop.html">Crop information</a></li><li><a href="schemes.html">Schemes &amp; Subsidies</a></li><li><a href="token.html">Vikray Token</a></li><li><a href="login.html">Farmer Registration</a></li></ul></div>
+            <div class="footer-col social"><h3>Contact With Us</h3><div class="social-icon"><a href="https://www.facebook.com/" class="icon-s facebook"><i class="fa-brands fa-square-facebook"></i></a><a href="https://x.com/" class="icon-s twitter"><i class="fa-brands fa-x-twitter"></i></a><a href="https://www.whatsapp.com/?lang=en" class="icon-s whatsapp"><i class="fa-brands fa-square-whatsapp"></i></a></div><h4>Farmer Helpline</h4><a href="tel:+7317549567"><p class="helpline">+91 731-754-9567</p></a><small>Available 24/7</small></div>
+        </div>
+        <div class="footer-bottom"><p class="disclaimer">This is an unofficial website created for educational and demonstration purposes only. It is not official website of the Government of Chhattisgarh or the Department of Agriculture.</p><p class="claim">&copy; 2025 Kala Samrajya. All rights reserved</p></div>
+    </footer>
+    <script src="/js/auth-nav.js"></script>
+    <script src="/js/token.js"></script>
+</body>
+
+</html>

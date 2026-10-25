@@ -7,6 +7,7 @@
     <title>Agri-Solution</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="/style/crop.css">
+    <link rel="stylesheet" href="/style/responsive.css">
 
 
 
@@ -18,7 +19,7 @@
     <div class="sticky-wp">
         <header class="TopHeader">
             <div class="Hleft">
-                <img src="/images/logo.png" alt="cg-logo">
+                <img src="/images/logo.jpg" alt="cg-logo">
                 <div class="title-grp">
                     <h1 class="title">Agri-Solution</h1>
                     <p class="subtitle">One-Stop Solution</p>
@@ -61,7 +62,7 @@
         <header>
             <nav class="navbar">
                 <ul class="nav-Link" id="NavLink">
-                    <li><a href="index.html"><i class="fa-solid fa-home" style="padding-right: 5px;"></i>Home</a></li>
+                    <li><a href="index.html">      Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li class="dropdown"><a href="#">Agriculture Services
                             <i class="fa-solid fa-chevron-down"></i></a>
@@ -97,67 +98,32 @@
     </div>
 
 
-    <!-- hero section -->
-    <!-- <section class="crop-hero">
-            <div class="hero-c-content">
-                <h2>Crop Information</h2>
-                <p>Explore Information about crops</p>
-            </div>
-        </section> -->
-
-    <section class="crop-hero">
-        <div class="crop-hero-slide">
-            <div class="crop-slide active">
-                <img src="/images/about1.jpg" alt="">
-            </div>
-            <div class="crop-slide">
-                <img src="/images/crop-info1.avif" alt="">
-            </div>
-            <div class="crop-slide">
-                <img src="/images/pexels-dibakar-roy-2432543-20407022.jpg" alt="">
-            </div>
-            <div class="crop-slide">
-                <img src="/images/dhan.jpg" alt="">
-            </div>
-            <div class="crop-slide">
-                <img src="/images/img3.jpg" alt="">
-            </div>
-            <!-- <div class="crop-slide">
-                <img src="/images/slide1.jpg" alt="">
-            </div> -->
-            <!-- <div class="crop-slide">
-                <img src="/images/img8.jpg" alt="">
-            </div> -->
-            <button class="crop-slide-btn prev">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button class="crop-slide-btn next" onclick="nextslide">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
-            <div class="hero-c-content">
-                <h2>Major Crops Of Chhattisgarh</h2>
-                <p>Chhattisgarh is known as <b>The Rice Bowl Of India</b> due to its dominant crop
-                    <b>Paddy(Rice)</b>
-                </p>
-            </div>
+    <section class="crop-page-heading" aria-labelledby="crop-page-title">
+        <div class="crop-page-heading-content">
+            <h1 id="crop-page-title">The major crops in Chhattisgarh</h1>
+            <strong class="crop-page-heading-highlight">The Rice Bowl of India</strong>
         </div>
     </section>
 
     <!-- crop info section -->
     <section class="crop-info">
-        <div class="season">By Season</div>
-        <div class="radio-crop">
+        <div class="season">Explore Crops by Season</div>
+        <div class="radio-crop" role="group" aria-label="Choose a crop season">
             <input class="rd" type="radio" id="kharif" name="season" value="kharif">
-            <label for="kharif" checked onclick="showSeason('kharif')">Karif</label>
+            <label for="kharif">Kharif</label>
             <input class="rd" type="radio" id="rabi" name="season" value="rabi">
-            <label for="rabi" onclick="showSeason('rabi')">Rabi</label>
-
+            <label for="rabi">Rabi</label>
+            <label class="all-seasons-option" for="allSeasons">
+                <input type="checkbox" id="allSeasons">
+                <span>Show all seasonal crops</span>
+            </label>
         </div>
         <div class="crop-category">
             <ul>
                 <li>Cereals/Grains</li>
                 <li>Pulses</li>
                 <li>Oilseeds</li>
+                <li>Vegetables & Spices</li>
                 <li>Other Crops</li>
             </ul>
         </div>
@@ -169,23 +135,19 @@
             <div id="kharif_para" class="season-block">
                 <h2>Kharif Crops</h2>
                 <p>
-                    Chhattisgarh's Kharif season, during the monsoon <b>(June-Oct(Sown June-July , Harvested
-                        sep-oct))</b>, focuses on water-loving crops like <b>Paddy
-                        (Rice)</b>, making it the <b>"Rice Bowl" of India </b> , alongside important crops such as
-                    Soybean, Maize, Urad
-                    (Black Gram), Arhar (Pigeon Pea), and various millets (like Kodo-Kutki), crucial for food and
-                    farmer
-                    income, with paddy dominating the landscape
+                    Chhattisgarh's Kharif season runs with the monsoon, with most sowing from June to July and harvests
+                    generally from September to November. Paddy is the principal crop, alongside maize, pulses,
+                    oilseeds, and millets such as Kodo-Kutki.
                 </p>
             </div>
 
             <div id="rabi_para" class="season-block" style="display:none;">
                 <h2>Rabi Crops</h2>
                 <p>
-                    In Chhattisgarh, Rabi crops are winter-sown crops like wheat, gram (chickpea), and linseed, planted
-                    from October-November and harvested in spring (March-April). These crops need less water and thrive
-                    in cool, dry weather, with chickpea and lathyrus being very common, along with other pulses,
-                    millets, and oilseeds, filling the fields after the monsoon rice harvest.
+                    In Chhattisgarh, Rabi crops are sown in the winter season, generally from October to December, and
+                    harvested from February to April. Important crops include gram (chickpea), tiwada (lathyrus), wheat,
+                    and winter oilseeds. They are grown after the monsoon season, often using residual soil moisture or
+                    irrigation.
                 </p>
             </div>
         </section>
@@ -194,10 +156,11 @@
         <section class="content-area">
             <!-- cards -->
             <div class="cards-column">
+                <p class="crop-scroll-hint">Explore all crops below</p>
 
-                <!-- Kharif container (15 crops) -->
-                <div id="kharifSection" class="crop-grid">
-                    <!-- Each card  have data-key matching the JS crop data object  -->
+                <!-- Crop cards are arranged for each season from the area data. -->
+                <div id="kharifSection" class="crop-grid" tabindex="0" aria-label="Kharif crop cards">
+                    <!-- Card templates are cloned and sorted by js/crop.js. -->
                     <div class="crop-card" data-key="paddy">
                         <img src="/JAGGU CROP/paddy2.jpg" alt="Paddy">
                         <h3>Paddy (Rice)</h3>
@@ -205,47 +168,47 @@
                             it grows huge amounts of paddy
                             (unmilled rice), making it a top rice producer with ideal conditions for the crop, which is
                             central to the state's farming, culture, and food, with unique varieties</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="maize">
-                        <img src="/JAGGU CROP/maize2.jpg" alt="Maize">
+                        <img src="/JAGGU CROP/maize.jpg" alt="Maize">
                         <h3>Maize</h3>
                         <p> <b> Cereals/Grains </b> Maize (corn) is a vital crop in Chhattisgarh, second only to rice,
                             grown widely for food, feed, and industry, especially in tribal areas like Bastar, providing
                             income and nutrition through flour, daliya, and starch products</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
 
                     <div class="crop-card" data-key="kodo">
                         <img src="/JAGGU CROP/kodo.webp" alt="Kodo millet">
-                        <h3>Kodo Millet</h3>
+                        <h3>Kodo-Kutki Millet</h3>
                         <p> <b> Cereals/Grains </b> Kodo and Kutki are nutritious, drought-resistant millets (small
                             grains) traditionally grown in Chhattisgarh, especially by tribal communities, that are easy
                             to grow in tough conditions and great for health</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="bajra">
-                        <img src="/JAGGU CROP/jowar.jpg" alt="Bajra">
+                        <img src="/JAGGU CROP/bajra.jpg" alt="Bajra">
                         <h3>Bajra (Pearl Millet)</h3>
                         <p> <b> Cereals/Grains </b> Bajra is a hardy and low-cost crop that grows well in Chhattisgarh’s
                             dry and light soils. It needs very little water and can survive hot and dry conditions. The
                             crop matures in about 3–4 months. Bajra grains are used for roti and fodder, making it
                             useful for both food and livestock.</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="jowar">
-                        <img src="/JAGGU CROP/jowar2.jpg" alt="Jowar">
+                        <img src="/JAGGU CROP/cereals2.webp" alt="Jowar">
                         <h3>Jowar (Sorghum)</h3>
                         <p> <b> Cereals/Grains </b> Jowar is a hardy crop that grows well even with less water. In
                             Chhattisgarh, farmers grow it on light and medium soils during the kharif season. It is easy
                             to maintain, needs fewer inputs, and is ready to harvest in about 3–4 months. Jowar grains
                             are used for roti, fodder, and feed, making it a useful crop for both income and livestock.
                         </p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="soyabean">
@@ -255,7 +218,7 @@
                             moderate rainfall. It needs well-drained soil and very little irrigation. The crop is ready
                             in about 3–3.5 months. Soybean gives good income because its seeds are rich in oil and
                             protein. Farmers also use its leftover plant parts as good-quality fodder for animals.</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="groundnut">
@@ -266,18 +229,18 @@
                             about 3–4 months. Groundnut gives good income because it has high oil content, and its
                             plants also provide nutritious fodder for animals. It is a profitable crop for small and
                             medium farmers.</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="sesamum">
-                        <img src="/JAGGU CROP/seesame.jpg" alt="Sesamum">
+                        <img src="/JAGGU CROP/linseed2.jpg" alt="Sesamum">
                         <h3>Sesamum (Til)</h3>
                         <p> <b> Oilseeds </b> Sesame is an easy and profitable crop that grows well in Chhattisgarh’s
                             light, sandy soils. It needs very little water and can tolerate dry conditions. The crop is
                             ready in about 2.5–3 months. Sesame seeds have high oil content and always get good market
                             prices. Farmers like it because it is a “kam kharch, achha munafa” crop that gives steady
                             income with less effort</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="sunflower">
@@ -288,18 +251,18 @@
                             just 2.5–3 months. Sunflower seeds give high-quality oil with good market demand. Because of
                             its strong roots and low input cost, farmers call it a “kam paani, zyada munafa” crop.
                             Surajmukhi is a smart choice for farmers who want quick harvest and better income.</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="arhar">
-                        <img src="/JAGGU CROP/arhar.jpg" alt="Arhar">
+                        <img src="/JAGGU CROP/chickpea2.jpg" alt="Arhar">
                         <h3>Arhar (Pigeon Pea)</h3>
                         <p> <b> Pulses </b> Arhar is a strong and reliable crop that grows well in Chhattisgarh’s medium
                             and light soils. It needs very little irrigation and can handle dry conditions easily. The
                             crop takes about 5–6 months to mature. Arhar gives high-quality dal that always has good
                             market demand. Farmers like it because it is a “kam paani, pakki aamdani” crop that improves
                             soil health and gives steady profit.</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="urad">
@@ -308,7 +271,7 @@
                         <p> <b> Pulses </b> Urad is a quick and profitable crop that grows well in Chhattisgarh’s light
                             to medium soils. It needs very little water and can easily tolerate dry weather. The crop is
                             ready in just 2–3 months. Urad gives high-quality dal with strong market demand.</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="moong">
@@ -317,7 +280,7 @@
                         <p> <b> Pulses </b> Moong is a fast-growing and profitable crop that fits well in Chhattisgarh’s
                             light and medium soils. It needs very little water and grows easily even in dry conditions.
                             The crop is ready in just 2–2.5 months. Moong dal always gets good market price</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="cotton">
@@ -327,53 +290,53 @@
                             and black soils. It needs good sunlight and moderate water. The crop takes about 5–6 months
                             to mature. Cotton gives high market returns because of its strong demand in the textile
                             industry</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="sugarcane">
-                        <img src="/JAGGU CROP/sugarcane.webp" alt="Sugarcane">
+                        <img src="/JAGGU CROP/field crop.jpg" alt="Sugarcane">
                         <h3>Sugarcane</h3>
                         <p> <b> Other Crop </b> Sugarcane is a high-yield, high-income crop that grows well in
                             Chhattisgarh’s fertile, moist soils. It needs regular water and good sunlight. The crop
                             takes about 10–12 months to mature but gives a very heavy harvest. Sugarcane has strong
                             demand in sugar mills and jaggery units.</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
-                    <div class="crop-card" data-key="castor">
-                        <img src="/JAGGU CROP/kulthi.webp" alt="Castor">
+                    <div class="crop-card" data-key="kulthi">
+                        <img src="/JAGGU CROP/kulthi.webp" alt="Kulthi (Horse Gram)">
                         <h3>Kulthi</h3>
                         <p> <b> Pulses </b> Kulthi is a strong, low-cost crop that grows well in Chhattisgarh’s dry,
                             rocky, and light soils. It needs very little water and survives even in tough conditions.
                             The crop is ready in about 3–3.5 months. Kulthi dal has good demand for its health benefits.
                         </p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
                 </div>
 
 
 
 
-                <!-- Rabi container (10 crops) -->
-                <div id="rabiSection" class="crop-grid" style="display:none;">
+                <!-- Rabi cards are populated and sorted by js/crop.js. -->
+                <div id="rabiSection" class="crop-grid" tabindex="0" aria-label="Rabi crop cards" style="display:none;">
                     <div class="crop-card" data-key="wheat">
-                        <img src="/JAGGU CROP/WHEAT.jpg" alt="Wheat">
+                        <img src="/JAGGU CROP/WHEAT1.jpg" alt="Wheat">
                         <h3>Wheat</h3>
                         <p> <b> Careals/Grains </b> Wheat is the main rabi crop that grows well in Chhattisgarh’s
                             fertile and well-drained soils.
                             It needs cool weather and timely irrigation. The crop is ready in about 4–5 months. Wheat
                             grains always have stable market demand.</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="barley">
-                        <img src="/JAGGU CROP/barley.jpg" alt="Barley">
+                        <img src="/JAGGU CROP/cereals2.webp" alt="Barley">
                         <h3>Barley</h3>
                         <p> <b> Careals/Grains </b> Barley is an easy and hardy rabi crop that grows well in
                             Chhattisgarh’s light and medium soils. It needs cool weather and moderate water. The crop is
                             ready in about 3–4 months. Barley grains are used for food, fodder, and brewing, so they
                             always have demand.</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="gram_rabi">
@@ -383,7 +346,7 @@
                             Gram is a strong and profitable rabi crop that grows well in Chhattisgarh’s medium and light
                             soils. It needs cool weather and very little water. The crop is ready in about 4–5 months.
                             Gram dal has good market demand and is rich in protein.</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="masoor">
@@ -392,7 +355,7 @@
                         <p> <b> Pulses </b> Masoor is a quick-growing rabi crop that grows well in Chhattisgarh’s medium
                             and light soils. It needs cool weather and very little water. The crop is ready in about 3–4
                             months. Masoor dal always has good market demand. Farmers</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="peas">
@@ -402,84 +365,59 @@
                             Peas are a nutritious and profitable rabi crop that grow well in Chhattisgarh’s fertile,
                             well-drained soils. They need cool weather and moderate water. The crop is ready in about
                             3–4 months. Peas have good market demand and are used for fresh vegetables and dals</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="mustard">
-                        <img src="/JAGGU CROP/mustard.jpg" alt="Mustard">
+                        <img src="/JAGGU CROP/safflower2.jpg" alt="Mustard">
                         <h3>Mustard</h3>
-                        <p> <b> Oilseeds </b> Mustard is an important and profitable rabi oilseed crop that grows well
-                            in Chhattisgarh’s fertile and well-drained soils. It thrives in cool weather and needs
-                            moderate water. The crop matures in about 3–4 months and gives high-quality seeds with
-                            excellent oil content. Mustard has good market demand, making it a reliable source of income
-                            for farmers.</p>
-                        <button class="view-btn">View Details</button>
+                        <p><b>Oilseeds </b>Mustard (Rai/Sarson) is a Rabi oilseed crop. Its seeds are used for
+                            cooking oil and condiments.</p>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="linseed">
                         <img src="/JAGGU CROP/linseed.jpg" alt="Linseed">
                         <h3>Linseed</h3>
-                        <p> <b> Oilseeds </b> Mustard is an important and profitable rabi oilseed crop that grows well
-                            in Chhattisgarh’s fertile and well-drained soils. It thrives in cool weather and needs
-                            moderate water. The crop matures in about 3–4 months and gives high-quality seeds with
-                            excellent oil content. Mustard has good market demand, making it a reliable source of income
-                            for farmers.</p>
-                        <button class="view-btn">View Details</button>
+                        <p><b>Oilseeds </b>Linseed (Alsi) is a Rabi oilseed crop. Its seeds are used for oil, and the
+                            plant is also grown for fibre in some regions.</p>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
 
-                    <div class="crop-card" data-key="sunflower_rabi">
+                    <div class="crop-card" data-key="sunflower">
                         <img src="/JAGGU CROP/safflower2.jpg" alt="Sunflower">
                         <h3>Sunflower</h3>
                         <p> <b> Oilseeds </b> Sunflower can also be grown as a rabi crop in Chhattisgarh on well-drained
                             soils with irrigation. It needs cool weather, plenty of sunlight, and moderate water. The
                             crop matures in about 3–3.5 months and gives high-quality seeds rich in oil.</p>
-                        <button class="view-btn">View Details</button>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="rapeseed">
-                        <img src="/JAGGU CROP/oats1.jpg" alt="Rapeseed">
-                        <h3>Oats</h3>
-                        <p> <b> Careals/Grains </b> Oats is a nutritious and profitable rabi crop that grows well in
-                            Chhattisgarh’s cool, well-drained soils. It needs moderate water and can tolerate light
-                            frost. The crop matures in about 3–3.5 months. Oats grains are rich in fiber and have good
-                            demand for food and fodder.</p>
-                        <button class="view-btn">View Details</button>
+                        <img src="/JAGGU CROP/WHEAT1.jpg" alt="Rapeseed">
+                        <h3>Rapeseed (Toria)</h3>
+                        <p><b>Oilseeds </b>Rapeseed (Toria) is a short-duration Rabi oilseed crop commonly
+                            harvested in late winter.</p>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
 
                     <div class="crop-card" data-key="onion">
                         <img src="/JAGGU CROP/vggggg.webp" alt="Onion">
-                        <h3>Vegetable</h3>
-                        <p> <b> Other Crops </b> Rabi season is ideal for growing cool-weather vegetables in
-                            Chhattisgarh. Popular crops include:
-
-                            Cauliflower & Cabbage – Need fertile soil, give high market value.
-
-                            Carrot & Radish – Grow well in light soil, ready in 2–3 months.
-
-                            Peas & Beans – Provide fresh dal and vegetables, easy to grow.
-
-                            Spinach, Fenugreek & Leafy Greens – Quick-growing, nutritious, and good for continuous
-                            income.
-
-                            Tomato & Brinjal – Can be grown with irrigation, high demand in local markets.</p>
-                        <button class="view-btn">View Details</button>
+                        <h3>Onion</h3>
+                        <p><b>Vegetables </b>Onion is grown in both Kharif and Rabi seasons. It is an important
+                            kitchen crop used fresh and in cooking.</p>
+                        <a class="view-btn" href="#">Read More</a>
                     </div>
+
                 </div>
             </div>
 
 
 
 
-            <!-- Right: Detail panel -->
-            <aside class="detail-column">
-                <div id="detailBox" class="detail-box">
-                    <h2>Select any crop to view details</h2>
-                    <p>Click a crop on the left to see seed, irrigation, soil type, fertilizer, medicose, sowing &
-                        harvest details.</p>
-                </div>
-            </aside>
         </section>
+
     </main>
 
 
@@ -490,10 +428,9 @@
         <div class="footer-container">
             <div class="footer-col Contact">
                 <div class="f-logo">
-                    <img src="/images/logo.png" alt="cg-logo">
+                    <img src="/images/logo.jpg" alt="cg-logo">
                     <div>
                         <h2>Agri-Solution</h2>
-                        <p class="para">Student Project</p>
                         <p> <a href="near, Vidhan Sabha Rd, Tekari-2, Bhurkoni, Chhattisgarh 493111D"
                                 class="location"><i class="fa-solid fa-location-dot"></i></a>Raipur Chhattisgarh</p>
                         <p><i class="fa-solid fa-phone"></i><a href="tel:+8770826925">8770826925</a></p>
@@ -540,9 +477,8 @@
 
         <div class="footer-bottom">
             <p class="disclaimer">
-                This is an unofficial website created for educational and demonstration purposes only.
-                It is not official website of the Government of Chhattisgarh
-                or the Department of Agriculture.
+                Agri-Solution is an independent information platform and is not affiliated with the Government of
+                Chhattisgarh or the Department of Agriculture.
             </p>
             <p class="claim">&copy; 2025 Kala Samrajya . All rights reserved</p>
         </div>
@@ -551,6 +487,7 @@
 
 
 
+    <script src="/js/auth-nav.js"></script>
     <script src="js/crop.js"></script>
 </body>
 

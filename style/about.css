@@ -40,6 +40,7 @@
 
  .sticky-wp {
      position: sticky;
+     z-index: 9999;
  }
 
  .Hleft img {
@@ -431,7 +432,13 @@
  /* About as section css */
 
  .about-hero {
-     background-color: rgb(240, 250, 240);
+     position: relative;
+     isolation: isolate;
+     z-index: 0;
+     background-image: linear-gradient(90deg, rgba(7, 42, 30, 0.78), rgba(7, 42, 30, 0.34)), url("/JAGGU CROP/aboutimage.png");
+     background-position: center 54%;
+     background-size: cover;
+     background-repeat: no-repeat;
      color: rgb(255, 255, 255);
      padding: 3.75rem 1.25rem;
      box-shadow: 0 4px 8px rgba(6, 95, 70, 0.2);
@@ -440,6 +447,8 @@
  }
 
  .hero-content {
+     position: relative;
+     z-index: 1;
      max-width: 70rem;
      margin: auto;
      display: flex;
@@ -450,10 +459,10 @@
  }
 
  .hero-content h2 {
-     color: rgb(6, 95, 70);
+     color: rgb(255, 255, 255);
      font-size: 3rem;
      font-weight: 700;
-     border-left: 0.3rem solid rgb(6, 95, 70);
+     border-left: 0.3rem solid rgb(123, 210, 143);
      padding-left: 1rem;
      min-width: 15rem;
  }
@@ -463,9 +472,12 @@
      line-height: 1.7;
      max-width: 40rem;
      font-weight: 450;
-     color: rgb(60, 60, 60);
-     /* background-color: rgb(247, 245, 245); */
-     background-color: rgba(161, 223, 161, 0.733);
+     color: rgb(255, 255, 255);
+     background-color: rgba(8, 52, 37, 0.78);
+     border: 1px solid rgba(255, 255, 255, 0.28);
+     box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.18);
+     position: relative;
+     z-index: 1;
      padding: 2.5rem;
      opacity: 0;
      transform: translateY(1rem);
@@ -571,6 +583,7 @@
  }
 
  .A-dept-content {
+     width: 100%;
      max-width: 75rem;
      text-align: left;
  }
@@ -590,10 +603,443 @@
      color: rgb(51, 51, 51);
      line-height: 1.7rem;
      max-width: 60rem;
-     margin: 1rem;
+     margin: 1rem auto;
+     text-align: left;
  }
 
- .A-dept ul {
+
+ /* --- Meet the Creators Section Styling --- */
+
+.team-section {
+    padding: 3rem clamp(1rem, 5vw, 2rem);
+    text-align: center;
+    background-color: transparent; /* Adjust if your main page wrapper has a different background color */
+}
+
+.team-section h2 {
+    font-size: 2.2rem;
+    color: var(--heading-color);
+    margin-bottom: 2.5rem;
+    font-weight: var(--font-weight);
+}
+
+.team-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 3.5rem;
+}
+
+.team-carousel-viewport {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.team-container {
+    display: flex;
+    width: 100%;
+    transition: transform 550ms ease-in-out;
+    will-change: transform;
+}
+
+.team-carousel-button {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    /* border: 1px solid #16631a; */
+    border: 1px solid rgba(134, 88, 2, 0.788);
+    border-radius: 50%;
+    background: #a1e2086c;
+    color: #024205;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background-color 180ms ease, color 180ms ease;
+}
+
+.team-carousel-button:hover,
+.team-carousel-button:focus-visible {
+    background: #04a75bb6;
+    color: #fff;
+}
+
+.team-carousel-button:focus-visible {
+    outline: 3px solid rgba(22, 99, 26, 0.35);
+    outline-offset: 3px;
+}
+
+.team-carousel-previous {
+    left: 0;
+}
+
+.team-carousel-next {
+    right: 0;
+}
+
+.team-carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-top: 1.25rem;
+}
+
+.team-carousel-indicator {
+    width: 0.65rem;
+    height: 0.65rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #b8c8b8;
+    cursor: pointer;
+    transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.team-carousel-indicator[aria-current="true"] {
+    /* background: #16631a; */
+    background: rgba(138, 90, 1, 0.979);
+    transform: scale(1.25);
+}
+
+.team-carousel-indicator:focus-visible {
+    outline: 3px solid rgba(22, 99, 26, 0.35);
+    outline-offset: 3px;
+}
+
+/* Card Styling - 4 CORNERS ONLY COLORED */
+.team-card {
+    flex: 0 0 100%;
+    background: linear-gradient(135deg, #f4f8ed 0%, #e3efdc 52%, #d1e5cf 100%);
+    border: none;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); */
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card::before,
+.team-card::after {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-color: rgb(14, 75, 14);
+    border-style: solid;
+    pointer-events: none;
+}
+
+.team-card::before {
+    top: 0;
+    left: 0;
+    border-width: 3px 0 0 3px;
+    border-top-left-radius: 12px;
+}
+
+.team-card::after {
+    right: 0;
+    bottom: 0;
+    border-width: 0 3px 3px 0;
+    border-bottom-right-radius: 12px;
+}
+
+
+
+.tcard-content {
+    padding-bottom: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Profile Photo or Avatar Container Placeholder */
+.avatar-placeholder {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.72);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.avatar-placeholder i {
+    font-size: 1.8rem;
+    color: #16631a;
+}
+
+.team-card h3 {
+    font-size: 1.35rem;
+    color: #0b5812;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+/* Role Badges for crisp, modern structure */
+.role-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #326b3c;
+    background-color: rgba(255, 255, 255, 0.68);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.team-card p {
+    font-size: 0.95rem;
+    color: #4a5568; /* Balanced readability dark gray font colors */
+    line-height: 1.6;
+    text-align: left; /* Aligns description cleanly for quick layout scanning */
+    width: 100%;
+    max-width: 58rem;
+    margin: 0;
+}
+
+.team-card-read-more {
+    display: none;
+}
+
+/* --- Responsive Adjustments for Smaller viewports --- */
+
+@media (max-width: 900px) {
+    .mvo-container {
+        flex-wrap: wrap;
+        gap: 1rem;
+        width: calc(100% - 2rem);
+    }
+
+    .mvo-card {
+        flex: 1 1 16rem;
+        width: auto;
+    }
+
+    .area-card {
+        flex: 1 1 18rem;
+        max-width: 100%;
+        min-width: 0;
+        width: auto;
+    }
+
+    .value-card {
+        flex: 1 1 22rem;
+        max-width: 100%;
+        min-width: 0;
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-section {
+        padding: 44px 16px;
+    }
+
+    .team-carousel {
+        padding: 0 3rem;
+    }
+
+    .team-card {
+        padding: 1.25rem;
+    }
+
+    .team-card p {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        display: none;
+    }
+
+    .team-card.is-expanded p {
+        display: block;
+    }
+
+    .team-card-read-more {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-start;
+        margin-top: 0.75rem;
+        padding: 0.45rem 0.8rem;
+        border: 1px solid #326b3c;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        color: #24532e;
+        font: inherit;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 600px) {
+    .team-section {
+        padding: 36px 12px;
+    }
+
+    .team-carousel {
+        padding: 0 2.5rem;
+    }
+
+    .team-carousel-button {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .team-card {
+        padding: 1rem 0.9rem;
+    }
+
+    .avatar-placeholder {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 0.75rem;
+    }
+
+    .avatar-placeholder i {
+        font-size: 1.5rem;
+    }
+
+    .team-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .role-badge {
+        font-size: 0.72rem;
+        padding: 4px 9px;
+        margin-bottom: 12px;
+    }
+
+    .team-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .team-section h2 {
+        font-size: 1.7rem;
+        margin-bottom: 28px;
+    }
+
+    .A-dept {
+        padding: 1rem 0.75rem;
+    }
+
+    .A-dept > .A-dept-content > p {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+}
+
+@media (max-width: 600px) {
+    .mvo-section {
+        padding: 2rem 0.75rem;
+    }
+
+    .mvo-section h2,
+    .key-area h2,
+    .core-values h2,
+    .A-dept h2 {
+        font-size: 1.7rem;
+        line-height: 1.25;
+    }
+
+    .mvo-container {
+        width: 100%;
+        margin-top: 1.25rem;
+    }
+
+    .mvo-card {
+        flex-basis: 100%;
+        padding: 1.15rem;
+    }
+
+    .purpose .purpose-s {
+        gap: 0.5rem;
+        margin: 1rem auto;
+        padding: 0 0.75rem;
+    }
+
+    .purpose .purpose-left {
+        flex-basis: 100%;
+        padding: 1.25rem 0.25rem;
+    }
+
+    .purpose-left h2,
+    .key-area h2 {
+        font-size: 1.7rem;
+    }
+
+    .purpose .purpose-left h4 {
+        font-size: 1.3rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .purpose .purpose-left p {
+        font-size: 0.98rem;
+        line-height: 1.55;
+    }
+
+    .purpose .purpose-right {
+        flex-basis: 100%;
+        height: clamp(13rem, 65vw, 20rem);
+    }
+
+    .key-area,
+    .core-values {
+        padding: 1rem 0.75rem;
+    }
+
+    .area-container,
+    .value-container {
+        gap: 1rem;
+        margin: 1.25rem 0;
+    }
+
+    .area-card,
+    .value-card {
+        flex-basis: 100%;
+        padding: 1rem;
+    }
+
+    .area-content {
+        padding: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .team-container {
+        transition: none;
+        will-change: auto;
+    }
+
+    .team-carousel-button {
+        transition: none;
+    }
+
+    .team-carousel-indicator {
+        transition: none;
+    }
+}
+
+
+ /* .A-dept ul {
      list-style: none;
      text-align: left;
      margin: 1rem;
@@ -606,7 +1052,7 @@
  .A-dept ul li {
      margin-bottom: 0.3rem;
      padding-left: 1.2rem;
- }
+ } */
 
 
  /* purpose section */
@@ -877,7 +1323,9 @@
    }
    .footer-col .f-logo img{
       width: 4.375rem;
-      height: auto;
+      height: 4.375rem;
+      border-radius: 50%;
+      object-fit: cover;
    }
    .footer-col .f-logo h2{
       margin: 0;
@@ -896,7 +1344,19 @@
    .footer-col .f-logo p i{
       margin-right: 0.8rem;
    }
-   .footer-col h3{
+
+   .footer-col.Contact .f-logo p:not(.para) {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.5rem 0;
+   }
+
+   .footer-col.Contact .f-logo p:not(.para) i {
+      margin-right: 0;
+   }
+
+   .footer-col h3 {
       margin-bottom: 1rem;
       font-size: 1.2rem;
       font-weight: 600;
@@ -963,6 +1423,3 @@
        color: white;
        font-weight: 600;
    }
-
-
-

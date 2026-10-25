@@ -9,7 +9,10 @@ const PAGES = new Map([
   ['/crop.html', 'crop.html'],
   ['/del.html', 'del.html'],
   ['/distmap.html', 'distmap.html'],
+  ['/dashboard.html', 'dashboard.html'],
+  ['/distmap.html', 'distmap.html'],
   ['/login.html', 'login.html'],
+  ['/token.html', 'token.html'],
   ['/schemes.html', 'schemes.html'],
   ['/soil.html', 'soil.html']
 ]);

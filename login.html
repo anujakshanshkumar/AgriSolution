@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="/style/login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style/responsive.css">
     
 </head>
   <body>
 
         <header class="TopHeader">
             <div class="Hleft">
-                <img src="/images/logo.png" alt="cg-logo">
+                <img src="/images/logo.jpg" alt="cg-logo">
                 <div class="title-grp">
                     <h1 class="title">Agri-Solution</h1>
                     <p class="subtitle">One-Stop Solution</p>
@@ -52,7 +53,7 @@
    <header>
             <nav class="navbar">
                 <ul class="nav-Link" id="NavLink">
-                    <li><a href="index.html"><i class="fa-solid fa-home" style="padding-right: 5px;"></i>Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li class="dropdown"><a href="#">Agriculture Services
                             <i class="fa-solid fa-chevron-down"></i></a>
@@ -61,6 +62,8 @@
                             <!-- <li><a href="#">Market Prices</a></li> -->
                             <li><a href="schemes.html">Schemes & Subsidies</a></li>
                             <li><a href="del.html">Dealers</a></li>
+                            <li><a href="/token.html">Vikray Token</a></li>
+
                             <li><a href="login.html">Farmer Registration</a></li>
                         </ul>
                     </li>
@@ -102,7 +105,8 @@
                       <input onmousedown="password1.play()" type="password" name="password" placeholder="Password" required>
                       <i class='bx bxs-lock-alt' ></i>
                   </div>
-                  <button onmousedown="succ1.play()" onClick="pop()"  type="submit" class="btn">Login</button>
+                  <button type="submit" class="btn">Login</button>
+                  <p class="form-message" id="login-message" role="status" aria-live="polite"></p>
                   <p>or login with social platforms</p>
                   <div class="social-icons">
                       <a href="https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ec=GAlAFw&hl=en-GB&service=mail&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S-634615674%3A1764928029713087"><i class='bx bxl-google' ></i></a>
@@ -125,7 +129,7 @@
                       <i class='bx bxs-user'></i>
                   </div>
                   <div class="input-box">
-                       <select onmousedown="district3.play()" name="district" id="pet-select">
+                       <select onmousedown="district3.play()" name="district" id="pet-select" required>
                               <option value=""> Choose a District--</option>
                                  <option value="Balod">Balod</option>
                                  <option value="Baloda bazar Bhatapara">Baloda Bazar Bhatapara</option>
@@ -166,7 +170,8 @@
                       <input onmousedown="password1.play()" type="password" name="password" placeholder="Password" required>
                       <i class='bx bxs-lock-alt' ></i>
                   </div>
-                  <button onClick="pop()" onmousedown="reg1.play()" type="submit" class="btn">Register</button>
+                  <button onmousedown="reg1.play()" type="submit" class="btn">Register</button>
+                  <p class="form-message" id="register-message" role="status" aria-live="polite"></p>
                   <p>or register with social platforms</p>
                   <div class="social-icons">
                       <a href="https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ec=GAlAFw&hl=en-GB&service=mail&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S-634615674%3A1764928029713087"><i class='bx bxl-google' ></i></a>
@@ -192,9 +197,10 @@
           </div>
       </div>
        <div class="container1">
-            <!-- <img src="dhan.jpg"alt="maya"> -->
+            <!-- <img src="/images/rice1.jpg" alt="maya"> -->
         </div>
 </div>
+            <script src="/js/auth-nav.js"></script>
             <script src="/js/login.js"></script>
   </body>
 </html>

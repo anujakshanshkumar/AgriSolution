@@ -1,11 +1,21 @@
 {
   "name": "agri-solution-portal",
   "version": "1.0.0",
-  "description": "Agri-Solution Portal frontend",
+  "description": "Agri-Solution Portal frontend and API server",
+  "workspaces": ["backend"],
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "start:backend": "node server.js",
+    "start:all": "node scripts/start-all.js"
   },
-  "keywords": ["agriculture", "portal"],
+  "keywords": [
+    "agriculture",
+    "portal"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "mongodb": "^7.6.0"
+  }
 }

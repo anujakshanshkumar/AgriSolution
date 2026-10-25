@@ -217,7 +217,7 @@ const districtInformationDatabase = {
     areaSize: 'Guava, Mango, Vegetables (Brinjal, Tomato)',
     capitalCity: 'Raipur',
     aboutDistrict: 'The capital city of Chhattisgarh and a primary administrative, commercial, and political center. It is the most urbanized district in the state.',
-    districtImage: '/images/raipur.jpg'
+    districtImage: '/images/Raipur.jpg'
 
   },
   'path7848': {
@@ -280,6 +280,74 @@ const districtInformationDatabase = {
 
 // selectedDistrictPath: This variable keeps track of which district is currently selected
 let selectedDistrictPath = null;
+const districtImageFallback = '/images/rice1.jpg';
+const districtCropImages = {
+  path3325: ['/JAGGU%20CROP/chickpea2.jpg', 'Chickpea'],
+  path2651: ['/JAGGU%20CROP/soyabin.jpg', 'Soybean'],
+  path2278: ['/JAGGU%20CROP/kulthi.webp', 'Kulthi'],
+  path10649: ['/JAGGU%20CROP/kodo.webp', 'Kodo millet'],
+  path3323: ['/JAGGU%20CROP/soyabin2.jpg', 'Soybean'],
+  path2387: ['/JAGGU%20CROP/kodo.webp', 'Kodo millet'],
+  path3192: ['/JAGGU%20CROP/WHEAT1.jpg', 'Wheat'],
+  path10170: ['/JAGGU%20CROP/kulthi.webp', 'Kulthi'],
+  path7155: ['/JAGGU%20CROP/paddy2.jpg', 'Paddy'],
+  path3282: ['/JAGGU%20CROP/chickpea2.jpg', 'Chickpea'],
+  path7229: ['/JAGGU%20CROP/maize.jpg', 'Maize'],
+  path5352: ['/JAGGU%20CROP/kodo.webp', 'Minor millet'],
+  path6279: ['/JAGGU%20CROP/WHEAT1.jpg', 'Wheat'],
+  path4496: ['/JAGGU%20CROP/maize.jpg', 'Maize'],
+  path7760: ['/JAGGU%20CROP/soyabin.jpg', 'Soybean'],
+  path8477: ['/JAGGU%20CROP/maize.jpg', 'Maize'],
+  path2563: ['/JAGGU%20CROP/soyabin2.jpg', 'Soybean'],
+  path8739: ['/JAGGU%20CROP/kodo.webp', 'Kodo millet'],
+  path10400: ['/JAGGU%20CROP/maize.jpg', 'Maize'],
+  path4651: ['/JAGGU%20CROP/urad.jpg', 'Urad'],
+  path2385: ['/JAGGU%20CROP/ground%20nut.jpg', 'Groundnut'],
+  path4473: ['/JAGGU%20CROP/maize.jpg', 'Maize'],
+  path7870: ['/JAGGU%20CROP/kodo.webp', 'Millet'],
+  path5815: ['/JAGGU%20CROP/WHEAT1.jpg', 'Wheat'],
+  path9215: ['/JAGGU%20CROP/kodo.webp', 'Kodo millet'],
+  path10974: ['/JAGGU%20CROP/soyabin.jpg', 'Soybean'],
+  path7133: ['/images/rice1.jpg', 'Rice'],
+  path7848: ['/JAGGU%20CROP/soyabin2.jpg', 'Soybean'],
+  path6419: ['/JAGGU%20CROP/ground%20nut.jpg', 'Groundnut'],
+  path6946: ['/JAGGU%20CROP/ground%20nut.jpg', 'Groundnut'],
+  path8584: ['/JAGGU%20CROP/kodo.webp', 'Kodo millet'],
+  path4267: ['/JAGGU%20CROP/maize.jpg', 'Maize'],
+  path4890: ['/JAGGU%20CROP/maize.jpg', 'Maize'],
+  path68285: ['/JAGGU%20CROP/rice2.jpg', 'Rice']
+};
+
+function getDistrictCropImage(pathIdOfDistrict, districtData) {
+  if (districtCropImages[pathIdOfDistrict]) {
+    return [pathIdOfDistrict, ...districtCropImages[pathIdOfDistrict]];
+  }
+
+  const crops = `${districtData.populationNumber} ${districtData.areaSize}`.toLowerCase();
+  const cropImages = [
+    ['cotton', '/JAGGU%20CROP/cotton.webp', 'Cotton'],
+    ['kodo', '/JAGGU%20CROP/kodo.webp', 'Kodo millet'],
+    ['kulthi', '/JAGGU%20CROP/kulthi.webp', 'Kulthi'],
+    ['horse gram', '/JAGGU%20CROP/kulthi.webp', 'Kulthi'],
+    ['masoor', '/JAGGU%20CROP/masoor.webp', 'Masoor'],
+    ['lentil', '/JAGGU%20CROP/lentil.jpg', 'Lentil'],
+    ['chickpea', '/JAGGU%20CROP/chickpea2.jpg', 'Chickpea'],
+    ['gram', '/JAGGU%20CROP/chana.jpg', 'Gram'],
+    ['soybean', '/JAGGU%20CROP/soyabin.jpg', 'Soybean'],
+    ['maize', '/JAGGU%20CROP/maize.jpg', 'Maize'],
+    ['wheat', '/JAGGU%20CROP/WHEAT1.jpg', 'Wheat'],
+    ['groundnut', '/JAGGU%20CROP/ground%20nut.jpg', 'Groundnut'],
+    ['urad', '/JAGGU%20CROP/urad.jpg', 'Urad'],
+    ['paddy', '/JAGGU%20CROP/paddy2.jpg', 'Paddy'],
+    ['rice', '/JAGGU%20CROP/rice1.jpg', 'Rice']
+  ];
+
+  return cropImages.find(([crop]) => crops.includes(crop)) || [
+    'rice',
+    districtImageFallback,
+    'Rice'
+  ];
+}
 
 // function showDistrictInformation: This function updates the info box with district details
 function showDistrictInformation(pathIdOfDistrict) {
@@ -309,10 +377,18 @@ function showDistrictInformation(pathIdOfDistrict) {
   document.getElementById('descriptionText').textContent = districtData.aboutDistrict;
 
   // updateshowimagefield : Shows the image
+  const [, cropImage, cropName] = getDistrictCropImage(pathIdOfDistrict, districtData);
   document.getElementById('showimage').innerHTML = `
-  <img src="${districtData.districtImage}" alt="${districtData.districtName}" style="width:100%; border-radius:8px;" />
+  <figure class="cropImageCard">
+    <img src="${cropImage}" alt="${cropName} crop"
+      onerror="this.onerror=null; this.src='${districtImageFallback}'" />
+    <figcaption>${cropName} crop</figcaption>
+  </figure>
 `;
 
+  const infoBox = document.querySelector('.infoBox');
+  infoBox.classList.remove('is-hidden');
+  infoBox.setAttribute('aria-hidden', 'false');
 }
 
 // function resetDistrictInformation: This resets the info box to show the default message
@@ -335,10 +411,24 @@ function resetDistrictInformation() {
  // Resetimage : Reset to default image 
  document.getElementById('showimage').textContent = 'Click on any district on the map to see Image';
 
+ const infoBox = document.querySelector('.infoBox');
+ infoBox.classList.add('is-hidden');
+ infoBox.setAttribute('aria-hidden', 'true');
 }
 
 // windowLoadEvent: This runs when the page fully loads
 window.addEventListener('load', function() {
+  const infoBoxClose = document.querySelector('.infoBoxClose');
+  if (infoBoxClose) {
+    infoBoxClose.addEventListener('click', function() {
+      if (selectedDistrictPath) {
+        selectedDistrictPath.setAttribute('style', selectedDistrictPath.dataset.originalStyle);
+        selectedDistrictPath = null;
+      }
+      resetDistrictInformation();
+    });
+  }
+
   // getAllDistrictPaths: Get all the SVG paths that represent districts
   const allDistrictPaths = document.querySelectorAll('svg path');
   
@@ -394,7 +484,10 @@ window.addEventListener('load', function() {
   });
   
   // svgBackgroundClickEvent: When user clicks on empty SVG area
-  document.querySelector('svg').addEventListener('click', function(clickEvent) {
+  const mapSvg = document.querySelector('svg');
+  if (!mapSvg) return;
+
+  mapSvg.addEventListener('click', function(clickEvent) {
     // checkIfBackgroundClicked: Check if the SVG background itself was clicked
     if (clickEvent.target === this && selectedDistrictPath) {
       // deselectCurrentDistrict: Deselect the currently selected district

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse Agri-Solution portal updates and useful agriculture resources.">
+    <title>Notice Board | Agri-Solution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/responsive.css">
+    <link rel="stylesheet" href="/style/notice-board.css">
+</head>
+
+<body class="notice-board-page">
+    <header class="notice-board-header">
+        <a class="notice-brand" href="index.html" aria-label="Agri-Solution home">
+            <img src="/images/logo.jpg" alt="">
+            <span>
+                <strong>Agri-Solution</strong>
+                <small>One-Stop Solution</small>
+            </span>
+        </a>
+        <a class="notice-home-link" href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to home</a>
+    </header>
+
+    <main>
+        <section class="notice-board-hero">
+            <div class="notice-board-hero-content">
+                <p class="notice-eyebrow"><i class="fa-solid fa-bell"></i> STAY IN THE KNOW</p>
+                <h1>Notice Board</h1>
+                <p>Farmer-focused updates summarized from government sources, with links to check the original information.</p>
+                <a class="notice-hero-link" href="#notices">Explore updates <i class="fa-solid fa-arrow-down"></i></a>
+            </div>
+            <div class="notice-hero-art" aria-hidden="true">
+                <i class="fa-solid fa-bullhorn"></i>
+                <span class="notice-art-spark spark-one">✦</span>
+                <span class="notice-art-spark spark-two">✦</span>
+            </div>
+        </section>
+
+        <section class="notice-board-content" id="notices" aria-labelledby="notice-list-title">
+            <div class="notice-section-heading">
+                <div>
+                    <p class="notice-eyebrow">GOVERNMENT-SOURCED FARMER UPDATES</p>
+                    <h2 id="notice-list-title">What’s happening</h2>
+                </div>
+                <p class="notice-result-count" id="notice-result-count" aria-live="polite">Loading notices...</p>
+            </div>
+
+            <div class="notice-controls">
+                <div class="notice-filters" role="group" aria-label="Filter notices by topic">
+                    <button class="notice-filter is-active" type="button" data-filter="all" aria-pressed="true">All notices</button>
+                    <button class="notice-filter" type="button" data-filter="installment" aria-pressed="false">Installments</button>
+                    <button class="notice-filter" type="button" data-filter="requirement" aria-pressed="false">Farmer requirements</button>
+                    <button class="notice-filter" type="button" data-filter="ekyc" aria-pressed="false">eKYC options</button>
+                </div>
+                <label class="notice-search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span class="visually-hidden">Search notices</span>
+                    <input id="notice-search-input" type="search" placeholder="Search notices..." autocomplete="off">
+                </label>
+            </div>
+
+            <div class="notice-cards" id="notice-cards">
+                <p class="notice-loading">Loading official farmer notices...</p>
+            </div>
+
+            <div class="notice-empty-state" id="notice-empty-state" hidden>
+                <i class="fa-regular fa-folder-open" aria-hidden="true"></i>
+                <h3>No notices found</h3>
+                <p>Try a different search or choose another topic.</p>
+                <button class="notice-reset" id="notice-reset" type="button">Clear filters</button>
+            </div>
+
+            <p class="notice-board-disclaimer"><i class="fa-solid fa-circle-info"></i> Information is summarized from linked government sources. Downloaded PDFs are Agri-Solution copies, not original government-issued documents. Check the official source for updates.</p>
+        </section>
+    </main>
+
+    <footer class="notice-board-footer">
+        <span>&copy; 2026 Agri-Solution</span>
+        <a href="index.html">Return to home <i class="fa-solid fa-arrow-right"></i></a>
+    </footer>
+    <script src="/js/auth-nav.js"></script>
+    <script src="/js/government-notices.js"></script>
+    <script src="/js/notice-board.js"></script>
+    <script src="/js/notice-pdf.js"></script>
+</body>
+
+</html>

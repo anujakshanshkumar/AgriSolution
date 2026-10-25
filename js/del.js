@@ -1,83 +1,52 @@
-
-// Robust slideshow implementation
+// Keep gallery navigation scoped to the gallery, including keyboard controls.
 let slides = [];
 let currentSlide = 0;
 let autoSlideInterval = null;
-const AUTO_DELAY = 3000; // ms
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function showSlide(index) {
-  if (!slides || slides.length === 0) return;
-  // wrap index
-  currentSlide = (index % slides.length + slides.length) % slides.length;
-  slides.forEach((s, i) => {
-    if (i === currentSlide) {
-      s.classList.add('active');
-      // ensure visible even if external CSS hides .slide
-      s.style.display = 'block';
-      // allow CSS transition to run
-      setTimeout(() => { s.style.opacity = '1'; }, 20);
-    } else {
-      s.classList.remove('active');
-      s.style.opacity = '0';
-      // hide after transition (safe fallback)
-      setTimeout(() => { s.style.display = 'none'; }, 600);
-    }
+  if (!slides.length) return;
+  currentSlide = (index + slides.length) % slides.length;
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === currentSlide);
+    slide.setAttribute('aria-hidden', String(i !== currentSlide));
   });
 }
-
-function nextSlide() { showSlide(currentSlide + 1); }
-function prevSlide() { showSlide(currentSlide - 1); }
-
+function stopAutoSlide() {
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = null;
+}
 function startAutoSlide() {
   stopAutoSlide();
-  autoSlideInterval = setInterval(nextSlide, AUTO_DELAY);
+  if (!reduceMotion) autoSlideInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
 }
-
-function stopAutoSlide() {
-  if (autoSlideInterval) { clearInterval(autoSlideInterval); autoSlideInterval = null; }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  slides = Array.from(document.querySelectorAll('.slideshow-container .slide'));
-  if (!slides || slides.length === 0) {
-    // fallback: try any .slide on the page
-    slides = Array.from(document.querySelectorAll('.slide'));
-  }
-  console.log('Slideshow: found', slides.length, 'slides');
-
-  // Ensure slides have a predictable initial inline state (fallback if CSS conflicts)
-  slides.forEach(s => {
-    s.style.display = 'none';
-    s.style.opacity = '0';
-    s.classList.remove('active');
-  });
-
-  // show first slide
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelector('.slideshow-container');
+  if (!gallery) return;
+  slides = Array.from(gallery.querySelectorAll('.slide'));
   showSlide(0);
-  // buttons
-  const nextBtn = document.querySelector('.slideshow-container .next');
-  const prevBtn = document.querySelector('.slideshow-container .prev');
-  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoSlide(); });
-  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoSlide(); });
-
-  // pause on hover/touch
-  const container = document.querySelector('.slideshow-container');
-  if (container) {
-    container.addEventListener('mouseenter', stopAutoSlide);
-    container.addEventListener('mouseleave', startAutoSlide);
-    container.addEventListener('touchstart', stopAutoSlide, {passive:true});
-    container.addEventListener('touchend', startAutoSlide, {passive:true});
-  }
-
-  // keyboard navigation
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowLeft') { prevSlide(); startAutoSlide(); }
-    if (e.key === 'ArrowRight') { nextSlide(); startAutoSlide(); }
+  gallery.querySelector('.next').addEventListener('click', () => showSlide(currentSlide + 1));
+  gallery.querySelector('.prev').addEventListener('click', () => showSlide(currentSlide - 1));
+  gallery.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    showSlide(currentSlide + (event.key === 'ArrowLeft' ? -1 : 1));
   });
-
-  // start autoplay
+  gallery.addEventListener('mouseenter', stopAutoSlide);
+  gallery.addEventListener('mouseleave', () => {
+    if (!gallery.contains(document.activeElement)) startAutoSlide();
+  });
+  gallery.addEventListener('focusin', stopAutoSlide);
+  gallery.addEventListener('focusout', (event) => {
+    if (!gallery.contains(event.relatedTarget) && !gallery.matches(':hover')) startAutoSlide();
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAutoSlide();
+    else if (!gallery.contains(document.activeElement) && !gallery.matches(':hover')) startAutoSlide();
+  });
   startAutoSlide();
 });
+
 // navbar responsive
 
 
@@ -246,28 +215,36 @@ var districtObject = {
   }
 }
 document.addEventListener('DOMContentLoaded', function() {
-  var districtSel = document.getElementById("district");
-  var VidhanSabhaSel = document.getElementById("VidhanSabha");
-  var mandiSel = document.getElementById("mandi");
-  for (var x in districtObject) {
-    districtSel.options[districtSel.options.length] = new Option(x, x);
+  const districtSel = document.getElementById('district');
+  const areaSel = document.getElementById('VidhanSabha');
+  const centreSel = document.getElementById('mandi');
+  const result = document.getElementById('dealer-selection');
+  const clearResult = () => { result.hidden = true; result.textContent = ''; };
+  for (const district in districtObject) {
+    districtSel.add(new Option(district, district));
   }
-  districtSel.onchange = function() {
-    //empty Chapters- and Topics- dropdowns
-    mandiSel.length = 1;
-    VidhanSabhaSel.length = 1;
-    //display correct values
-    for (var y in districtObject[this.value]) {
-      VidhanSabhaSel.options[VidhanSabhaSel.options.length] = new Option(y, y);
+  districtSel.addEventListener('change', function() {
+    areaSel.length = 1;
+    centreSel.length = 1;
+    areaSel.disabled = !this.value;
+    centreSel.disabled = true;
+    clearResult();
+    for (const area in districtObject[this.value] || {}) {
+      areaSel.add(new Option(area, area));
     }
-  }
-  VidhanSabhaSel.onchange = function() {
-    //empty Chapters dropdown
-    mandiSel.length = 1;
-    //display correct values
-    var z = districtObject[districtSel.value][this.value];
-    for (var i = 0; i < z.length; i++) {
-      mandiSel.options[mandiSel.options.length] = new Option(z[i], z[i]);
-    }
-  }
+  });
+  areaSel.addEventListener('change', function() {
+    centreSel.length = 1;
+    centreSel.disabled = !this.value;
+    clearResult();
+    const centres = districtObject[districtSel.value]?.[this.value] || [];
+    centres.forEach(centre => centreSel.add(new Option(centre, centre)));
+  });
+  centreSel.addEventListener('change', clearResult);
+  document.getElementById('dealer').addEventListener('submit', function(event) {
+    event.preventDefault();
+    if (!this.reportValidity()) return;
+    result.textContent = `${centreSel.value} ? ${areaSel.value} ? ${districtSel.value.replace(/^\d+\.\s*/, '')}. Confirm the location and availability with your local procurement office before visiting.`;
+    result.hidden = false;
+  });
 });

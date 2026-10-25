@@ -37,7 +37,6 @@ body {
     text-align: center;
 }
 
-/* Hero section */
 .hero {
     position: relative;
     width: 100%;
@@ -147,7 +146,6 @@ body {
     font-family: Roboto;
 }
 
-/* Weather widget styles */
 .weather-section {
     padding: 2rem 1rem 4rem 1rem;
     background: #f5f5f5;
@@ -204,138 +202,1029 @@ body {
     max-height: 160px;
 }
 
+.climate-page {
+    --climate-green: #28734d;
+    --climate-green-dark: #174a35;
+    --climate-green-soft: #e8f3eb;
+    --climate-gold: #dda841;
+    --climate-ink: #20352b;
+    --climate-muted: #5d7065;
+    --climate-border: #dfe8e1;
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 42px 0 76px;
+    background: radial-gradient(ellipse at 50% 18%, #f6faf5 0, #fff 68%);
+    color: var(--climate-ink);
+    font-family: Roboto, Arial, sans-serif;
+}
 
- /* footer */
- .footer {
-    /* background-color: rgb(29, 71, 29);
-      color: rgb(245,245,220); */
-    background-color: rgb(11, 61, 46);
-    color: white;
-    padding: 3.125rem 1.25rem 1.25rem;
-    border-top: 1px solid wheat;
- }
+.climate-page * {
+    box-sizing: border-box;
+}
 
- .footer-container {
-    max-width: 75rem;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2.2rem;
- }
-
- .footer-col {
-    flex: 1 1 15.6rem;
- }
-
- .footer-col .f-logo {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    margin-bottom: 1.2rem;
- }
-
- .footer-col .f-logo img {
-    width: 4.375rem;
-    height: auto;
- }
-
- .footer-col .f-logo h2 {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 600;
- }
-
- .footer-col .f-logo p {
-    margin: 0.9rem;
-    font-size: 1rem;
-    line-height: 1.3rem;
- }
-
- .para {
-    font-weight: 550;
-    margin-bottom: 1.5rem;
- }
-
- .footer-col .f-logo p i {
-    margin-right: 0.8rem;
- }
-
- .footer-col h3 {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    font-weight: 600;
- }
-
- .footer-col ul li {
-    list-style: none;
-    margin: 0.1rem 0;
- }
-
- .footer-col a {
-    text-decoration: none;
-    color: rgb(255, 239, 239);
-    transition: 0.3s ease;
- }
-
- .footer-col a:hover {
-    color: rgb(102, 216, 102);
- }
-
- .social-icon {
-    display: flex;
-    gap: 10px;
-    margin: 0.625rem 0;
- }
-
- .icon-s {
-    width: 2.3rem;
-    height: 2.3rem;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
+.climate-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.8fr);
+    gap: 34px;
     align-items: center;
-    border: 1px solid rgb(180, 184, 180);
-    background-color: rgba(7, 59, 30, 0.575);
-    color: black;
-    font-size: 1.2rem;
-    font-weight: 600;
-    transition: all 0.3s;
- }
+    padding: 38px;
+    border: 1px solid #dce8df;
+    border-radius: 24px;
+    background:
+        radial-gradient(ellipse at 5% 100%, rgba(183, 220, 192, 0.72), transparent 47%),
+        radial-gradient(ellipse at 100% 0%, rgba(255, 231, 181, 0.48), transparent 42%),
+        linear-gradient(125deg, #f4faf5 0%, #e9f4eb 55%, #fff8ec 100%);
+    box-shadow: 0 18px 44px rgba(31, 74, 49, 0.075);
+}
 
- .icon-s:hover {
-    background-color: transparent;
- }
+.climate-eyebrow,
+.section-kicker {
+    margin: 0 0 10px;
+    color: var(--climate-green);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
 
- .helpline {
-    margin: 1.2rem 0;
-    font-size: 1.36rem;
-    font-weight: 700;
-    color: rgb(20, 160, 27);
- }
+.climate-intro h1 {
+    margin: 0;
+    color: var(--climate-green-dark);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 750;
+    letter-spacing: -0.045em;
+    line-height: 1.08;
+}
 
- .social h4 {
-    font-weight: 490;
- }
+.climate-intro > p:not(.climate-eyebrow) {
+    max-width: 510px;
+    margin: 15px 0 0;
+    color: var(--climate-muted);
+    font-size: 1.04rem;
+    line-height: 1.65;
+}
 
- .disclaimer {
-    /* margin-top: 1rem; */
-    font-size: 0.9rem;
-    color: whitesmoke;
-    max-width: 56rem;
- }
-
- .footer-bottom {
-    border-top: 1px solid white;
-    margin-top: 2rem;
-    padding-top: 1rem;
+.climate-tabs {
     display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
     flex-wrap: wrap;
- }
+    gap: 10px;
+    margin-top: 26px;
+}
 
- .footer-bottom .claim {
-    color: white;
-    font-weight: 600;
- }
+.climate-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid #dce9dd;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--climate-green-dark);
+    font-size: 0.9rem;
+    font-weight: 650;
+    text-decoration: none;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.climate-tab:hover {
+    transform: translateY(-1px);
+    background: #fff;
+}
+
+.climate-tab.is-active {
+    border-color: var(--climate-green);
+    background: var(--climate-green);
+    color: #fff;
+}
+
+.location-panel {
+    padding: 22px;
+    border: 1px solid rgba(218, 231, 218, 0.9);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 14px 32px rgba(35, 71, 48, 0.09);
+}
+
+.location-panel label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--climate-ink);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.location-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 12px;
+    border: 1px solid #d4e2d8;
+    border-radius: 11px;
+    background: #f8fbf8;
+    color: var(--climate-green);
+}
+
+.location-control select {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--climate-ink);
+    font: inherit;
+}
+
+.location-button {
+    width: 100%;
+    min-height: 44px;
+    margin-top: 11px;
+    border: 1px solid #cfe2d2;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #e9f4eb, #f2f7e9);
+    color: var(--climate-green-dark);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.location-button:hover {
+    background: #dceedd;
+}
+
+.location-button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.location-note {
+    margin: 10px 0 0;
+    color: var(--climate-muted);
+    font-size: 0.76rem;
+    line-height: 1.5;
+}
+
+.climate-page button:focus-visible,
+.climate-page a:focus-visible,
+.climate-page select:focus-visible {
+    outline: 3px solid #d5a02e;
+    outline-offset: 3px;
+}
+
+.weather-section {
+    margin-top: 34px;
+    padding: 30px;
+    border: 1px solid #e7eee8;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #f7faf7, #fbfcf8);
+    box-shadow: 0 14px 34px rgba(38, 69, 46, 0.045);
+}
+
+#weather-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 9px;
+    padding: 6px 10px;
+    border: 1px solid #dce9e2;
+    border-radius: 999px;
+    background: #f5faf7;
+    color: #426451;
+    font-size: 0.82rem;
+    font-weight: 650;
+}
+
+#weather-date::before {
+    content: "\f073";
+    color: var(--climate-green);
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.section-heading,
+.forecast-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.section-heading h2,
+.forecast-heading h2 {
+    margin: 0;
+    color: var(--climate-green-dark);
+    font-size: clamp(1.45rem, 2.6vw, 2rem);
+    font-weight: 750;
+    letter-spacing: -0.025em;
+}
+
+.section-subtitle {
+    margin: 7px 0 0;
+    color: var(--climate-muted);
+    font-size: 0.93rem;
+    line-height: 1.5;
+}
+
+.weather-retry {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    margin: 0;
+    padding: 0 15px;
+    border: 1px solid #cfe2d2;
+    border-radius: 10px;
+    background: #fff;
+    color: var(--climate-green-dark);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.weather-retry:hover {
+    background: var(--climate-green-soft);
+}
+
+.conditions-card {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.4fr);
+    align-items: center;
+    gap: 28px;
+    padding: 30px;
+    border: 1px solid #dce8df;
+    border-radius: 20px;
+    background:
+        radial-gradient(ellipse at 4% 0%, rgba(224, 239, 226, 0.95), transparent 48%),
+        #fff;
+    box-shadow: 0 14px 34px rgba(32, 63, 42, 0.075);
+}
+
+.conditions-primary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.weather-icon-wrap {
+    display: grid;
+    width: 82px;
+    height: 82px;
+    flex: 0 0 82px;
+    place-items: center;
+    border-radius: 24px;
+    background: #fff1d3;
+    color: #bd8116;
+    font-size: 2.2rem;
+}
+
+.current-reading p {
+    margin: 0;
+}
+
+.weather-desc {
+    color: var(--climate-green-dark);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.weather-temp {
+    margin-top: 2px !important;
+    color: var(--climate-green-dark);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 750;
+    letter-spacing: -0.06em;
+    line-height: 1.1;
+}
+
+.feels-like,
+.high-low {
+    margin-top: 6px !important;
+    color: var(--climate-muted);
+    font-size: 0.82rem;
+}
+
+.conditions-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.weather-metric {
+    display: flex;
+    min-height: 120px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+    border: 1px solid #e5ece7;
+    border-radius: 14px;
+    background: linear-gradient(150deg, #fff, #f8fbf9);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.weather-metric:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(38, 69, 46, 0.08);
+}
+
+.weather-metric:nth-child(1) {
+    border-color: #d8e9ef;
+    background: linear-gradient(150deg, #f2f9fb, #fff);
+}
+
+.weather-metric:nth-child(2) {
+    border-color: #d6e9e3;
+    background: linear-gradient(150deg, #f0f8f4, #fff);
+}
+
+.weather-metric:nth-child(3) {
+    border-color: #efe3c9;
+    background: linear-gradient(150deg, #fff9ec, #fff);
+}
+
+.weather-metric span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--climate-muted);
+    font-size: 0.78rem;
+}
+
+.weather-metric span i {
+    color: #347c82;
+}
+
+.weather-metric:nth-child(3) span i {
+    color: #b78021;
+}
+
+.weather-metric strong {
+    margin-top: 9px;
+    color: var(--climate-ink);
+    font-size: 1.35rem;
+}
+
+.weather-metric small {
+    margin-top: 2px;
+    color: var(--climate-muted);
+    font-size: 0.7rem;
+}
+
+.weather-updated {
+    grid-column: 1 / -1;
+    margin: -9px 0 0;
+    color: var(--climate-muted);
+    font-size: 0.76rem;
+}
+
+.weather-error {
+    margin: 12px 0 0;
+    padding: 12px 15px;
+    border: 1px solid #f0d3cb;
+    border-radius: 10px;
+    background: #fff6f3;
+    color: #8d3627;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.forecast-heading {
+    margin: 35px 0 14px;
+}
+
+.forecast-heading h2 {
+    font-size: 1.3rem;
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 11px;
+}
+
+.forecast-day {
+    display: flex;
+    min-height: 162px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 8px;
+    border: 1px solid #e1eae3;
+    border-radius: 15px;
+    background: linear-gradient(160deg, #fff, #f8fbf8);
+    text-align: center;
+    box-shadow: 0 5px 16px rgba(35, 67, 44, 0.035);
+    transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.forecast-day:hover {
+    transform: translateY(-3px);
+    border-color: #c8dccd;
+    box-shadow: 0 12px 24px rgba(35, 67, 44, 0.09);
+}
+
+.forecast-day-name {
+    margin: 0;
+    color: var(--climate-muted);
+    font-size: 0.79rem;
+    font-weight: 700;
+}
+
+.forecast-day-date {
+    margin: -7px 0 0;
+    color: #435b4c;
+    font-size: 0.72rem;
+    font-weight: 650;
+}
+
+.forecast-day > i {
+    color: #c68d26;
+    font-size: 1.35rem;
+}
+
+.forecast-temperatures {
+    margin: 0;
+    color: var(--climate-ink);
+    font-size: 0.86rem;
+    font-weight: 750;
+}
+
+.forecast-rain {
+    margin: 0;
+    color: #39717d;
+    font-size: 0.73rem;
+}
+
+.forecast-placeholder {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 20px;
+    border: 1px dashed #d9e6db;
+    border-radius: 14px;
+    color: var(--climate-muted);
+    text-align: center;
+}
+
+.field-guidance {
+    display: grid;
+    grid-template-columns: auto 1fr minmax(190px, 0.65fr);
+    align-items: center;
+    gap: 17px;
+    margin-top: 24px;
+    padding: 20px 22px;
+    border: 1px solid #e4e5ce;
+    border-radius: 16px;
+    background: linear-gradient(110deg, #fff7e5 0%, #f4f8ed 100%);
+}
+
+.guidance-icon {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border-radius: 14px;
+    background: #fff0c8;
+    color: #a97416;
+    font-size: 1.2rem;
+}
+
+.guidance-copy h2 {
+    margin: 0;
+    color: var(--climate-ink);
+    font-size: 1rem;
+}
+
+.guidance-copy p {
+    margin: 5px 0 0;
+    color: #58695e;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.guidance-note {
+    margin: 0;
+    padding-left: 16px;
+    border-left: 1px solid #e3dbc0;
+    color: #6f725e;
+    font-size: 0.74rem;
+    line-height: 1.5;
+}
+
+.data-attribution,
+.soil-disclaimer {
+    margin: 13px 0 0;
+    color: var(--climate-muted);
+    font-size: 0.76rem;
+    line-height: 1.55;
+}
+
+.data-attribution a {
+    color: var(--climate-green);
+    font-weight: 650;
+}
+
+.soil-profile-section {
+    margin-top: 48px;
+    padding: 34px 30px 30px;
+    border: 1px solid #e3ebe2;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #f2f8f1, #fbfcf7 54%, #f8f5e9);
+    box-shadow: 0 14px 34px rgba(38, 69, 46, 0.045);
+}
+
+.soil-heading {
+    margin-bottom: 20px;
+}
+
+.soil-model-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 280px;
+    padding: 10px 13px;
+    border: 1px solid #e7ebdf;
+    border-radius: 10px;
+    background: #fafbf6;
+    color: #69715c;
+    font-size: 0.76rem;
+    line-height: 1.4;
+}
+
+.soil-model-note i {
+    color: #8a945f;
+}
+
+.soil-condition-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 20px;
+    padding: 21px 24px;
+    border: 1px solid #d6e6d8;
+    border-radius: 16px;
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(234, 244, 215, 0.72), transparent 42%),
+        linear-gradient(110deg, #eaf5ec, #fcfdf9);
+}
+
+.soil-condition-title {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.soil-condition-title > i {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    place-items: center;
+    border-radius: 13px;
+    background: #d8ecdf;
+    color: var(--climate-green);
+}
+
+.soil-condition-title h3 {
+    margin: 0;
+    color: var(--climate-green-dark);
+    font-size: 1rem;
+}
+
+.soil-condition-title p {
+    margin: 5px 0 0;
+    color: var(--climate-muted);
+    font-size: 0.77rem;
+}
+
+.soil-condition-metrics {
+    display: flex;
+    gap: 28px;
+}
+
+.soil-condition-metrics > div {
+    display: grid;
+    gap: 3px;
+}
+
+.soil-condition-metrics span,
+.soil-condition-metrics small {
+    color: var(--climate-muted);
+    font-size: 0.72rem;
+}
+
+.soil-condition-metrics strong {
+    color: var(--climate-green-dark);
+    font-size: 1.25rem;
+}
+
+.soil-condition-metrics > div:first-child strong {
+    color: #31777a;
+}
+
+.soil-condition-metrics > div:last-child strong {
+    color: #a97824;
+}
+
+.soiltypesbox {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: initial;
+    gap: 18px;
+    width: 100%;
+    padding: 0;
+    background: transparent;
+}
+
+.soilbox {
+    width: auto;
+    height: auto;
+    min-width: 0;
+    border: 1px solid #dfe9df;
+    border-radius: 17px;
+    background: linear-gradient(160deg, #fff, #fbfcf9);
+    box-shadow: 0 8px 22px rgba(31, 57, 38, 0.065);
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.soilbox:hover {
+    transform: translateY(-3px);
+    border-color: #c9ddca;
+    box-shadow: 0 14px 28px rgba(31, 57, 38, 0.12);
+}
+
+.soil-image {
+    height: 175px;
+}
+
+.soil-description {
+    gap: 8px;
+    padding: 18px;
+}
+
+.soil-description .soil-tag {
+    align-self: flex-start;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: #e7f3e8;
+    color: var(--climate-green);
+    font-size: 0.68rem;
+    font-weight: 750;
+    letter-spacing: 0.02em;
+}
+
+.soil-description h3 {
+    margin: 1px 0 0;
+    color: var(--climate-green-dark);
+    font-size: 1.16rem;
+    font-weight: 750;
+}
+
+.soil-description p {
+    margin: 0;
+    color: var(--climate-muted);
+    font-size: 0.85rem;
+    line-height: 1.62;
+}
+
+.soil-disclaimer {
+    margin-top: 17px;
+}
+
+@media (max-width: 900px) {
+    .climate-hero {
+        grid-template-columns: minmax(0, 1fr) minmax(250px, 0.8fr);
+        gap: 22px;
+        padding: 28px;
+    }
+
+    .conditions-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .weather-updated {
+        margin-top: -8px;
+    }
+
+    .forecast-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .soiltypesbox {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .climate-page {
+        width: min(100% - 28px, 480px);
+        padding: 24px 0 48px;
+    }
+
+    .weather-section,
+    .soil-profile-section {
+        padding: 20px 15px;
+        border-radius: 18px;
+    }
+
+    .climate-hero {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 22px 18px;
+        border-radius: 18px;
+    }
+
+    .climate-intro h1 {
+        font-size: 2.2rem;
+    }
+
+    .climate-intro > p:not(.climate-eyebrow) {
+        font-size: 0.94rem;
+    }
+
+    .climate-tabs {
+        margin-top: 18px;
+    }
+
+    .location-panel {
+        padding: 17px;
+    }
+
+    .section-heading,
+    .forecast-heading {
+        align-items: flex-start;
+    }
+
+    .section-heading {
+        flex-wrap: wrap;
+    }
+
+    .weather-retry {
+        min-height: 38px;
+    }
+
+    .conditions-card {
+        gap: 18px;
+        padding: 19px 15px;
+        border-radius: 17px;
+    }
+
+    .conditions-primary {
+        gap: 14px;
+    }
+
+    .weather-icon-wrap {
+        width: 66px;
+        height: 66px;
+        flex-basis: 66px;
+        border-radius: 19px;
+        font-size: 1.8rem;
+    }
+
+    .conditions-metrics {
+        gap: 7px;
+    }
+
+    .weather-metric {
+        min-height: 102px;
+        padding: 11px 8px;
+    }
+
+    .weather-metric span {
+        gap: 4px;
+        font-size: 0.68rem;
+    }
+
+    .weather-metric strong {
+        font-size: 1.1rem;
+    }
+
+    .weather-metric small {
+        font-size: 0.62rem;
+    }
+
+    .weather-updated {
+        margin-top: -5px;
+    }
+
+    .forecast-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .forecast-day {
+        min-height: 140px;
+    }
+
+    .field-guidance {
+        grid-template-columns: auto 1fr;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .guidance-note {
+        grid-column: 1 / -1;
+        padding: 10px 0 0;
+        border-top: 1px solid #e3dbc0;
+        border-left: 0;
+    }
+
+    .soil-heading {
+        display: block;
+    }
+
+    .soil-model-note {
+        margin-top: 12px;
+    }
+
+    .soil-condition-card {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 17px;
+        padding: 17px;
+    }
+
+    .soil-condition-metrics {
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+        padding-top: 14px;
+        border-top: 1px solid #dfe8dd;
+    }
+
+    .soiltypesbox {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .soilbox {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr);
+        min-height: 150px;
+    }
+
+    .soil-image {
+        height: 100%;
+        min-height: 150px;
+    }
+
+    .soil-description {
+        justify-content: center;
+        padding: 13px;
+    }
+
+    .soil-description p {
+        font-size: 0.78rem;
+    }
+}
+
+
+     .footer {
+        background-color: rgb(11, 61, 46);
+        color: white;
+        padding: 3.125rem 1.25rem 1.25rem;
+        border-top: 1px solid wheat;
+     }
+
+     .footer-container {
+        max-width: 75rem;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2.2rem;
+     }
+
+     .footer-col {
+        flex: 1 1 15.6rem;
+     }
+
+     .footer-col .f-logo {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        margin-bottom: 1.2rem;
+
+     }
+
+     .footer-col .f-logo img {
+        width: 4.375rem;
+        height: 4.375rem;
+        border-radius: 50%;
+        object-fit: cover;
+     }
+
+     .footer-col .f-logo h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+     }
+
+     .footer-col .f-logo p {
+        margin: 0.9rem;
+        font-size: 1rem;
+        line-height: 1.3rem;
+     }
+
+     .para {
+        font-weight: 550;
+        margin-bottom: 1.5rem;
+      }
+
+     .footer-col .f-logo p i {
+        margin-right: 0.3rem;
+      }
+
+     .footer-col.Contact .f-logo p:not(.para) {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0.5rem 0;
+      }
+
+     .footer-col.Contact .f-logo p:not(.para) i {
+        margin-right: 0;
+      }
+
+     .footer-col h3 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+     }
+
+     .footer-col ul li {
+        list-style: none;
+        margin: 0.1rem 0;
+     }
+
+     .footer-col a {
+        text-decoration: none;
+        color: rgb(255, 239, 239);
+        transition: 0.3s ease;
+     }
+
+     .footer-col a:hover {
+        color: rgb(102, 216, 102);
+     }
+
+     .social-icon {
+        display: flex;
+        gap: 10px;
+        margin: 0.625rem 0;
+     }
+
+     .icon-s {
+        width: 2.3rem;
+        height: 2.3rem;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgb(180, 184, 180);
+        background-color: rgba(7, 59, 30, 0.575);
+        color: black;
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: all 0.3s;
+     }
+
+     .icon-s:hover {
+        background-color: transparent;
+     }
+
+     .helpline {
+        margin: 1.2rem 0;
+        font-size: 1.36rem;
+        font-weight: 700;
+        color: rgb(20, 160, 27);
+     }
+
+     .social h4 {
+        font-weight: 490;
+     }
+
+     .disclaimer {
+        font-size: 0.9rem;
+        color: whitesmoke;
+        max-width: 56rem;
+     }
+
+     .footer-bottom {
+        border-top: 1px solid white;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+     }
+
+     .footer-bottom .claim {
+        color: white;
+        font-weight: 600;
+     }

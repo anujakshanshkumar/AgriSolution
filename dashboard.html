@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard | Agri-Solution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/dashboard.css">
+    <link rel="stylesheet" href="/style/responsive.css">
+</head>
+<body>
+    <header class="TopHeader">
+        <div class="Hleft">
+            <img src="/images/logo.jpg" alt="Agri-Solution logo">
+            <div class="title-grp">
+                <h1 class="title">Agri-Solution</h1>
+                <p class="subtitle">One-Stop Solution</p>
+            </div>
+        </div>
+        <div class="Hright header-actions">
+            <span class="profile-chip"><i class="fa-solid fa-circle-user"></i><span id="header-name">Farmer</span></span>
+            <button class="logout-button" id="logout-button" type="button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
+        </div>
+    </header>
+
+    <header>
+        <nav class="navbar">
+            <ul class="nav-Link" id="NavLink">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li class="dropdown"><a href="#">Agriculture Services <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/crop.html">Crop Information</a></li>
+                        <li><a href="/schemes.html">Schemes &amp; Subsidies</a></li>
+                        <li><a href="/del.html">Dealers</a></li>
+                        <li><a href="/token.html">Vikray Token</a></li>
+                        <li><a href="/login.html">Farmer Registration</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#">Resources <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/soil.html">Weather &amp; Soil</a></li>
+                        <li><a href="/distmap.html">District Map</a></li>
+                    </ul>
+                </li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
+            <div class="sub-nav">
+                <div class="search-container" id="inline-search-container">
+                    <input type="text" id="search-input" placeholder="Search Here.." class="search-input-field hidden">
+                    <a href="#" id="search-tog" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+                <div class="menu-tog"><i class="fa-solid fa-bars"></i></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard-shell">
+        <section class="welcome-panel">
+            <div>
+                <p class="eyebrow">FARMER DASHBOARD</p>
+                <h1>Welcome back, <span id="welcome-name">Farmer</span></h1>
+                <p class="welcome-copy">Your farming resources, schemes and crop information are all in one place.</p>
+            </div>
+            <div class="welcome-mark" aria-hidden="true"><i class="fa-solid fa-seedling"></i></div>
+        </section>
+
+        <section class="dashboard-grid" aria-label="Dashboard overview">
+            <article class="profile-card panel">
+                <div class="panel-heading"><h2>Your profile</h2><i class="fa-solid fa-user-gear"></i></div>
+                <div class="profile-avatar" id="profile-initial">F</div>
+                <h3 id="profile-name">Farmer</h3>
+                <p class="profile-role">Registered Agri-Solution user</p>
+                <dl class="profile-details">
+                    <div><dt>Mobile</dt><dd id="profile-mobile">Not available</dd></div>
+                    <div><dt>District</dt><dd id="profile-district">Not available</dd></div>
+                </dl>
+            </article>
+
+            <section class="quick-panel panel">
+                <div class="panel-heading"><div><p class="eyebrow">EXPLORE</p><h2>Quick access</h2></div><i class="fa-solid fa-compass"></i></div>
+                <div class="resource-grid">
+                    <a class="resource-card crop-card" href="/crop.html"><span class="resource-icon"><i class="fa-solid fa-wheat-awn"></i></span><span><strong>Crop information</strong><small>Improve crop decisions</small></span><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
+                    <a class="resource-card scheme-card" href="/schemes.html"><span class="resource-icon"><i class="fa-solid fa-landmark"></i></span><span><strong>Schemes & subsidies</strong><small>Find farmer support</small></span><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
+                    <a class="resource-card soil-card" href="/soil.html"><span class="resource-icon"><i class="fa-solid fa-cloud-sun"></i></span><span><strong>Weather & soil</strong><small>Plan your next step</small></span><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
+                    <a class="resource-card dealer-card" href="/del.html"><span class="resource-icon"><i class="fa-solid fa-store"></i></span><span><strong>Find dealers</strong><small>Connect with suppliers</small></span><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
+                    <a class="resource-card token-card" href="/token.html"><span class="resource-icon"><i class="fa-solid fa-ticket"></i></span><span><strong>Vikray Token</strong><small>Reserve your place</small></span><i class="fa-solid fa-arrow-up-right-from-square resource-arrow"></i></a>
+                </div>
+            </section>
+        </section>
+
+        <section class="tip-panel">
+            <i class="fa-solid fa-lightbulb"></i>
+            <div><p class="eyebrow">TODAY'S FARMING NOTE</p><h2>Healthy soil supports a healthy harvest.</h2><p>Explore the soil and weather section before planning irrigation or adding nutrients.</p></div>
+            <a class="tip-link" href="/soil.html">View resources <i class="fa-solid fa-arrow-right"></i></a>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-col Contact">
+                <div class="f-logo">
+                    <img src="/images/logo.jpg" alt="Agri-Solution logo">
+                    <div>
+                        <h2>Agri-Solution</h2>
+                        <p class="para">Student Project</p>
+                        <p><i class="fa-solid fa-location-dot"></i> Raipur Chhattisgarh</p>
+                        <p><i class="fa-solid fa-phone"></i> <a href="tel:+8770826925">8770826925</a></p>
+                        <p><i class="fa-regular fa-envelope"></i> <a href="mailto:agri@cg.gov.in">agri@cg.gov.in</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About us</a></li>
+                    <li><a href="/crop.html">Crop information</a></li>
+                    <li><a href="/del.html">Market Prices</a></li>
+                    <li><a href="/schemes.html">Schemes &amp; Subsidies</a></li>
+                    <li><a href="/login.html">Farmer Registration</a></li>
+                    <li><a href="/soil.html">Soil and Weather</a></li>
+                    <li><a href="/distmap.html">District Map</a></li>
+                    <li><a href="/del.html">Dealers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col social">
+                <h3>Contact With Us</h3>
+                <div class="social-icon">
+                    <a href="https://www.facebook.com/" class="icon-s facebook"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://x.com/" class="icon-s twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.whatsapp.com/?lang=en" class="icon-s whatsapp"><i class="fa-brands fa-square-whatsapp"></i></a>
+                    <a href="https://www.youtube.com/" class="icon-s youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <h4>Farmer Helpline</h4>
+                <a href="tel:+7317549567"><p class="helpline">+91 731-754-9567</p></a>
+                <small>Available 24/7</small>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="disclaimer">This is an unofficial website created for educational and demonstration purposes only. It is not official website of the Government of Chhattisgarh or the Department of Agriculture.</p>
+            <p class="claim">&copy; 2025 Kala Samrajya. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="/js/auth-nav.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
