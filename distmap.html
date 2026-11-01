@@ -4,20 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>District Map | Agri-Solution</title>
+    <title>District Map | Mor Kisani</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="/style/distmap.css">
     <link rel="stylesheet" href="/style/responsive.css">
+    <link rel="stylesheet" href="/style/hindi.css">
+    <link rel="stylesheet" href="/style/brand.css">
 </head>
 
 <body>
     <header class="TopHeader">
         <div class="Hleft">
-            <img src="/images/logo.jpg" alt="Agri-Solution logo">
+            <img src="/images/new%20logo.png" alt="Mor Kisani logo">
             <div class="title-grp">
-                <h1 class="title">Agri-Solution</h1>
-                <p class="subtitle">One-Stop Solution</p>
+                <h1 class="title">Mor Kisani</h1>
+                <p class="subtitle">मोर किसानी • मोर जानकारी • मोर तरक्की</p>
             </div>
         </div>
         <div class="Hright">
@@ -92,14 +94,18 @@
 
     <footer class="footer" id="footer">
         <div class="footer-container">
-            <div class="footer-col Contact"><div class="f-logo"><img src="/images/logo.jpg" alt="Agri-Solution logo"><div><h2>Agri-Solution</h2><p class="para">Student Project</p><p><i class="fa-solid fa-location-dot"></i> Raipur Chhattisgarh</p><p><i class="fa-solid fa-phone"></i> <a href="tel:+8770826925">8770826925</a></p></div></div></div>
+            <div class="footer-col Contact"><div class="f-logo"><img src="/images/new%20logo.png" alt="Mor Kisani logo"><div><h2>Mor Kisani</h2><p class="para">Student Project</p><p><i class="fa-solid fa-location-dot"></i> Raipur Chhattisgarh</p><p><i class="fa-solid fa-phone"></i> <a href="tel:+8770826925">8770826925</a></p></div></div></div>
             <div class="footer-col links"><h3>Quick Links</h3><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About us</a></li><li><a href="crop.html">Crop information</a></li><li><a href="schemes.html">Schemes &amp; Subsidies</a></li><li><a href="distmap.html">District Map</a></li><li><a href="token.html">Vikray Token</a></li></ul></div>
             <div class="footer-col social"><h3>Farmer Helpline</h3><a href="tel:+7317549567"><p class="helpline">+91 731-754-9567</p></a><small>Available 24/7</small></div>
         </div>
         <div class="footer-bottom"><p class="disclaimer">This is an unofficial website created for educational and demonstration purposes only.</p><p class="claim">&copy; 2025 Kala Samrajya. All rights reserved</p></div>
     </footer>
 
+    <script src="/js/state/session-store.js"></script>
+    <script src="/js/hindi-translations.js"></script>
     <script src="/js/auth-nav.js"></script>
+    <script src="/js/voice-input.js"></script>
+    <script src="/js/voice-audio.js"></script>
     <script>
         fetch('/Chhattisgarh_districts_map.svg')
             .then((response) => {

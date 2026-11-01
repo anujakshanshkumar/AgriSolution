@@ -507,10 +507,10 @@ window.addEventListener('load', function() {
 
 
 var wel1 = new Audio();
-wel1.src = "/audios/wel1.mp3";
+wel1.src = "/audios/home.mp3";
 
 var ab1 = new Audio();
-ab1.src = "/audios/ab1.mp3";
+ab1.src = "/audios/about.mp3";
 
 var crop1 = new Audio();
 crop1.src = "/audios/crop1.mp3";

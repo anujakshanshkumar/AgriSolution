@@ -1,0 +1,9 @@
+{
+  "cli": { "version": ">=16.0.0", "appVersionSource": "local" },
+  "build": {
+    "preview": { "environment": "preview", "distribution": "internal", "android": { "buildType": "apk" }, "env": { "EXPO_PUBLIC_ALLOW_HTTP": "false" } },
+    "preview-lan": { "extends": "preview", "env": { "EXPO_PUBLIC_ALLOW_HTTP": "true" } },
+    "production": { "environment": "production", "autoIncrement": true, "android": { "buildType": "app-bundle" }, "env": { "EXPO_PUBLIC_ALLOW_HTTP": "false" } },
+    "ios-simulator": { "extends": "preview", "ios": { "simulator": true } }
+  }
+}

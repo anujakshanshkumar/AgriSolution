@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateProfileNote = () => {
         if (!profileNote) return;
         const district = districtInput?.value.trim();
-        const community = communityFilter?.selectedOptions[0]?.textContent;
+        const community = { general: 'General', obc: 'OBC', sc: 'SC', st: 'ST' }[communityFilter?.value];
         const context = [];
 
         if (district) {

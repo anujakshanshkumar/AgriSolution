@@ -449,6 +449,7 @@ body {
     box-shadow: 0 0 30px rgba(0, 0, 0, .2);
     overflow: hidden;
 }
+
 .container1 {
     position: absolute;
     top:13rem;
@@ -515,6 +516,10 @@ form{ width: 100%; }
         font-size: 16px;
         color: #333;
         font-weight: 500;
+    }
+
+    .input-box.voice-enabled input{
+        padding-right: 88px;
     }
 
         .input-box input::placeholder{

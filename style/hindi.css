@@ -1,0 +1,165 @@
+/* Locally hosted, SIL Open Font License fonts; no third-party font request. */
+@font-face {
+    font-family: "Noto Sans Devanagari";
+    src: url("/fonts/NotoSansDevanagari.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+:root {
+    --hindi-body-font: "Nirmala UI", Mangal, sans-serif;
+}
+
+html[lang="hi"] body {
+    font-family: var(--hindi-body-font);
+}
+
+/* Use the Devanagari font without changing component dimensions or layout. */
+html[lang="hi"] :is(h1, h2, h3, h4, h5, h6, div, section, p, a, button, input, select, textarea, label, li, dt, dd, small, strong, b, span, summary, figcaption):not([class*="fa-"]):not(.bx) {
+    font-family: var(--hindi-body-font) !important;
+    letter-spacing: normal !important;
+    word-spacing: normal;
+}
+
+html[lang="hi"] body:not(:has(.con)) :is(h1, h2, h3, h4, h5, h6) {
+    line-height: 1.4;
+    overflow-wrap: break-word;
+}
+
+html[lang="hi"] body:not(:has(.con)) :is(p, li, dt, dd, label, figcaption, summary) {
+    line-height: 1.7;
+    overflow-wrap: break-word;
+}
+
+html[lang="hi"] body:not(:has(.con)) :is(a, button, input, select, textarea) {
+    line-height: 1.5;
+}
+
+html[lang="hi"] .crop-page-heading h1 {
+    line-height: 1.4;
+    overflow-wrap: break-word;
+}
+
+html[lang="hi"] .crop-page-heading-highlight {
+    line-height: 1.5;
+    overflow-wrap: break-word;
+}
+
+.lang-drop {
+    position: relative;
+    z-index: 10002;
+}
+
+.langbtn {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #cbded1;
+    border-radius: 0.65rem;
+    color: #07563f;
+    display: inline-flex;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 650;
+    gap: 0.55rem;
+    min-height: 2.6rem;
+    padding: 0.5rem 0.75rem;
+    transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.langbtn i {
+    color: #28734d;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.langbtn:hover,
+.langbtn[aria-expanded="true"] {
+    background: #eef6ef;
+    border-color: #6b9b79;
+}
+
+.langbtn:focus-visible,
+.lang-opt:focus-visible {
+    outline: 3px solid rgba(8, 115, 79, 0.28);
+    outline-offset: 2px;
+}
+
+.lang-menu {
+    background: #fff;
+    border: 1px solid #d5e4d9;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.75rem 1.75rem rgba(20, 60, 40, 0.18);
+    min-width: 9rem;
+    padding: 0.35rem;
+    z-index: 10001;
+}
+
+.lang-menu.is-open {
+    display: grid;
+    gap: 0.15rem;
+}
+
+.lang-opt {
+    border-radius: 0.5rem;
+    color: #244b38;
+    font-size: 0.9rem;
+    font-weight: 550;
+    padding: 0.65rem 0.75rem;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.lang-opt:hover,
+.lang-opt:focus-visible {
+    background: #e8f3eb;
+    color: #07563f;
+}
+
+.TopHeader { position: relative; z-index: 10000; }
+
+html[lang="hi"] .con .form-box.register .input-box {
+    margin-block: 1.1rem;
+}
+
+@media (max-width: 650px) {
+    html[lang="hi"] .con .form-box {
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    html[lang="hi"] .con .form-box.register .input-box {
+        margin-block: 1rem;
+    }
+}
+
+/* Language selection and application messages use the same spacious dialog. */
+.language-dialog,
+.agri-message-dialog {
+    box-sizing: border-box;
+    width: min(32rem, calc(100% - 2rem));
+    max-width: calc(100% - 2rem);
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+    margin: auto;
+    padding: clamp(1.25rem, 4vw, 2rem);
+    border: 1px solid #dce8df;
+    border-radius: 1.25rem;
+    background: #fff;
+    color: #183b2b;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 24%);
+    text-align: start;
+}
+.language-dialog::backdrop,
+.agri-message-dialog::backdrop { background: rgb(12 30 23 / 65%); backdrop-filter: blur(3px); }
+.language-dialog h1,
+.agri-message-dialog h2 { margin: 0; font-size: 1.5rem; line-height: 1.6; }
+.language-dialog h1 [lang="hi"] { display: block; margin-top: 0.65rem; }
+.language-dialog p,
+.agri-message-dialog p { margin: 1rem 0 1.5rem; line-height: 1.85; overflow-wrap: anywhere; }
+.language-dialog-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+.language-dialog-options button,
+.agri-message-dialog button { padding: 0.8rem 1.25rem; min-height: 3rem; border: 1px solid #08704d; border-radius: 0.65rem; background: #08704d; color: #fff; font: inherit; line-height: 1.65; cursor: pointer; }
+.language-dialog-options button[lang="hi"] { font-family: var(--hindi-body-font); }
+.agri-message-dialog button:focus-visible { outline: 3px solid #ca9b30; outline-offset: 3px; }
+.agri-message-dialog[data-kind="error"] { border-top: 5px solid #a53732; }
+.agri-message-dialog[data-kind="success"] { border-top: 5px solid #08704d; }

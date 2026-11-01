@@ -8,11 +8,80 @@ body {
     overflow-x: clip;
 }
 
+html[lang="hi"] body * {
+    letter-spacing: normal !important;
+}
+
 img,
 picture,
 video,
 iframe {
     max-width: 100%;
+}
+
+.language-dialog {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
+    color: #183b2b;
+    margin: auto;
+    max-width: min(28rem, calc(100vw - 2rem));
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+.language-dialog::backdrop {
+    background: rgba(12, 30, 23, 0.72);
+    backdrop-filter: blur(3px);
+}
+
+.language-dialog h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    line-height: 1.35;
+}
+
+.language-dialog h1 span {
+    display: inline-block;
+    margin-top: 0.25rem;
+}
+
+.language-dialog p {
+    color: #52635a;
+    margin: 0.75rem 0 1.5rem;
+}
+
+.language-dialog-options {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.language-dialog-options button {
+    background: #08734f;
+    border: 2px solid #08734f;
+    border-radius: 0.65rem;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    min-height: 3.25rem;
+    padding: 0.65rem 1rem;
+}
+
+.language-dialog-options button:last-child {
+    background: #fff;
+    color: #08734f;
+}
+
+.language-dialog-options button:hover {
+    filter: brightness(0.92);
+}
+
+.language-dialog-options button:focus-visible {
+    outline: 3px solid #d59d28;
+    outline-offset: 3px;
 }
 
 @media (max-width: 900px) {
@@ -603,10 +672,6 @@ iframe {
 }
 
 @media (max-width: 380px) {
-    .lang-drop {
-        display: none;
-    }
-
     .hero-cta {
         align-items: stretch;
         flex-direction: column;

@@ -40,3 +40,4 @@ server.once('listening', () => {
 });
 
 listen(PORT);
+module.exports = server;

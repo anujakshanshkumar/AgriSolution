@@ -74,7 +74,7 @@ function showCropDetails() {
     return;
   }
 
-  document.title = `${getName(cropKey)} Details | Agri-Solution`;
+  document.title = `${getName(cropKey)} Details | Mor Kisani`;
   const details = data.CROPS[cropKey] ? [
     ['Seed', info.seed], ['Irrigation', info.irrigation], ['Soil type', info.soil],
     ['Fertilizer', info.fertilizer], ['Crop protection', info.medicose],

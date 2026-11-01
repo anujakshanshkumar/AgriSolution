@@ -1,0 +1,17 @@
+node_modules
+.expo
+.env*
+!.env.example
+dist
+dist-*
+android
+ios
+*.log
+tests
+.claude
+**/.env*
+**/node_modules/**
+**/*.jks
+**/*.keystore
+**/credentials.json
+**/backend/**

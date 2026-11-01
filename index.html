@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agri-Solution</title>
+    <title>Mor Kisani</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -11,17 +11,20 @@
     <link rel="stylesheet" href="/style/style.css" />
     <link rel="stylesheet" href="/style/responsive.css" />
     <link rel="stylesheet" href="/style/notice-board.css" />
-  </head>
+    <link rel="stylesheet" href="/style/hindi.css">
+    <link rel="stylesheet" href="/style/home-chatbot.css">
+    <link rel="stylesheet" href="/style/brand.css">
+</head>
 
   <body>
     <!-- top logo,title section -->
     <div class="sticky-wp">
       <header class="TopHeader">
         <div class="Hleft">
-          <img src="/images/logo.jpg" alt="cg-logo" />
+          <img src="/images/new%20logo.png" alt="Mor Kisani logo" />
           <div class="title-grp">
-            <h1 class="title">Agri-Solution</h1>
-            <p class="subtitle">One-Stop Solution</p>
+            <h1 class="title">Mor Kisani</h1>
+            <p class="subtitle">मोर किसानी • मोर जानकारी • मोर तरक्की</p>
           </div>
         </div>
         <div class="Hright">
@@ -69,8 +72,8 @@
       <header>
         <nav class="navbar">
           <ul class="nav-Link" id="NavLink">
-            <li><a href="#">Home</a></li>
-            <li><a data-voice="ab1" href="about.html">About</a></li>
+            <li><a data-voice="wel1" href="#">Home</a></li>
+            <li><a data-voice="about" href="about.html">About</a></li>
             <li class="dropdown">
               <a data-voice="agri1" href="#"
                 >Agriculture Services <i class="fa-solid fa-chevron-down"></i
@@ -81,31 +84,31 @@
                 </li>
                 <!-- <li><a href="#">Market Prices</a></li> -->
                 <li>
-                  <a data-voice="reg1" href="schemes.html"
+                  <a data-voice="services" href="schemes.html"
                     >Schemes & Subsidies</a
                   >
                 </li>
                 <li><a data-voice="dealer" href="del.html">Dealers</a></li>
                 <li>
-                  <a data-voice="password1" href="login.html"
+                  <a data-voice="new1" href="login.html"
                     >Farmer Registration</a
                   >
                 </li>
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#">Resources<i class="fa-solid fa-chevron-down"></i></a>
+              <a data-voice="resources" href="#">Resources<i class="fa-solid fa-chevron-down"></i></a>
               <ul class="dropdown-menu">
                 <li>
-                  <a data-voice="new1" href="soil.html">Weather & Soil</a>
+                  <a data-voice="weather" href="soil.html">Weather & Soil</a>
                 </li>
                 <li>
-                  <a data-voice="district3" href="distmap.html">District Map</a>
+                  <a data-voice="map" href="distmap.html">District Map</a>
                 </li>
+                <li><a data-voice="gallery" href="#gallery">Gallery</a></li>
               </ul>
             </li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a data-voice="name1" href="#footer">Contact</a></li>
+            <li><a href="#footer">Contact</a></li>
           </ul>
           <!-- subnav search bar and humburber -->
           <div class="sub-nav">
@@ -116,8 +119,11 @@
                 id="search-input"
                 placeholder="Search Here.."
                 class="search-input-field hidden"
+                aria-label="Search this page"
               />
-              <a data-voice="wel1" href="#" id="search-tog" class="search-icon"
+              <a href="#" id="search-tog" class="search-icon"
+                aria-label="Open search"
+                aria-expanded="false"
                 ><i class="fa-solid fa-magnifying-glass"></i
               ></a>
             </div>
@@ -136,7 +142,7 @@
         <a
           class="notice-ticker"
           href="notice-board.html"
-          aria-label="Open the Agri-Solution notice board"
+          aria-label="Open the Mor Kisani notice board"
         >
           <span class="notice-ticker-label"
             ><i class="fa-solid fa-bullhorn"></i> Latest notices</span
@@ -173,7 +179,7 @@
               ensure a better future for farmers and their families.
             </p>
             <div class="hero-cta">
-              <a data-voice="reg1" href="schemes.html" class="cta-btn1"
+              <a data-voice="services" href="schemes.html" class="cta-btn1"
                 >View Schemes <i class="fa-solid fa-chevron-right"></i
               ></a>
               <a data-voice="password1" href="login.html" class="cta-btn2"
@@ -298,7 +304,7 @@
           <aside
             class="home-weather-section"
             data-home-weather
-            aria-label="Raipur current weather"
+            aria-label="Local weather forecast"
           >
             <div class="home-weather-card">
               <div class="home-weather-info">
@@ -310,7 +316,14 @@
                   ☀️
                 </div>
                 <div class="home-weather-details" aria-live="polite">
-                  <p class="home-weather-location">Raipur, Chhattisgarh</p>
+                  <p class="home-weather-location" data-weather-location>
+                    Raipur, Chhattisgarh
+                  </p>
+                  <p
+                    class="home-weather-updated"
+                    data-weather-location-status
+                    aria-live="polite"
+                  ></p>
                   <p class="home-weather-temperature" data-weather-temperature>
                     --°C
                   </p>
@@ -531,6 +544,8 @@
       <section class="gallery" id="gallery">
         <h1 class="Title-g">From Seed to Harvest</h1>
         <p>Beauty of Agriculture</p>
+          <!-- <source src="/audios1/Gallery.mp3" type="audio/mpeg"> -->
+        </audio>
         <div class="gallery-grid">
           <div class="g-img">
             <img src="/JAGGU CROP/p-soil.jpg" alt="" />
@@ -568,7 +583,7 @@
         aria-labelledby="statistics-title"
       >
         <div class="portal-statistics-heading">
-          <p>AGRI-SOLUTION OVERVIEW</p>
+          <p>Mor Kisani OVERVIEW</p>
           <h2 id="statistics-title">Portal Snapshot</h2>
         </div>
         <div class="portal-statistics-grid">
@@ -600,9 +615,9 @@
       <div class="footer-container">
         <div class="footer-col Contact">
           <div class="f-logo">
-            <img src="/images/logo.jpg" alt="cg-logo" />
+            <img src="/images/new%20logo.png" alt="Mor Kisani logo" />
             <div>
-              <h2>Agri-Solution</h2>
+              <h2>Mor Kisani</h2>
               <p class="para">Student Project</p>
               <p>
                 <a
@@ -678,12 +693,89 @@
       </div>
     </footer>
 
+    <aside class="home-chatbot" data-home-chatbot>
+      <section
+        id="home-chatbot-panel"
+        class="home-chatbot-panel"
+        data-chatbot-panel
+        aria-labelledby="home-chatbot-title"
+        aria-hidden="true"
+        hidden
+      >
+        <header class="home-chatbot-header">
+          <div>
+            <h2 id="home-chatbot-title">Mor Kisani Assistant</h2>
+            <p>Ask a farming question</p>
+          </div>
+          <button
+            class="home-chatbot-close"
+            type="button"
+            data-chatbot-close
+            aria-label="Close chat"
+          >
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </header>
+        <div
+          class="home-chatbot-messages"
+          data-chatbot-messages
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions text"
+        >
+          <p class="home-chatbot-bubble home-chatbot-bubble-assistant">
+            Hello! Ask me about crops, soil, weather, or farming practices.
+          </p>
+        </div>
+        <form class="home-chatbot-form" data-chatbot-form>
+          <label class="home-chatbot-visually-hidden" for="home-chatbot-input">
+            Your question
+          </label>
+          <textarea
+            id="home-chatbot-input"
+            data-chatbot-input
+            rows="1"
+            maxlength="2000"
+            placeholder="Type your question..."
+            required
+          ></textarea>
+          <button
+            class="home-chatbot-send"
+            type="submit"
+            data-chatbot-send
+            aria-label="Send message"
+          >
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+          </button>
+        </form>
+        <p class="home-chatbot-disclaimer">
+          AI answers are general guidance, not official advice.
+        </p>
+      </section>
+      <button
+        class="home-chatbot-launcher"
+        type="button"
+        data-chatbot-toggle
+        aria-controls="home-chatbot-panel"
+        aria-expanded="false"
+        aria-label="Open farming assistant"
+      >
+        <i class="fa-solid fa-comments" aria-hidden="true"></i>
+        <span>Ask Agri Assistant</span>
+      </button>
+    </aside>
+
     <!-- script.js -->
+    <script src="/js/state/session-store.js"></script>
+    <script src="/js/hindi-translations.js"></script>
     <script src="/js/auth-nav.js"></script>
     <script src="/js/script.js"></script>
     <script src="/js/government-notices.js"></script>
     <script src="/js/home-notices.js"></script>
     <script src="/js/notice-pdf.js"></script>
     <script src="/js/home-weather.js"></script>
+    <script src="/js/home-chatbot.js"></script>
+    <script src="/js/voice-input.js"></script>
+    <script src="/js/voice-audio.js"></script>
   </body>
 </html>

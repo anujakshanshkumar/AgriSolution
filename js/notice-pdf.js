@@ -44,7 +44,7 @@ function wrapPdfText(value, maxLength = 82) {
 
 function createPdfBlob(notice) {
     const lines = [
-        ...wrapPdfText('AGRI-SOLUTION | GOVERNMENT-SOURCE INFORMATION'),
+        ...wrapPdfText('Mor Kisani | GOVERNMENT-SOURCE INFORMATION'),
         '',
         ...wrapPdfText(notice.title, 70),
         '',
@@ -56,7 +56,7 @@ function createPdfBlob(notice) {
         ...wrapPdfText(`Official source: ${notice.sourceName}`),
         ...wrapPdfText(notice.sourceUrl),
         '',
-        ...wrapPdfText('This document is an Agri-Solution summary of information shown on the cited government source. It is not an original government-issued notice. Please visit the official source for current details.')
+        ...wrapPdfText('This document is an Mor Kisani summary of information shown on the cited government source. It is not an original government-issued notice. Please visit the official source for current details.')
     ];
 
     const textCommands = ['BT', '/F1 11 Tf', '50 790 Td'];
@@ -95,6 +95,76 @@ function createPdfBlob(notice) {
     return new Blob([encoder.encode(pdf)], { type: 'application/pdf' });
 }
 
+// Canvas uses the browser's Devanagari shaping and fonts. Embed the rendered page
+// so Hindi remains readable in PDF viewers without relying on Helvetica glyphs.
+async function createHindiPdfBlob(notice) {
+    await document.fonts.ready;
+    const canvas = document.createElement('canvas');
+    canvas.width = 1190;
+    canvas.height = 1684;
+    const context = canvas.getContext('2d');
+    context.fillStyle = '#fff';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = '#173e2d';
+    context.font = '26px "Nirmala UI", Mangal, sans-serif';
+    let y = 100;
+    const translate = text => window.agriTranslate(text, 'hi');
+    const paragraphs = [
+        'मोर किसानी | सरकारी स्रोतों से जानकारी',
+        translate(notice.title),
+        `श्रेणी: ${translate(notice.category)}`,
+        `स्रोत की तिथि: ${translate(notice.date)}`,
+        translate(notice.summary),
+        `आधिकारिक स्रोत: ${translate(notice.sourceName)}`,
+        notice.sourceUrl,
+        translate('This document is an Mor Kisani summary of information shown on the cited government source. It is not an original government-issued notice. Please visit the official source for current details.')
+    ];
+    for (const paragraph of paragraphs) {
+        let line = '';
+        for (const word of paragraph.split(/\s+/)) {
+            const next = line ? `${line} ${word}` : word;
+            if (context.measureText(next).width > 990 && line) {
+                context.fillText(line, 100, y);
+                y += 44;
+                line = word;
+            } else line = next;
+        }
+        context.fillText(line, 100, y);
+        y += 72;
+    }
+    const jpeg = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.95));
+    const bytes = new Uint8Array(await jpeg.arrayBuffer());
+    const encoder = new TextEncoder();
+    const content = 'q 595 0 0 842 0 0 cm /Image1 Do Q';
+    const objects = [
+        ['<< /Type /Catalog /Pages 2 0 R >>'],
+        ['<< /Type /Pages /Kids [3 0 R] /Count 1 >>'],
+        ['<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << /Image1 4 0 R >> >> /Contents 5 0 R >>'],
+        [`<< /Type /XObject /Subtype /Image /Width 1190 /Height 1684 /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${bytes.length} >>\nstream\n`, bytes, '\nendstream'],
+        [`<< /Length ${encoder.encode(content).length} >>\nstream\n${content}\nendstream`]
+    ];
+    const parts = [];
+    let length = 0;
+    const append = part => {
+        const data = typeof part === 'string' ? encoder.encode(part) : part;
+        parts.push(data);
+        length += data.length;
+    };
+    append('%PDF-1.4\n');
+    const offsets = [0];
+    objects.forEach((parts, index) => {
+        offsets.push(length);
+        append(`${index + 1} 0 obj\n`);
+        parts.forEach(append);
+        append('\nendobj\n');
+    });
+    const xref = length;
+    append(`xref\n0 6\n0000000000 65535 f \n`);
+    offsets.slice(1).forEach(offset => append(`${String(offset).padStart(10, '0')} 00000 n \n`));
+    append(`trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`);
+    return new Blob(parts, { type: 'application/pdf' });
+}
+
 function getNoticeDetails(button) {
     const notice = button.closest('.home-notice-row, .notice-card');
     if (!notice) return null;
@@ -114,14 +184,15 @@ function getNoticeDetails(button) {
 }
 
 pdfDownloadButtons.forEach((button) => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', async () => {
         const notice = getNoticeDetails(button);
         const fileName = toPdfAscii(notice.title)
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/^-|-$/g, '');
         const downloadLink = document.createElement('a');
-        const pdfUrl = URL.createObjectURL(createPdfBlob(notice));
+        const pdfUrl = URL.createObjectURL(window.currentLanguage === 'hi'
+            ? await createHindiPdfBlob(notice) : createPdfBlob(notice));
 
         downloadLink.href = pdfUrl;
         downloadLink.download = `${fileName || 'farmer-notice'}.pdf`;

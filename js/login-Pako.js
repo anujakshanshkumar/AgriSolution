@@ -24,16 +24,16 @@ var login1 = new Audio();
 login1.src = "/audios/login1.mp3";
 
 var succ1 = new Audio();
-succ1.src = "/audios/succ1.mp3";
+succ1.src = "/audios/login-success.mp3";
 
 var district3 = new Audio();
 district3.src = "/audios/district3.mp3";
 
 var reg1 = new Audio();
-reg1.src = "/audios/reg1.mp3";
+reg1.src = "/audios/reg-success.mp3";
 
 var new1 = new Audio();
-new1.src = "/audios/new1.mp3";
+new1.src = "/audios/registration.mp3";
 var name1 = new Audio();
 name1.src = "/audios/name1.mp3";
 

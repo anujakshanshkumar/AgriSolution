@@ -6,8 +6,17 @@
     const temperature = widget.querySelector('[data-weather-temperature]');
     const description = widget.querySelector('[data-weather-description]');
     const updated = widget.querySelector('[data-weather-updated]');
+    const locationLabel = widget.querySelector('[data-weather-location]');
+    const locationStatus = widget.querySelector('[data-weather-location-status]');
     const forecast = widget.querySelector('[data-weather-forecast]');
     const refreshButton = widget.querySelector('[data-weather-refresh]');
+    const fallbackLocation = {
+        latitude: 21.2506,
+        longitude: 81.6348,
+        name: 'Raipur, Chhattisgarh'
+    };
+    let selectedLocation = fallbackLocation;
+    let locationNotice = '';
 
     const getWeatherInfo = (code, isDay) => {
         if (code === 0) return { icon: isDay ? '☀️' : '🌙', description: 'Clear' };
@@ -67,12 +76,47 @@
         });
     };
 
+    const loadLocationName = async (latitude, longitude) => {
+        const parameters = new URLSearchParams({
+            latitude: String(latitude),
+            longitude: String(longitude),
+            localityLanguage: 'en'
+        });
+
+        try {
+            const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?${parameters}`);
+            if (!response.ok) {
+                throw new Error(`Location name service returned HTTP ${response.status}`);
+            }
+
+            const place = await response.json();
+            const name = [place.city || place.locality, place.principalSubdivision, place.countryName]
+                .filter((part, index, parts) => typeof part === 'string' && part.trim() && parts.indexOf(part) === index)
+                .map(part => part.trim())
+                .join(', ');
+            if (!name) {
+                throw new Error('Location name service returned no place name');
+            }
+
+            selectedLocation.name = name;
+            locationLabel.textContent = name;
+            widget.setAttribute('aria-label', `${name} current weather`);
+        } catch (error) {
+            console.error('Unable to load current location name:', error);
+            locationNotice = 'Could not fetch your location name; showing weather for your area.';
+            locationStatus.textContent = locationNotice;
+        }
+    };
+
     const loadWeather = async () => {
         refreshButton.disabled = true;
         icon.textContent = '⏳';
         temperature.textContent = '--°C';
         description.textContent = 'Loading current conditions...';
         updated.textContent = 'Fetching latest weather...';
+        locationStatus.textContent = locationNotice;
+        locationLabel.textContent = selectedLocation.name;
+        widget.setAttribute('aria-label', `${selectedLocation.name} current weather`);
         forecast.replaceChildren();
         const loadingMessage = document.createElement('li');
         loadingMessage.className = 'home-weather-forecast-message';
@@ -80,9 +124,17 @@
         forecast.append(loadingMessage);
 
         try {
-            const response = await fetch(
-                'https://api.open-meteo.com/v1/forecast?latitude=21.2506&longitude=81.6348&current_weather=true&hourly=temperature_2m,weather_code,is_day&forecast_days=1&temperature_unit=celsius&windspeed_unit=kmh&timezone=auto'
-            );
+            const parameters = new URLSearchParams({
+                latitude: String(selectedLocation.latitude),
+                longitude: String(selectedLocation.longitude),
+                current_weather: 'true',
+                hourly: 'temperature_2m,weather_code,is_day',
+                forecast_days: '1',
+                temperature_unit: 'celsius',
+                windspeed_unit: 'kmh',
+                timezone: 'auto'
+            });
+            const response = await fetch(`https://api.open-meteo.com/v1/forecast?${parameters}`);
             if (!response.ok) {
                 throw new Error(`Weather service returned HTTP ${response.status}`);
             }
@@ -116,5 +168,40 @@
     };
 
     refreshButton.addEventListener('click', loadWeather);
-    loadWeather();
+
+    if (!navigator.geolocation) {
+        locationNotice = 'Location is unavailable; showing Raipur weather.';
+        loadWeather();
+        return;
+    }
+
+    refreshButton.disabled = true;
+    updated.textContent = 'Requesting permission to use your location...';
+    navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        if (!Number.isFinite(latitude) || latitude < -90 || latitude > 90 ||
+            !Number.isFinite(longitude) || longitude < -180 || longitude > 180) {
+            locationNotice = 'Your location could not be determined; showing Raipur weather.';
+            loadWeather();
+            return;
+        }
+
+        selectedLocation = {
+            latitude,
+            longitude,
+            name: 'Your location'
+        };
+        locationNotice = 'Your location is used for this forecast. Coordinates are sent to the weather and place-name services; the site does not save them.';
+        loadWeather();
+        loadLocationName(latitude, longitude);
+    }, (error) => {
+        locationNotice = error.code === error.PERMISSION_DENIED
+            ? 'Location permission was declined; showing Raipur weather.'
+            : 'Your location could not be determined; showing Raipur weather.';
+        loadWeather();
+    }, {
+        enableHighAccuracy: false,
+        maximumAge: 300000,
+        timeout: 10000
+    });
 })();

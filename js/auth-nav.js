@@ -1,8 +1,9 @@
 const LANGUAGE_STORAGE_KEY = 'agriLanguage';
+const LANGUAGE_PROMPT_SESSION_KEY = 'agriLanguagePrompted';
 
 const textTranslations = {
-    'Agri-Solution': { en: 'Agri-Solution', hi: 'अग्री-सोल्यूशन' },
-    'One-Stop Solution': { en: 'One-Stop Solution', hi: 'वन-स्टॉप सॉल्यूशन' },
+    'Mor Kisani': { en: 'Mor Kisani', hi: 'मोर किसानी' },
+    'मोर किसानी • मोर जानकारी • मोर तरक्की': { en: 'मोर किसानी • मोर जानकारी • मोर तरक्की', hi: 'मोर किसानी • मोर जानकारी • मोर तरक्की' },
     'Home': { en: 'Home', hi: 'होम' },
     'About': { en: 'About', hi: 'परिचय' },
     'About us': { en: 'About us', hi: 'हमारे बारे में' },
@@ -109,34 +110,49 @@ const textTranslations = {
     'हिंदी': { en: 'हिंदी', hi: 'हिंदी' }
 };
 
-function translateTextValue(value, lang) {
-    if (!value || !value.trim()) return value;
+// Match whole phrases once, rather than replacing parts of already translated words.
+const normalizeCopy = (value) => value.replace(/\s+/g, ' ').trim();
+const hindiCopy = new Map(Object.entries(textTranslations).map(([key, value]) => [normalizeCopy(key), value.hi]));
+Object.entries(window.AGRI_HINDI || {}).forEach(([key, value]) => hindiCopy.set(normalizeCopy(key), value));
+const phrasePattern = new RegExp('(?<![A-Za-z])(?:' + [...hindiCopy.keys()]
+    .sort((a, b) => b.length - a.length)
+    .map((key) => key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')(?![A-Za-z])', 'g');
+const sourceTexts = new WeakMap();
+const sourceAttributes = new WeakMap();
+let languageObserver;
+const dynamicTranslations = [
+    [/^(.+) crop$/, (_, crop) => `${translateTextValue(crop, 'hi')} की फसल`],
+    [/^Complete growing information for (.+) is provided below for farmers\. Use these notes as a starting point and follow local agriculture advisories for final decisions\.$/, (_, crop) => `${translateTextValue(crop, 'hi')} की खेती की विस्तृत जानकारी नीचे दी गई है। इसे प्रारंभिक मार्गदर्शन के रूप में उपयोग करें और अंतिम निर्णय के लिए स्थानीय कृषि परामर्श का पालन करें।`],
+    [/^Types and varieties of (.+)$/, (_, crop) => `${translateTextValue(crop, 'hi')} के प्रकार एवं किस्में`],
+    [/^(.+) Details \| Mor Kisani$/, (_, crop) => `${translateTextValue(crop, 'hi')} का विवरण | मोर किसानी`],
+    [/^(\d+) schemes?$/, (_, count) => `${count} योजनाएँ`],
+    [/^Showing (\d+) notices?$/, (_, count) => `${count} सूचनाएँ प्रदर्शित हैं`],
+    [/^(\d+) government-source updates$/, (_, count) => `सरकारी स्रोतों से ${count} अद्यतन सूचनाएँ`],
+    [/^Maximum allowed: (.+) kg \(21 quintals per acre\)\.$/, (_, quantity) => `अधिकतम अनुमत मात्रा: ${quantity} किलोग्राम (21 क्विंटल प्रति एकड़)।`],
+    [/^Quantity cannot exceed (.+) kg for this land area\.$/, (_, quantity) => `इस भूमि क्षेत्र के लिए मात्रा ${quantity} किलोग्राम से अधिक नहीं हो सकती।`],
+    [/^Quantity cannot exceed (.+) kg for (.+) acres\.$/, (_, quantity, area) => `${area} एकड़ के लिए मात्रा ${quantity} किलोग्राम से अधिक नहीं हो सकती।`],
+    [/^(.+), your token is reserved for (.+) kg of produce from (.+) acres\.$/, (_, name, quantity, area) => `${name}, ${area} एकड़ भूमि की ${quantity} किलोग्राम उपज के लिए आपका टोकन आरक्षित है।`],
+    [/^For (.+), check local notifications and district-specific application availability\.$/, (_, district) => `${translateTextValue(district, 'hi')} के लिए स्थानीय सूचनाएँ एवं जिले में आवेदन की उपलब्धता जाँचें।`],
+    [/^(.+) category may affect some programme terms; no caste-specific eligibility is assumed by these filters\.$/, (_, category) => `${translateTextValue(category, 'hi')} श्रेणी से कुछ कार्यक्रमों की शर्तें प्रभावित हो सकती हैं; इन चयन विकल्पों से जाति आधारित पात्रता निर्धारित नहीं होती।`],
+    [/^Request failed with status (\d+)\.$/, (_, status) => `अनुरोध असफल हुआ (स्थिति ${status})।`]
+];
 
-    const trimmed = value.trim();
-    const entries = Object.entries(textTranslations)
-        .sort(([first], [second]) => second.length - first.length);
-
-    for (const [source, translations] of entries) {
-        if (trimmed === source || trimmed === translations.en || trimmed === translations.hi) {
-            return value.replace(trimmed, translations[lang] || source);
-        }
+function translateTextValue(value, lang = window.currentLanguage || getPreferredLanguage() || 'en') {
+    if (!value || lang !== 'hi') return value;
+    const normalized = normalizeCopy(value);
+    const translation = hindiCopy.get(normalized);
+    if (translation) return value.replace(value.trim(), translation);
+    for (const [pattern, render] of dynamicTranslations) {
+        if (pattern.test(normalized)) return normalized.replace(pattern, render);
     }
-
-    let translated = value;
-    for (const [source, translations] of entries) {
-        const candidates = [source, translations.en, translations.hi]
-            .filter((candidate, index, all) => candidate && all.indexOf(candidate) === index)
-            .sort((first, second) => second.length - first.length);
-        for (const candidate of candidates) {
-            if (translated.includes(candidate)) {
-                translated = translated.split(candidate).join(translations[lang] || source);
-                break;
-            }
-        }
+    // Profile notes combine independently translated sentences and user-entered locations.
+    if (normalized.startsWith('For ') || normalized.includes(' category may affect')) {
+        const sentences = normalized.match(/[^.]+\.(?:\s|$)|[^.]+$/g);
+        if (sentences && sentences.length > 1) return sentences.map(sentence => translateTextValue(sentence.trim(), 'hi')).join(' ');
     }
-
-    return translated;
+    return normalized.replace(phrasePattern, (phrase) => hindiCopy.get(phrase));
 }
+window.agriTranslate = translateTextValue;
 
 function updateLanguageButton(lang) {
     const button = document.querySelector('.langbtn');
@@ -146,63 +162,132 @@ function updateLanguageButton(lang) {
     button.innerHTML = `${label} <i class="fa-solid fa-caret-down"></i>`;
 }
 
-function applyLanguage(lang = 'en') {
-    const selectedLanguage = lang === 'hi' ? 'hi' : 'en';
-
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-    const textNodes = [];
-    let textNode;
-    while ((textNode = walker.nextNode())) {
-        if (!textNode.parentElement.closest('script, style')) {
-            textNodes.push(textNode);
-        }
+function getPreferredLanguage() {
+    try {
+        const language = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+        return language === 'en' || language === 'hi' ? language : null;
+    } catch (error) {
+        console.error('Unable to read the saved language preference.', error);
+        return null;
     }
-
-    textNodes.forEach((node) => {
-        const currentText = node.nodeValue || '';
-        const trimmedText = currentText.trim();
-        if (!trimmedText) return;
-
-        const translatedText = translateTextValue(trimmedText, selectedLanguage);
-        if (translatedText !== trimmedText) {
-            node.nodeValue = currentText.replace(trimmedText, translatedText);
-        }
-    });
-
-    document.querySelectorAll('[aria-label]').forEach((element) => {
-        const ariaLabel = element.getAttribute('aria-label');
-        const translatedAriaLabel = translateTextValue(ariaLabel, selectedLanguage);
-        if (translatedAriaLabel !== ariaLabel) {
-            element.setAttribute('aria-label', translatedAriaLabel);
-        }
-    });
-
-    document.querySelectorAll('input, textarea, select').forEach((element) => {
-        const placeholder = element.getAttribute('placeholder');
-        if (!placeholder) return;
-
-        const translatedPlaceholder = translateTextValue(placeholder, selectedLanguage);
-        if (translatedPlaceholder && translatedPlaceholder !== placeholder) {
-            element.setAttribute('placeholder', translatedPlaceholder);
-        }
-    });
-
-    document.documentElement.lang = selectedLanguage;
-    updateLanguageButton(selectedLanguage);
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, selectedLanguage);
-    window.currentLanguage = selectedLanguage;
 }
 
-window.setEnglish = () => applyLanguage('en');
-window.setHindi = () => applyLanguage('hi');
+function savePreferredLanguage(language) {
+    try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    } catch (error) {
+        console.error('Unable to save the language preference.', error);
+    }
+}
+
+function hasPromptedForLanguageThisSession() {
+    try {
+        return sessionStorage.getItem(LANGUAGE_PROMPT_SESSION_KEY) === 'true';
+    } catch (error) {
+        console.error('Unable to read the language prompt session state.', error);
+        return false;
+    }
+}
+
+function markLanguagePromptedThisSession() {
+    try {
+        sessionStorage.setItem(LANGUAGE_PROMPT_SESSION_KEY, 'true');
+    } catch (error) {
+        console.error('Unable to save the language prompt session state.', error);
+    }
+}
+
+function applyLanguage(lang = 'en') {
+    const selectedLanguage = lang === 'hi' ? 'hi' : 'en';
+    languageObserver?.disconnect();
+    // An option without a value submits its label; keep form payloads language-independent.
+    document.querySelectorAll('option:not([value])').forEach(option => option.setAttribute('value', option.textContent));
+    const walker = document.createTreeWalker(document.documentElement, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) {
+        if (!node.parentElement || node.parentElement.closest('script, style, [data-language-dialog], [translate="no"]')) continue;
+        const current = node.nodeValue;
+        let record = sourceTexts.get(node);
+        if (!record || current !== record.rendered) record = { source: current };
+        record.rendered = translateTextValue(record.source, selectedLanguage);
+        if (current !== record.rendered) node.nodeValue = record.rendered;
+        sourceTexts.set(node, record);
+    }
+    document.querySelectorAll('[aria-label], [placeholder], [title], [alt]').forEach((element) => {
+        if (element.closest('[data-language-dialog], [translate="no"]')) return;
+        const records = sourceAttributes.get(element) || {};
+        for (const attribute of ['aria-label', 'placeholder', 'title', 'alt']) {
+            const current = element.getAttribute(attribute);
+            if (current === null) continue;
+            let record = records[attribute];
+            if (!record || current !== record.rendered) record = { source: current };
+            record.rendered = translateTextValue(record.source, selectedLanguage);
+            if (current !== record.rendered) element.setAttribute(attribute, record.rendered);
+            records[attribute] = record;
+        }
+        sourceAttributes.set(element, records);
+    });
+    document.documentElement.lang = selectedLanguage;
+    if (window.currentLanguage !== selectedLanguage) updateLanguageButton(selectedLanguage);
+    window.currentLanguage = selectedLanguage;
+    languageObserver?.observe(document.documentElement, {
+        childList: true, subtree: true, characterData: true, attributes: true,
+        attributeFilter: ['aria-label', 'placeholder', 'title', 'alt']
+    });
+}
+
+function selectLanguage(language) {
+    const selectedLanguage = language === 'hi' ? 'hi' : 'en';
+    applyLanguage(selectedLanguage);
+    savePreferredLanguage(selectedLanguage);
+    markLanguagePromptedThisSession();
+    document.dispatchEvent(new CustomEvent('agri:languagechange', { detail: { language: selectedLanguage } }));
+}
+
+function showLanguagePrompt() {
+    const dialog = document.createElement('dialog');
+    dialog.className = 'language-dialog';
+    dialog.dataset.languageDialog = '';
+    dialog.setAttribute('aria-labelledby', 'language-dialog-title');
+    dialog.innerHTML = `
+        <h1 id="language-dialog-title">Choose your language<br><span lang="hi" data-language-dialog-copy>अपनी भाषा चुनें</span></h1>
+        <p lang="hi">आगे बढ़ने के लिए भाषा चुनें। आप इसे बाद में बदल सकते हैं।</p>
+        <div class="language-dialog-options">
+            <button type="button" data-language-choice="en">English</button>
+            <button type="button" data-language-choice="hi" lang="hi">हिंदी</button>
+        </div>
+    `;
+
+    dialog.addEventListener('cancel', (event) => event.preventDefault());
+    dialog.querySelectorAll('[data-language-choice]').forEach((button) => {
+        button.addEventListener('click', () => {
+            selectLanguage(button.dataset.languageChoice);
+            dialog.close();
+            dialog.remove();
+        });
+    });
+
+    document.body.appendChild(dialog);
+    dialog.showModal();
+    dialog.querySelector('[data-language-choice="en"]').focus();
+}
+
+window.setEnglish = () => selectLanguage('en');
+window.setHindi = () => selectLanguage('hi');
 window.applyLanguage = applyLanguage;
 
 const agriVoiceFiles = {
-    ab1: 'ab1.mp3',
+    ab1: 'about.mp3',
+    about: 'about.mp3',
     agri1: 'agri1.mp3',
+    contact: 'Contacts.mp3',
     crop1: 'crop1.mp3',
-    dealer: 'dealer.mpeg',
+    dashboard: 'Dashbord.mp3',
+    dealer: 'dealer.mp3',
     district3: 'district3.mp3',
+    gallery: 'Gallery.mp3',
+    home: 'home.mp3',
+    map: 'map.mp3',
     name1: 'name1.mp3',
     new1: 'new1.mp3',
     password1: 'password1.mp3',
@@ -214,8 +299,12 @@ const agriVoiceFiles = {
     passrd1: 'wel1.mp3',
     password: 'password1.mp3',
     passw1: 'new1.mp3',
-    reg1: 'reg1.mp3',
-    wel1: 'wel1.mp3'
+    resources: 'resoucres.mp3',
+    reg1: 'reg-success.mp3',
+    services: 'services.mp3',
+    token: 'token.mp3',
+    weather: 'weather.mp3',
+    wel1: 'wel.mp3'
 };
 
 const agriVoicePlayers = new Map(
@@ -248,15 +337,19 @@ function installAgriVoiceHandlers() {
         const href = element.getAttribute('href') || '';
         const text = element.textContent.trim();
         const voice = text === 'Agriculture Services' || text === 'कृषि सेवाएँ' ? 'agri1'
+            : text === 'Resources' || text === 'संसाधन' ? 'resources'
+            : text === 'Contact' || text === 'संपर्क' ? 'contact'
+            : href.endsWith('index.html') ? 'home'
             : href.endsWith('about.html') ? 'ab1'
             : href.endsWith('crop.html') ? 'crop1'
-                : href.endsWith('schemes.html') ? 'reg1'
+                : href.endsWith('schemes.html') ? 'services'
                     : href.endsWith('del.html') ? 'dealer'
+                        : href.endsWith('dashboard.html') ? 'dashboard'
+                            : href.endsWith('token.html') ? 'token'
                         : href.endsWith('login.html') ? 'password1'
-                            : href.endsWith('soil.html') ? 'new1'
-                                : href.endsWith('distmap.html') ? 'district3'
-                                    : text === 'Contact' || text === 'संपर्क' ? 'name1'
-                                        : element.id === 'search-tog' ? 'wel1' : null;
+                            : href.endsWith('soil.html') ? 'weather'
+                                : href.endsWith('distmap.html') ? 'map'
+                                    : null;
 
         if (!voice) return;
         element.dataset.voice = voice;
@@ -273,6 +366,45 @@ function installAgriVoiceHandlers() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const localizedValidity = new WeakSet();
+    document.addEventListener('invalid', (event) => {
+        const input = event.target;
+        if (window.currentLanguage !== 'hi' || !input.validity || input.validity.customError) return;
+        const state = input.validity;
+        const message = state.valueMissing ? 'कृपया यह आवश्यक जानकारी भरें।'
+            : state.typeMismatch ? 'कृपया सही प्रारूप में जानकारी दर्ज करें।'
+                : state.rangeOverflow ? `कृपया ${input.max} या उससे कम मान दर्ज करें।`
+                    : state.rangeUnderflow ? `कृपया ${input.min} या उससे अधिक मान दर्ज करें।`
+                        : state.tooShort ? `कृपया कम से कम ${input.minLength} वर्ण दर्ज करें।`
+                            : 'कृपया मान्य जानकारी दर्ज करें।';
+        input.setCustomValidity(message);
+        localizedValidity.add(input);
+    }, true);
+    document.addEventListener('input', (event) => {
+        if (localizedValidity.has(event.target)) {
+            event.target.setCustomValidity('');
+            localizedValidity.delete(event.target);
+        }
+    });
+    document.addEventListener('change', (event) => {
+        if (localizedValidity.has(event.target)) {
+            event.target.setCustomValidity('');
+            localizedValidity.delete(event.target);
+        }
+    });
+    document.addEventListener('agri:languagechange', () => {
+        document.querySelectorAll('input, select, textarea').forEach(input => {
+            if (localizedValidity.has(input)) {
+                input.setCustomValidity('');
+                localizedValidity.delete(input);
+            }
+        });
+    });
+    const preferredLanguage = getPreferredLanguage();
+    languageObserver = new MutationObserver(() => applyLanguage(window.currentLanguage || 'en'));
+    applyLanguage(preferredLanguage || 'en');
+    if (!hasPromptedForLanguageThisSession()) showLanguagePrompt();
+
     const langBtn = document.querySelector('.langbtn');
     const langMenu = document.getElementById('langmenu');
     const langOptions = document.querySelectorAll('.lang-opt');
@@ -302,10 +434,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loginLink = document.querySelector('#login-link a');
     let user;
-    try {
-        user = JSON.parse(sessionStorage.getItem('agriUser') || 'null');
-    } catch {
-        user = null;
+    if (window.AgriSessionStore) {
+        user = window.AgriSessionStore.getUser();
+    } else {
+        try {
+            user = JSON.parse(sessionStorage.getItem('agriUser') || 'null');
+        } catch (error) {
+            console.error('Unable to read the current session.', error);
+            user = null;
+        }
     }
 
     const isLoggedIn = Boolean(user);
@@ -355,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY) || 'en';
+    const savedLanguage = getPreferredLanguage() || window.currentLanguage || 'en';
     applyLanguage(savedLanguage);
     installAgriVoiceHandlers();
 
@@ -435,7 +572,10 @@ document.addEventListener('DOMContentLoaded', () => {
         userAnchor.setAttribute('aria-haspopup', 'true');
         userAnchor.setAttribute('aria-expanded', 'false');
         userIcon.className = 'fa-solid fa-circle-user';
-        userAnchor.append(userIcon, ` ${user.name || 'Farmer'} `);
+        const userName = document.createElement('span');
+        userName.translate = !user.name;
+        userName.textContent = ` ${user.name || 'Farmer'} `;
+        userAnchor.append(userIcon, userName);
         const caret = document.createElement('i');
         caret.className = 'fa-solid fa-chevron-down user-menu-caret';
         userAnchor.appendChild(caret);
@@ -468,7 +608,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         userItem.append(userAnchor, userMenu);
         navigation.appendChild(userItem);
-        applyLanguage(localStorage.getItem(LANGUAGE_STORAGE_KEY) || 'en');
+        applyLanguage(window.currentLanguage || 'en');
     }
 
     if (!loginLink) return;
@@ -477,9 +617,17 @@ document.addEventListener('DOMContentLoaded', () => {
     loginLink.href = '#';
     loginLink.addEventListener('click', (event) => {
         event.preventDefault();
-        sessionStorage.removeItem('agriUser');
-        window.location.href = '/login.html';
+        try {
+            if (window.AgriSessionStore) {
+                window.AgriSessionStore.clearUser();
+            } else {
+                sessionStorage.removeItem('agriUser');
+            }
+            window.location.href = '/login.html';
+        } catch (error) {
+            window.alert(window.agriTranslate(error.message));
+        }
     });
 
-    applyLanguage(localStorage.getItem(LANGUAGE_STORAGE_KEY) || 'en');
+    applyLanguage(window.currentLanguage || 'en');
 });

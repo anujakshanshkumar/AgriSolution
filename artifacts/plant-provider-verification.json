@@ -1,0 +1,15 @@
+{
+  "verifiedAt": "2026-10-27T03:10:08.311Z",
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "status": "passed",
+  "statuses": [
+    200
+  ],
+  "durationMs": 10106,
+  "crop": "Rice",
+  "plantCondition": "healthy_looking",
+  "confidence": null,
+  "needsExpertReview": false,
+  "note": "One live request with repository crop photo; no disease accuracy claim."
+}

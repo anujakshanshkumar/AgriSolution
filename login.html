@@ -9,15 +9,17 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/style/responsive.css">
     
+    <link rel="stylesheet" href="/style/hindi.css">
+    <link rel="stylesheet" href="/style/brand.css">
 </head>
   <body>
 
         <header class="TopHeader">
             <div class="Hleft">
-                <img src="/images/logo.jpg" alt="cg-logo">
+                <img src="/images/new%20logo.png" alt="Mor Kisani logo">
                 <div class="title-grp">
-                    <h1 class="title">Agri-Solution</h1>
-                    <p class="subtitle">One-Stop Solution</p>
+                    <h1 class="title">Mor Kisani</h1>
+                    <p class="subtitle">मोर किसानी • मोर जानकारी • मोर तरक्की</p>
                 </div>
             </div>
             <div class="Hright">
@@ -97,12 +99,12 @@
               <form id="login-form">
                   <h1>Login</h1>
                   <div class="input-box">
-                      <input onmousedown="moblie1.play()" type="Number" name="mobile" placeholder="Mobile Number" required>
+                      <input type="tel" inputmode="numeric" name="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" title="Enter exactly 10 digits" required>
                       <i class='bx bxs-user'></i>
                   </div>
                   
                   <div class="input-box">
-                      <input onmousedown="password1.play()" type="password" name="password" placeholder="Password" required>
+                      <input type="password" name="password" placeholder="Password" required>
                       <i class='bx bxs-lock-alt' ></i>
                   </div>
                   <button type="submit" class="btn">Login</button>
@@ -121,15 +123,15 @@
               <form id="register-form">
                   <h1>Registration</h1>
                   <div class="input-box">
-                      <input onmousedown="moblie1.play()" type="Number" name="mobile" placeholder="Mobile Number" required>
+                      <input type="tel" inputmode="numeric" name="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" title="Enter exactly 10 digits" required>
                       <i class="fa-duotone fa-solid fa-phone"></i>
                   </div>
                   <div class="input-box">
-                      <input onmousedown="name1.play()" type="text" name="name" placeholder="Full Name" required>
+                      <input type="text" name="name" placeholder="Full Name" title="Use letters only (up to 18 characters)" required>
                       <i class='bx bxs-user'></i>
                   </div>
                   <div class="input-box">
-                       <select onmousedown="district3.play()" name="district" id="pet-select" required>
+                       <select name="district" id="pet-select" required>
                               <option value=""> Choose a District--</option>
                                  <option value="Balod">Balod</option>
                                  <option value="Baloda bazar Bhatapara">Baloda Bazar Bhatapara</option>
@@ -167,10 +169,10 @@
                                    </select>
                   </div>
                   <div class="input-box">
-                      <input onmousedown="password1.play()" type="password" name="password" placeholder="Password" required>
+                      <input type="password" name="password" placeholder="Password" required>
                       <i class='bx bxs-lock-alt' ></i>
                   </div>
-                  <button onmousedown="reg1.play()" type="submit" class="btn">Register</button>
+                  <button type="submit" class="btn">Register</button>
                   <p class="form-message" id="register-message" role="status" aria-live="polite"></p>
                   <p>or register with social platforms</p>
                   <div class="social-icons">
@@ -186,13 +188,13 @@
               <div class="toggle-panel toggle-left">
                   <h1>Hello, Welcome!</h1>
                   <p>Don't have an account?</p>
-                  <button onmousedown="new1.play()"class="btn register-btn">Register</button>
+                  <button class="btn register-btn">Register</button>
               </div>
 
               <div class="toggle-panel toggle-right">
                   <h1>Welcome Back!</h1>
                   <p>Already have an account?</p>
-                  <button onmousedown="login1.play()"class="btn login-btn">Login</button>
+                  <button class="btn login-btn">Login</button>
               </div>
           </div>
       </div>
@@ -200,7 +202,12 @@
             <!-- <img src="/images/rice1.jpg" alt="maya"> -->
         </div>
 </div>
-            <script src="/js/auth-nav.js"></script>
+            <script src="/js/state/session-store.js"></script>
+            <script src="/js/services/api-client.js"></script>
+            <script src="/js/hindi-translations.js"></script>
+    <script src="/js/auth-nav.js"></script>
+            <script src="/js/voice-input.js"></script>
+            <script src="/js/voice-audio.js"></script>
             <script src="/js/login.js"></script>
   </body>
 </html>

@@ -2,17 +2,49 @@
 const slides = document.querySelectorAll(".photo-slide");
 let index = 0;
 
+const searchToggle = document.querySelector("#search-tog");
+const navigationSearch = document.querySelector("#search-input");
+
+if (searchToggle && navigationSearch) {
+  searchToggle.addEventListener("click", event => {
+    event.preventDefault();
+    const isOpening = !navigationSearch.classList.contains("active");
+    navigationSearch.classList.toggle("hidden", !isOpening);
+    navigationSearch.classList.toggle("active", isOpening);
+    searchToggle.setAttribute("aria-expanded", String(isOpening));
+
+    if (isOpening) {
+      navigationSearch.focus();
+    } else {
+      navigationSearch.value = "";
+    }
+  });
+
+  navigationSearch.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      searchToggle.click();
+      searchToggle.focus();
+    }
+  });
+}
+
 const voiceFiles = {
-  ab1: "ab1.mp3",
+  ab1: "about.mp3",
   agri1: "agri1.mp3",
   crop1: "crop1.mp3",
-  dealer: "dealer.mpeg",
+  dealer: "dealer.mp3",
   district3: "district3.mp3",
   name1: "name1.mp3",
   new1: "new1.mp3",
   password1: "password1.mp3",
-  reg1: "reg1.mp3",
-  wel1: "wel1.mp3"
+  reg1: "reg-success.mp3",
+  wel1: "wel.mp3",
+  about: "about.mp3",
+  home: "home.mp3",
+  services: "services.mp3",
+  resources: "resoucres.mp3",
+  weather: "weather.mp3",
+  map: "map.mp3"
 };
 
 const voicePlayers = new Map(

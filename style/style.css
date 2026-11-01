@@ -415,7 +415,7 @@
         }
 
         .search-input-field.active {
-           width: calc(100%-120px);
+           width: calc(100vw - 120px);
            opacity: 1;
            right: 15px;
            margin-right: 0;
@@ -1947,3 +1947,8 @@
         color: white;
         font-weight: 600;
      }
+audio.page-audio {
+     display: block;
+     width: min(100%, 22rem);
+     margin-block-start: 1rem;
+}

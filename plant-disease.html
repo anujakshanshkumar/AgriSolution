@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection | Mor Kisani</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/dashboard.css">
+    <link rel="stylesheet" href="/style/hindi.css">
+    <link rel="stylesheet" href="/style/plant-disease.css">
+    <link rel="stylesheet" href="/style/brand.css">
+</head>
+<body class="plant-page">
+    <a class="plant-skip" href="#plant-main">Skip to plant analysis</a>
+    <header class="TopHeader">
+        <a class="Hleft" href="/dashboard.html" aria-label="Mor Kisani dashboard">
+            <img src="/images/new%20logo.png" alt="Mor Kisani logo" width="50" height="50">
+            <div class="title-grp"><strong class="title">Mor Kisani</strong><span class="subtitle">मोर किसानी • मोर जानकारी • मोर तरक्की</span></div>
+        </a>
+        <div class="Hright"><div class="lang-drop"><button class="langbtn" type="button" aria-label="Choose language" aria-expanded="false" aria-controls="langmenu">English <i class="fa-solid fa-caret-down" aria-hidden="true"></i></button><div class="lang-menu" id="langmenu"><button class="lang-opt" data-plant-language="en" type="button" translate="no">English</button><button class="lang-opt" data-plant-language="hi" type="button" lang="hi" translate="no">हिंदी</button></div></div><a href="/dashboard.html" class="plant-dashboard-link"><i class="fa-solid fa-table-columns" aria-hidden="true"></i><span>Dashboard</span></a></div>
+    </header>
+    <nav class="plant-nav" aria-label="Plant analysis navigation"><a href="/dashboard.html">Dashboard</a><span aria-hidden="true">/</span><span aria-current="page">Plant Disease Detection</span></nav>
+    <main id="plant-main" class="plant-shell">
+        <section class="plant-intro">
+            <div><p class="eyebrow">YOUR CROP, A CLOSER LOOK</p><h1>Plant Disease Detection</h1><p>Understand visible plant symptoms and explore practical next steps with AI assistance.</p></div>
+            <span class="plant-intro-mark" aria-hidden="true"><i class="fa-solid fa-leaf"></i></span>
+        </section>
+        <div id="plant-status" class="plant-notice" role="status" aria-live="polite" translate="no">Checking your session…</div>
+        <button id="config-retry" type="button" class="plant-button plant-secondary" hidden>Try connecting again</button>
+        <noscript><p class="plant-notice">JavaScript is required to upload a photo and securely view your reports.</p></noscript>
+        <div id="plant-workspace" class="plant-layout" hidden>
+            <div class="plant-primary">
+                <section class="plant-panel" aria-labelledby="upload-heading">
+                    <div class="plant-section-heading"><span class="plant-step" aria-hidden="true">01</span><div><h2 id="upload-heading">Start with a clear photo</h2><p>Photograph a single affected leaf in natural light, with the symptoms in focus.</p></div></div>
+                    <form id="plant-form">
+                        <fieldset id="plant-fields">
+                            <legend class="visually-hidden">Plant photo and details</legend>
+                            <div id="plant-drop-zone" class="plant-drop-zone">
+                                <div id="upload-prompt"><i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true"></i><h3>Drop your plant photo here</h3><p id="image-requirements" translate="no"></p></div>
+                                <figure id="plant-preview-wrap" hidden><img id="plant-preview" alt="Selected plant photo"><figcaption id="plant-file-name" translate="no"></figcaption></figure>
+                                <div class="plant-upload-buttons">
+                                    <button id="browse-image" class="plant-button plant-secondary" type="button"><i class="fa-regular fa-image" aria-hidden="true"></i><span>Browse files</span></button>
+                                    <button id="capture-image" class="plant-button plant-secondary" type="button"><i class="fa-solid fa-camera" aria-hidden="true"></i><span>Use camera</span></button>
+                                    <button id="remove-image" class="plant-button plant-text-button" type="button" hidden>Remove photo</button>
+                                </div>
+                                <input id="plant-image" type="file" accept="image/jpeg,image/png,image/webp" aria-label="Choose a plant photo" hidden>
+                                <input id="plant-camera" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" aria-label="Take a plant photo" hidden>
+                            </div>
+                            <input id="plant-crop" name="crop" type="hidden" value="">
+                            <input id="plant-symptoms" name="symptoms" type="hidden" value="">
+                            <p class="plant-auto-note"><i class="fa-solid fa-bolt" aria-hidden="true"></i><span>Choose or take a photo. Detection starts automatically.</span></p>
+                            <p class="plant-privacy"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span id="plant-provider-notice">The portal saves your report in your account, but does not store your photo. Avoid including people or personal information.</span></p>
+                        </fieldset>
+                    </form>
+                    <div id="analysis-loading" class="plant-loading" role="status" hidden><span class="plant-spinner" aria-hidden="true"></span><div><strong>Analyzing your plant photo…</strong><p>This may take a minute. Keep this page open.</p></div></div>
+                    <div id="analysis-error" class="plant-notice plant-error" role="alert" tabindex="-1" hidden><p id="analysis-error-text" translate="no"></p><button id="retry-analysis" class="plant-button plant-secondary" type="button">Retry analysis</button></div>
+                </section>
+                <section id="plant-report" class="plant-panel plant-report" aria-labelledby="report-heading" tabindex="-1" hidden>
+                    <div class="plant-section-heading"><span class="plant-step" aria-hidden="true">02</span><div><p class="plant-kicker">AI-ASSISTED REPORT</p><h2 id="report-heading">Your plant assessment</h2><p id="report-date" translate="no"></p></div></div>
+                    <p class="plant-help">Report text stays in the language used for the analysis.</p>
+                    <div id="report-content"></div>
+                    <div class="plant-report-actions"><button id="analyze-another" class="plant-button" type="button">Analyze another photo</button><a href="/dashboard.html" class="plant-button plant-secondary">Return to dashboard</a></div>
+                </section>
+            </div>
+            <aside class="plant-aside">
+                <section class="plant-guidance" aria-labelledby="guidance-heading"><div class="plant-guidance-icon" aria-hidden="true"><i class="fa-solid fa-seedling"></i></div><h2 id="guidance-heading">A starting point for better care</h2><p>A photo can suggest possible causes, but cannot confirm a disease. Lighting, crop variety, soil and weather can all affect the assessment.</p><ul><li>Include the whole leaf and visible symptoms.</li><li>Use a sharp, well-lit photo without filters.</li><li>Consult a local agricultural officer if symptoms spread or the crop is at risk.</li></ul><p class="plant-treatment-note">For any chemical treatment, use locally approved products and follow the label and qualified agricultural advice.</p></section>
+                <section class="plant-panel plant-history" aria-labelledby="history-heading"><div class="plant-history-heading"><h2 id="history-heading">Your recent reports</h2><button id="refresh-history" type="button" class="plant-button plant-text-button" aria-label="Refresh report history"><i class="fa-solid fa-rotate" aria-hidden="true"></i><span>Refresh</span></button></div><p class="plant-help">Only you can access your saved reports. Photos are not saved.</p><p id="history-status" role="status" aria-live="polite" translate="no"></p><div id="plant-history-list"></div><button id="history-more" type="button" class="plant-button plant-secondary" hidden>Load older reports</button></section>
+            </aside>
+        </div>
+        <footer class="plant-footer"><span>Mor Kisani</span><p>AI assistance supports your decisions. It does not replace an agricultural expert.</p></footer>
+    </main>
+    <script src="/js/state/session-store.js"></script>
+    <script src="/js/hindi-translations.js"></script>
+    <script src="/js/auth-nav.js"></script>
+    <script src="/js/services/api-client.js"></script>
+    <script src="/js/plant-disease.js"></script>
+</body>
+</html>

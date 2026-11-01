@@ -2,10 +2,16 @@
   "name": "agri-solution-portal",
   "version": "1.0.0",
   "description": "Agri-Solution Portal frontend and API server",
-  "workspaces": ["backend"],
+  "workspaces": [
+    "backend"
+  ],
   "scripts": {
-    "start": "node server.js",
+    "setup:speech": "node scripts/speech.js setup",
+    "setup:speech:gpu": "node scripts/speech.js gpu",
+    "start:speech": "node scripts/speech.js",
+    "start": "node scripts/start-rice.js",
     "start:backend": "node server.js",
+    "start:rice": "node scripts/start-rice.js",
     "start:all": "node scripts/start-all.js"
   },
   "keywords": [
@@ -15,7 +21,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.1.10",
-    "mongodb": "^7.6.0"
+    "ejs": "^7.0.2",
+    "nodemon": "1.0.2"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1"
   }
 }

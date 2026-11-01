@@ -1,0 +1,97 @@
+/* Google Fonts hosted locally; reserved for the project name and tagline. */
+@font-face {
+    font-family: "Baloo 2";
+    src: url("/fonts/Baloo2.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400 800;
+    font-display: swap;
+}
+
+:is(.title-grp .title, .sch-title .title, .f-logo h2, .notice-brand strong, .brand strong, .plant-footer > span, .detail-footer > span:first-child) {
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 700;
+}
+
+html[lang="hi"] :is(.title-grp .title, .sch-title .title, .f-logo h2, .notice-brand strong, .brand strong, .plant-footer > span, .detail-footer > span:first-child) {
+    font-family: "Noto Sans Devanagari", "Nirmala UI", sans-serif !important;
+    font-weight: 700;
+}
+
+:is(.TopHeader .title-grp .subtitle, .sch-title .subtitle, .notice-brand small, .brand small) {
+    font-family: "Noto Sans Devanagari", "Nirmala UI", sans-serif !important;
+    color: #183d26;
+    font-weight: 800;
+    line-height: 1.55;
+    letter-spacing: 0;
+}
+
+.detail-footer > span:last-child {
+    font-family: "Noto Sans Devanagari", "Nirmala UI", sans-serif !important;
+    font-weight: 800;
+}
+
+:is(.Hleft, .f-logo, .notice-brand, .brand) img[src="/images/new%20logo.png"] {
+    object-fit: contain;
+    border-radius: 0;
+    flex-shrink: 0;
+}
+html[lang="hi"] :is(.TopHeader .title-grp .subtitle, .sch-title .subtitle, .notice-brand small, .brand small, .detail-footer > span:last-child) {
+    font-family: "Noto Sans Devanagari", "Nirmala UI", sans-serif !important;
+}
+/* Larger brand marks with room for the name and tagline. */
+:is(.Hleft, .notice-brand, .brand) img[src="/images/new%20logo.png"] {
+    width: 60px;
+    height: 60px;
+}
+.f-logo img[src="/images/new%20logo.png"] {
+    width: 96px;
+    height: 96px;
+}
+@media (max-width: 900px) {
+    :is(.Hleft, .notice-brand, .brand) img[src="/images/new%20logo.png"] {
+        width: 44px;
+        height: 44px;
+    }
+    .f-logo img[src="/images/new%20logo.png"] {
+        width: 80px;
+        height: 80px;
+    }
+}
+/* A circular white inset lets the larger logo overlap the green navigation. */
+body:has(.navbar) .TopHeader {
+    position: relative;
+    z-index: 10000;
+    overflow: visible;
+}
+body:has(.navbar) .TopHeader .Hleft {
+    height: 50px;
+    overflow: visible;
+}
+body:has(.navbar) .TopHeader .Hleft img[src="/images/new%20logo.png"] {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    transform: translate(-24px, 25px);
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 8px #fff;
+    z-index: 1;
+}
+body:has(.TopHeader) .navbar {
+    padding-left: calc(5% + 112px);
+}
+@media (max-width: 900px) {
+    body:has(.navbar) .TopHeader .Hleft {
+        height: 44px;
+    }
+    body:has(.navbar) .TopHeader .Hleft img[src="/images/new%20logo.png"] {
+        width: 64px;
+        height: 64px;
+        margin-right: 0;
+        transform: translate(-5px, 20px);
+        box-shadow: 0 0 0 7px #fff;
+    }
+    body:has(.TopHeader) .navbar {
+        padding-left: 108px;
+    }
+}
