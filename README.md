@@ -36,7 +36,7 @@ Set `MONGO_URI` and `MONGO_DB` in `backend/.env` if the defaults do not match yo
 npm start
 ```
 
-Set `GEMINI_API_KEY` in `backend/.env` to enable the home-page assistant and speech translation. The key is only used by the server and must not be added to browser code or committed. `GEMINI_MODEL` defaults to `gemini-2.5-flash`; if that model is unavailable, the server discovers models enabled for the key and tries up to three compatible alternatives for the assistant.
+Set `GEMINI_API_KEY` in `backend/.env` to enable the home-page assistant and speech translation. The key is only used by the server and must not be added to browser code or committed. `GEMINI_MODEL` defaults to `gemini-flash-latest`; if that model is unavailable, the server discovers models enabled for the key and tries up to four compatible alternatives for the assistant.
 
 Open `http://127.0.0.1:3000`. `npm start` launches the frontend, Node.js backend, speech worker, and trained rice disease detector together. It loads the rice model on CPU in a private FastAPI service at loopback port 8766, checks its health, then starts the website/API and speech worker. Speech communicates through internal pipes; wait for `Speech model ready` before using voice search. Ctrl+C stops the services launched by this command. The root server serves the pages and proxies `/api` requests to the Express application in the same process. Set `HOST` or `PORT` in the process environment to change the combined server address. `npm run start:rice` remains an alias for this same startup workflow. In PowerShell, use `npm.cmd start` if script execution policy blocks `npm`.
 
@@ -97,7 +97,7 @@ Backend settings are read in `backend/src/config/environment.js`. Copy `backend/
 | `JSON_BODY_LIMIT` | `16kb` | Maximum JSON request body |
 | `PORT` | `5000` | Standalone API port |
 | `GEMINI_API_KEY` | — | Server-side Gemini API key for the home-page assistant and speech translation |
-| `GEMINI_MODEL` | `gemini-2.5-flash` | Gemini model used by the assistant |
+| `GEMINI_MODEL` | `gemini-flash-latest` | Gemini model used by the assistant |
 
 For the combined site and API server, `HOST` and `PORT` are read from the process environment; the site defaults to `127.0.0.1:3000`.
 The browser API client defaults to `/api`; deployments on another API origin can set `window.AGRI_API_BASE_URL` before loading `js/services/api-client.js`.

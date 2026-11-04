@@ -650,19 +650,36 @@ background: #068f2a3b;
     opacity: 0.65;
 }
 
-.social-icons{
+.identity-icons{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
-    .social-icons a{
+    .identity-icons a{
         display: inline-flex;
-        padding: 10px;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px 10px;
         border: 2px solid #ccc;
         border-radius: 8px;
-        font-size: 24px;
+        font-size: 14px;
         color: #333;
-        margin: 0 8px;
+        background: #fff;
+    }
+
+    .identity-icons img{
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .identity-icons a:hover,
+    .identity-icons a:focus-visible{
+        border-color: #049f5c;
+        outline: 2px solid #049f5c;
+        outline-offset: 2px;
     }
 
 .toggle-box{

@@ -706,7 +706,7 @@ window.AGRI_HINDI = {
   "Select Seasonal Planning": "मौसमी नियोजन चुनें",
   "Select Harvest Intelligence": "कटाई संबंधी जानकारी चुनें",
   "Login/Signup Form": "प्रवेश एवं पंजीकरण प्रपत्र",
-  "or login with social platforms": "या सामाजिक मंचों के माध्यम से प्रवेश करें",
+  "DigiLocker & Aadhaar portals": "डिजिलॉकर और आधार पोर्टल",
   "Registration": "पंजीकरण",
   "Choose a District--": "जिला चुनें—",
   "Balod": "बालोद",

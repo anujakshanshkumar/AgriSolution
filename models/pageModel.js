@@ -8,7 +8,7 @@ const PAGES = new Map([
   ['/about.html', 'about.html'],
   ['/crop.html', 'crop.html'],
   ['/crop-details.html', 'crop-details.html'],
-  ['/index-Pako.html', 'index-Pako.html'],
+  ['/index-Pako.html', 'index.html'],
   ['/del.html', 'del.html'],
   ['/distmap.html', 'distmap.html'],
   ['/dashboard.html', 'dashboard.html'],

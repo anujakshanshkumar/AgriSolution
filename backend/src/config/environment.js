@@ -18,6 +18,6 @@ module.exports = {
   jsonBodyLimit: process.env.JSON_BODY_LIMIT || '16kb',
   localSpeechUrl: process.env.LOCAL_SPEECH_URL || 'http://127.0.0.1:8765',
   geminiApiKey: process.env.GEMINI_API_KEY || '',
-  geminiModel: process.env.GEMINI_MODEL || 'gemini-2.5-flash',
+  geminiModel: process.env.GEMINI_MODEL || 'gemini-flash-latest',
   port: readPort(process.env.PORT, 5000)
 };

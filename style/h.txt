@@ -1,2 +1,0 @@
-cd 'c:\Users\anuja\OneDrive\MyProject'
-python -m http.server 8000

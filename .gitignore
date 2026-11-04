@@ -21,3 +21,7 @@ artifacts/rice/
 rice_model/.env*
 !rice_model/.env.example
 .pytest_cache/
+*.~tmp
+*-DESKTOP-HDTR71T.*
+*-Pako.*
+*-Pako-2.*
